@@ -1,8 +1,8 @@
 package de.fherfurt.prg34;
 
 /**
- * Created by torsten on 23.12.14.
- * to be implemented
+ * main class to create all objects initially and run the game;
+ * to be implemented later
  */
 public class Game {
     public static void main(String[] args) {
