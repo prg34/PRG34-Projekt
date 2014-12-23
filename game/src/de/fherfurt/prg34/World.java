@@ -7,6 +7,11 @@ import java.util.ArrayList;
  */
 public class World {
     public World() {
+        xPos = 0;
+        yPos = 0;
+        this.itemList = new ArrayList<Item>();
+        this.objectList = new ArrayList<Object>();
+        this.characterList = new ArrayList<Character>();
     }
 
     public void update() {
@@ -16,22 +21,24 @@ public class World {
     }
 
     public void addItem(Item item) {
+        this.itemList.add(item);
     }
 
-    /*public Item removeItem(string itemname) {
-
-        return item2;
-    }*/
+    public void removeItem(Item item) {
+        this.itemList.remove(item);
+    }
 
     public void addObject(Object object) {
+        this.objectList.add(object);
     }
 
     public void addCharacter(Character character) {
+        this.characterList.add(character);
     }
 
     private int xPos;
     private int yPos;
-    //bufferedImage array
+    //bufferedImage array   //to be implemented later
     private Player player;
     private ArrayList<Item> itemList;
     private ArrayList<Object> objectList;
