@@ -43,7 +43,7 @@ class Player{
 class Inventory {
 	size int
 	/* enthält Zeiger auf alle gesammelten Gegenstände */
-	itemCollection ArrayList
+	itemList ArrayList
 	
 	/* fügt Gegenstand dem Inventar hinzu */
 	addItem(item)
@@ -63,18 +63,24 @@ class World{
 	/* Spielerobjekt */
 	player
 	/* enthält alle Gegenstandsobjekte in der Spielwelt */
-	itemCollection ArrayList
+	itemList ArrayList
 	/* enthält alle Objekte (Bäume, Häuser etc.) */
-	objectsCollection ArrayList
+	objectsList ArrayList
 	/* enthält alle Personen auf der Spielwelt (außer Spieler selbst) */
-	characterCollection ArrayList
+	characterList ArrayList
 
 	/* aktualisiert Spielweltdaten in Abhängigkeit von Tastatureingaben / Bewegung des Hintergrunds */
 	update()
 	/* Zeichnet Spielwelt */
 	draw()
-	/* Entfernt Gegenstand aus Spielwelt, z.B. nachdem er aufgenommen wurde; evtl. Rückgabe des Zeigers zur weiteren Verwendung des items */
-	removeItem(item)
+	/* Fügt übergebebenen Gegenstand zur Welt (bzw. zur Liste) hinzu */
+	addItem(Item)
+	/* Entfernt Gegenstand mit dem übergebenen Namen aus der Spielwelt, z.B. nachdem er aufgenommen wurde; evtl. Rückgabe der Referenz auf das Objekt zur weiteren Verwendung des items */
+	removeItem(string itemName)
+	/* Fügt übergebebenes Objekt zur Welt (bzw. zur Liste) hinzu */
+	addObject(Object)
+	/* Fügt übergebebene Person zur Welt (bzw. zur Liste) hinzu */
+	addCharacter(Character)
 }
 
 
@@ -87,7 +93,7 @@ class Character{
 	yPos int
 	sentences ArrayList<String>
 	/* alle Gegenstände die diese Person besitzt und an den Spieler weitergeben kann */
-	itemCollection ArrayList
+	itemList ArrayList
 
 	/* Zeichnet Charactere auf dem Bildschirm */
 	draw()
