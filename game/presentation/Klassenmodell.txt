@@ -1,0 +1,162 @@
+Klassenmodell
+-------------
+- jede Klasse (zumindest Spielwelt, Spieler, Charactere, Gegenstand, Objekt) weiß, wie sie sich zu zeichnen hat / besitzt draw-Methode
+- Frame-Instanz ruft beim Zeichnen dann einfach die draw-Methoden aller Objekte in der Spielwelt auf (die sich dann selbst zeichnen)
+- Position in der Spielwelt wird von jedem Objekt (Spieler, Charactere, Gegenstand, Objekt) selbst verwaltet
+- Verwaltung/Speicherung der Texte für Konversationen wird komplett von den jeweiligen Characteren übernommen, auch die möglichen Textanteile des Spielers
+- Kollissionserkennung für Objekte erforderlich, aber in welcher Klasse platzieren?
+
+
+class Player{
+	name string
+	xPos int
+	yPos int
+	/* Aus der Geschwindigkeit können wir die aktuelle Richtung der Bewegung ableiten, für Animationen*/
+	xSpeed int
+	ySpeed int
+	width int
+	height int
+	/* für grafische Darstellung des Spielers / Animationen */
+	bufferedImage array
+
+	/* Zeichnet Spieler auf dem Bildschirm */
+	draw()
+	/* aktualisiert alle Member-Variablen wie xPos, yPos, xSpeed, ySpeed etc. auf Grund der Tastatureingaben*/
+	update(aktuelle Tastatureingabe)
+	/* startet Konversation mit Charaktere */
+	talkTo(Charaktere)
+	/* Nimmt Gegenstand (item) auf und packt ihn in das Inventar */
+	takeItem(item)
+	/* gibt Gegenstand an andere Person weiter */
+	giveItemTo(item, Charactere)
+	/* Öffnet Dinge (object), z.B. Truhe, Tür */
+	open(object)
+	/* Benutzen des Gegenstands, evtl. Angabe womit erforderlich, Methode überladen! */
+	useItem(item)
+	useItemWith(item1, item2)
+	useItemWith(item1, object)
+	/* Betrachtet Gegenstand / Objekt */
+	lookAt(item / object)
+}
+
+
+class Inventory {
+	size int
+	/* enthält Zeiger auf alle gesammelten Gegenstände */
+	itemCollection ArrayList
+	
+	/* fügt Gegenstand dem Inventar hinzu */
+	addItem(item)
+	/* Entfernt Gegenstand aus Inventar (und gibt evtl. Zeiger zurück zur weiteren Verwendung des Gegenstands) */
+	removeItem(item)
+	/* Zeigt Inventar auf Bildschirm an, zur Selektion eines Gegenstandes etc. */
+	openInventory()
+}
+
+
+class World{
+	/* enthält aktuellen Ausschnitt der Spielwelt? */
+	xPos int
+	yPos int
+	/* für grafische Darstellung der Spielwelt */
+	bufferedImage array
+	/* Spielerobjekt */
+	player
+	/* enthält alle Gegenstandsobjekte in der Spielwelt */
+	itemCollection ArrayList
+	/* enthält alle Objekte (Bäume, Häuser etc.) */
+	objectsCollection ArrayList
+	/* enthält alle Personen auf der Spielwelt (außer Spieler selbst) */
+	characterCollection ArrayList
+
+	/* aktualisiert Spielweltdaten in Abhängigkeit von Tastatureingaben / Bewegung des Hintergrunds */
+	update()
+	/* Zeichnet Spielwelt */
+	draw()
+	/* Entfernt Gegenstand aus Spielwelt, z.B. nachdem er aufgenommen wurde; evtl. Rückgabe des Zeigers zur weiteren Verwendung des items */
+	removeItem(item)
+}
+
+
+/* aller Personen im Spiel außer dem Spieler selbst */
+class Character{
+	name string
+	bufferedImage array
+	/* Position in der Spielwelt */
+	xPos int
+	yPos int
+	sentences ArrayList<String>
+	/* alle Gegenstände die diese Person besitzt und an den Spieler weitergeben kann */
+	itemCollection ArrayList
+
+	/* Zeichnet Charactere auf dem Bildschirm */
+	draw()
+	/* beginnt Gespräch mit Spieler */
+	startConversationWithPlayer()
+	/* gibt Gegenstand an Spieler weiter */
+	giveItemToPlayer()
+}
+
+
+/* alle Gegenstände im Spiel die der Spieler aufnehmen und in seinem Inventar ablegen kann */
+class Item{
+	name string
+	bufferedImage array
+	/* Position in der Spielwelt */
+	xPos int
+	yPos int
+
+	/* Zeichnet Gegenstand auf dem Bildschirm */
+	draw()
+	/* bestimmt was geschieht wenn Gegenstand benutzt wird */
+	useItem()
+}
+
+
+/* immobile Objekte im Spiel wie z.B. Bäume, Türen, Häuser, Zäune */
+/* Kollissionsabfrage erforderlich */
+class Object{
+	name string
+	bufferedImage array
+	/* Position in der Spielwelt */
+	xPos int
+	yPos int
+	/* Größe des Objekts für Kollissionserkennung */
+	sizeX int
+	sizeY int
+	
+	/* Zeichnet Objekt auf dem Bildschirm */
+	draw()
+}
+
+
+/* regelt Tastaturabfrage */
+class Keyboard{
+	isKeyPressed()
+	keyPressed()
+	keyReleased()
+	keyTyped()
+}
+
+
+/* für visuelle Darstellung auf dem Bildschirm */
+class Frame{
+	/* Referenz auf Spielwelt */
+	world World
+	/* Spielwelt neu zeichnen */
+	repaint()
+	/* Spielwelt zeichnen */
+	draw()
+	/* Spielwelt aktualisieren */
+	update()
+}
+
+
+/* Oberklasse (mit main-Methode?), die am Start alles erzeugt, und das Spiel dann am Laufen hält */
+/* noch keine genaue Idee was in die Game-Klasse hineinkönnte... */
+class Game{
+	createWorld()
+	runGame()
+	collissionDetection()
+	drawWorld()
+}
