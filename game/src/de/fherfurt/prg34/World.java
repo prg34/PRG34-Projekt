@@ -18,10 +18,10 @@ public class World {
     public void addItem(Item item) {
     }
 
-    public Item removeItem(string itemname) {
+    /*public Item removeItem(string itemname) {
 
-        return item;
-    }
+        return item2;
+    }*/
 
     public void addObject(Object object) {
     }
