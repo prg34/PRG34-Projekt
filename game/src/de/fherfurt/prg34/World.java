@@ -38,7 +38,7 @@ public class World {
 
     private int xPos;
     private int yPos;
-    //bufferedImage array   //to be implemented later
+    //bufferedImage   //to be implemented later
     private Player player;
     private ArrayList<Item> itemList;
     private ArrayList<Object> objectList;

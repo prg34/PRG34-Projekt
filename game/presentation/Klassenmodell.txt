@@ -12,12 +12,14 @@ class Player{
 	xPos int
 	yPos int
 	/* Aus der Geschwindigkeit können wir die aktuelle Richtung der Bewegung ableiten, für Animationen*/
-	xSpeed int
-	ySpeed int
+	xSpeed double
+	ySpeed double
 	width int
 	height int
 	/* für grafische Darstellung des Spielers / Animationen */
 	bufferedImage array
+	/* das Inventar des Spielers */
+	private Inventory inventory;
 
 	/* Zeichnet Spieler auf dem Bildschirm */
 	draw()
@@ -50,7 +52,7 @@ class Inventory {
 	/* Entfernt Gegenstand aus Inventar (und gibt evtl. Zeiger zurück zur weiteren Verwendung des Gegenstands) */
 	removeItem(item)
 	/* Zeigt Inventar auf Bildschirm an, zur Selektion eines Gegenstandes etc. */
-	openInventory()
+	draw()
 }
 
 

@@ -10,6 +10,6 @@ public class Game {
         Item item = new Item();
         World world = new World();
         world.addItem(item);
-
+        world.removeItem(item);
     }
 }
