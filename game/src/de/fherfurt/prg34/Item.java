@@ -1,8 +1,26 @@
 package de.fherfurt.prg34;
 
 /**
- * Created by torsten on 23.12.14.
- * test test test
+ * The items contained in the world, the player is allowed to take them and/or use them.
  */
+
 public class Item {
+    public Item(String name, String corretlyUsedWith, String correctUseResult, int xPos, int yPos) {
+        this.name = name;
+        this.xPos = xPos;
+        this.yPos = yPos;
+    }
+
+    public void draw() {
+    }
+
+    private String correctlyUsedWith;
+    private String correctUseResult;
+    private String name;
+    private int xPos;
+    private int yPos;
+
+    //bufferedImage
+
+    //useItem() "ersetzt" durch correcltyUSedWith/correctUseResult
 }
