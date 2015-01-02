@@ -6,9 +6,9 @@ import java.util.ArrayList;
  * contains and manages all objects in the (game-)world
  */
 public class World {
-    public World() {
-        xPos = 0;
-        yPos = 0;
+    public World(int xPos, int yPos) {
+        this.xPos = xPos;
+        this.yPos = yPos;
         this.itemList = new ArrayList<Item>();
         this.objectList = new ArrayList<Object>();
         this.characterList = new ArrayList<Character>();

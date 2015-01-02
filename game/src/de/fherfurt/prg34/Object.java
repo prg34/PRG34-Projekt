@@ -9,16 +9,17 @@ public class Object {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
-        sizeX = 20;
-        sizeY = 20;
+        this.sizeX = 20;
+        this.sizeY = 20;
+        this.opened = false;
     }
 
     public void open() {
-        this.open = true;
+        this.opened = true;
     }
 
     public void close() {
-        this.open = false;
+        this.opened = false;
     }
 
     public void draw() {
@@ -29,7 +30,7 @@ public class Object {
     private int yPos;
     private int sizeX;
     private int sizeY;
-    private boolean open;  // shows if the object ist opened or closed, like chests or doors, default value closed
+    private boolean opened;  // shows if the object ist opened or closed, like chests or doors, default value closed
 
-    //bufferedImage 
+    //bufferedImage
 }

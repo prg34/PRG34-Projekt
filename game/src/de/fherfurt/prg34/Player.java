@@ -8,10 +8,10 @@ public class Player {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
-        xSpeed = 0;
-        ySpeed = 0;
-        width = 20;
-        height = 20;
+        this.xSpeed = 0;
+        this.ySpeed = 0;
+        this.width = 20;
+        this.height = 20;
     }
 
     public void draw() {
@@ -25,7 +25,7 @@ public class Player {
     }
 
     public void giveItemTo(Item item, Character character) {
-        //...   character.receiveItem(item)
+        //...   character.receiveItem(item)   //implementation of class Character needed first
         this.inventory.removeItem(item);
     }
 
