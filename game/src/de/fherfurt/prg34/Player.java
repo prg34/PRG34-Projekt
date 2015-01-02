@@ -56,5 +56,5 @@ public class Player {
     private int width;
     private int height;
     private Inventory inventory;
-    //bufferedImage     //to be implemented later
+    //bufferedImage      //to be implemented later
 }

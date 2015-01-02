@@ -31,5 +31,5 @@ public class Object {
     private int sizeY;
     private boolean open;  // shows if the object ist opened or closed, like chests or doors, default value closed
 
-    //bufferedImage
+    //bufferedImage 
 }
