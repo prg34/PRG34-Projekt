@@ -7,9 +7,9 @@ package de.fherfurt.prg34;
 public class Game {
     public static void main(String[] args) {
 
-        Item item = new Item();
+        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", "Teller", "Nahrungsaufnahme", 10, 10);
         World world = new World();
-        world.addItem(item);
-        world.removeItem(item);
+        world.addItem(spoon);
+        world.removeItem(spoon);
     }
 }

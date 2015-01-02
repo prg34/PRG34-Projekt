@@ -5,20 +5,26 @@ package de.fherfurt.prg34;
  */
 
 public class Item {
-    public Item(String name, String correctlyUsedWith, String correctUseResult, int xPos, int yPos) {
+    public Item(String name, String description, String correctlyUsedWith, String correctUseResult, int xPos, int yPos) {
+        this.name = name;
+        this.description = description;
         this.correctlyUsedWith = correctlyUsedWith;
         this.correctUseResult = correctUseResult;
-        this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void draw() {
     }
 
+    private String name;
+    private String description;  //will be used for player.lookAt(item)
     private String correctlyUsedWith;
     private String correctUseResult;
-    private String name;
     private int xPos;
     private int yPos;
 

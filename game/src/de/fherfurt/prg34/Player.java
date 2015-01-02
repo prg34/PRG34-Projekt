@@ -25,17 +25,28 @@ public class Player {
     }
 
     public void giveItemTo(Item item, Character character) {
-        //...
+        //...   character.receiveItem(item)
         this.inventory.removeItem(item);
     }
 
+    String talkTo(Character character){
+        return character.sentences.get(1);
+    }
+
+    /**
+     * Returns the description of the item to be shown on the screen when player looked at that item
+     * @param item The item the player looks at (lookAt(item))
+     * @return The description of the item to be shown on Screen
+     */
+    public String lookAt(Item item){
+        return item.getDescription();
+    }
+
     /* still to be implemented:
-    talkTo(Character character)
     open(Object object)
     useItem(item)
 	useItemWith(item1, item2)
 	useItemWith(item1, object)
-    lookAt(item / object)
     */
 
     private String name;
