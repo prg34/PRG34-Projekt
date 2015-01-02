@@ -13,6 +13,14 @@ public class Object {
         sizeY = 20;
     }
 
+    public void open() {
+        this.open = true;
+    }
+
+    public void close() {
+        this.open = false;
+    }
+
     public void draw() {
     }
 
@@ -21,6 +29,7 @@ public class Object {
     private int yPos;
     private int sizeX;
     private int sizeY;
+    private boolean open;  // shows if the object ist opened or closed, like chests or doors, default value closed
 
     //bufferedImage
 }
