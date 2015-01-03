@@ -22,6 +22,8 @@ public class Character {
         this.yPos = yPos;
         this.sizeX = 50;
         this.sizeY = 20;
+        animationTime = 20;
+        animationCounter = 0;
         this.sentences = sentences;
         this.itemList = new ArrayList<Item>(itemList);
 
@@ -43,22 +45,20 @@ public class Character {
     }
 
     public void update() {
-        int Time = 20;
-        int Counter = 0;
 
-        if (Counter >= Time) {
-            Counter = 0;
+        if (animationCounter >= animationTime) {
+            animationCounter = 0;
         }
-        if (Counter >= 0) {
+        if (animationCounter == 0) {
             picture = character[0];
-            Counter++;
+            animationCounter++;
         }
-        if(Counter == 10) {
+        if(animationCounter == 10) {
             picture = character[1];
-            Counter ++;
+            animationCounter++;
         }
         else {
-            Counter++;
+            animationCounter++;
         }
 
     }
@@ -86,6 +86,8 @@ public class Character {
     private int yPos;
     private int sizeX;
     private int sizeY;
+    private int animationTime;
+    private int animationCounter;
     private String[] sentences = new String[10];
     private ArrayList<Item> itemList;   //former itemCollection
     private BufferedImage picture;
