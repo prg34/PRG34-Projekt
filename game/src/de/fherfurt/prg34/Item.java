@@ -30,5 +30,5 @@ public class Item {
 
     //bufferedImage
 
-    //useItem()  //replaced by correcltyUSedWith/correctUseResult
+    //useItem()  //replaced by correctlyUsedWith/correctUseResult
 }

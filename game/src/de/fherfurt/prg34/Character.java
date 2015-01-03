@@ -76,9 +76,8 @@ public class Character {
     }
 
     public Item giveItemToPlayer(Item item){
-        Item tempItem = item;
         this.itemList.remove(item);
-        return tempItem;
+        return item;
     }
 
     private String name;
