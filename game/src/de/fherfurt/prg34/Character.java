@@ -1,5 +1,6 @@
 package de.fherfurt.prg34;
 
+/*
 import com.sun.deploy.ui.ImageLoader;
 import javafx.scene.layout.Background;
 import com.sun.prism.Graphics;
@@ -7,31 +8,22 @@ import com.sun.prism.Graphics;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
+*/
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 public class Character {
 
-
-    private String name;
-    private int xPos;
-    private int yPos;
-    private int sizeX;
-    private int sizeY;
-    private String[] sentences = new String[10];
-    private Item [] itemCollection = new Item[10];
-    private BufferedImage picture;
-    private BufferedImage[] character = new BufferedImage[10];
-
-    public Character(String name, int xPos, int yPos, String[] sentences, Item[] itemCollection) {
+    public Character(String name, int xPos, int yPos, String[] sentences, ArrayList<Item> itemList) {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
         this.sizeX = 50;
         this.sizeY = 20;
         this.sentences = sentences;
-        this.itemCollection = itemCollection;
+        this.itemList = new ArrayList<Item>(itemList);
 
         try
         {
@@ -46,45 +38,56 @@ public class Character {
 
     }
 
-    public void draw(java.awt.Graphics G)
-    {
-        G.drawImage(picture, (int) xPos, (int) yPos, null);
+    public void draw(java.awt.Graphics G) {
+        G.drawImage(picture, xPos, yPos, null);
     }
 
-    public void update()
-    {
-        int Time= 20;
+    public void update() {
+        int Time = 20;
         int Counter = 0;
 
-        if (Counter >= Time)
-        {
+        if (Counter >= Time) {
             Counter = 0;
         }
-        if (Counter >= 0)
-        {
+        if (Counter >= 0) {
             picture = character[0];
             Counter++;
         }
-        if(Counter == 10)
-        {
+        if(Counter == 10) {
             picture = character[1];
             Counter ++;
         }
-
-        else
-        {
+        else {
             Counter++;
         }
 
-
-
     }
 
-
-    public void speak(String sentence)
-    {
+    public void speak(String sentence) {
         System.out.println(sentence);
     }
 
+    public String getSentence(int num) {
+        return sentences[num];
+    }
 
+    public void receiveItemFromPlayer(Item item){
+        this.itemList.add(item);
+    }
+
+    public Item giveItemToPlayer(Item item){
+        Item tempItem = item;
+        this.itemList.remove(item);
+        return tempItem;
+    }
+
+    private String name;
+    private int xPos;
+    private int yPos;
+    private int sizeX;
+    private int sizeY;
+    private String[] sentences = new String[10];
+    private ArrayList<Item> itemList;   //former itemCollection
+    private BufferedImage picture;
+    private BufferedImage[] character = new BufferedImage[10];
 }

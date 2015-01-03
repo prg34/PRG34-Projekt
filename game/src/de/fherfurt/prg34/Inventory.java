@@ -7,8 +7,8 @@ import java.util.ArrayList;
  */
 public class Inventory {
     public Inventory() {
-        size = 10;
-        itemList = new ArrayList<Item>();
+        this.size = 10;
+        this.itemList = new ArrayList<Item>();
     }
 
     public void addItem(Item item) {

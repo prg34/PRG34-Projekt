@@ -24,13 +24,17 @@ public class Player {
         this.inventory.addItem(item);
     }
 
-    public void giveItemTo(Item item, Character character) {
-        //...   character.receiveItem(item)   //implementation of class Character needed first
+    public void giveItemToCharacter(Item item, Character character) {
+        character.receiveItemFromPlayer(item);
         this.inventory.removeItem(item);
     }
 
-    String talkTo(Character character){
-        return character.sentences.get(1);
+    public void takeItemFromCharacter(Item item, Character character) {
+        this.inventory.addItem(character.giveItemToPlayer(item));
+    }
+
+    String talkTo(Character character, int num){
+        return character.getSentence(num);
     }
 
     /**
