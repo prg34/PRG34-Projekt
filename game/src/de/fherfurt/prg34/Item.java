@@ -14,6 +14,10 @@ public class Item {
         this.yPos = yPos;
     }
 
+    /**
+     * Delivers description of the object if player uses looksAt(item)
+     * @return Description of the object to be shown on screen
+     */
     public String getDescription() {
         return description;
     }
@@ -22,7 +26,7 @@ public class Item {
     }
 
     private String name;
-    private String description;  //will be used for player.lookAt(item)
+    private String description;         //will be used for player.lookAt(item)
     private String correctlyUsedWith;
     private String correctUseResult;
     private int xPos;

@@ -14,10 +14,18 @@ public class Object {
         this.opened = false;
     }
 
+    /**
+     * Used if player opens an object, e.g. a door or a chest
+     * changes state of the object
+     */
     public void open() {
         this.opened = true;
     }
 
+    /**
+     * Used if player closes an object, e.g. a door or a chest
+     * changes state of the object
+     */
     public void close() {
         this.opened = false;
     }

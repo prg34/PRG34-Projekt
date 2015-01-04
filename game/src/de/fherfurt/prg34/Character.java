@@ -63,18 +63,38 @@ public class Character {
 
     }
 
+    /*
+    output will be handled by draw()-method
+    getSentence()-method provides proper answer as string to draw()-method for output
+    */
+    /*
     public void speak(String sentence) {
         System.out.println(sentence);
     }
+    */
 
+    /**
+     * Delivers the answer of the character when the player talks to him
+     * @param num Tells which of the characters possible answers is used here
+     * @return The answer of the character to be shown on screen
+     */
     public String getSentence(int num) {
         return sentences[num];
     }
 
+    /**
+     * Handles transfer of item from player to this character
+     * @param item The item that is transferred from player to this character
+     */
     public void receiveItemFromPlayer(Item item){
         this.itemList.add(item);
     }
 
+    /**
+     * Handles transfer of item from character to player
+     * @param item The item that is transferred from character to player
+     * @return The item that is transferred so player can add it to his inventory
+     */
     public Item giveItemToPlayer(Item item){
         this.itemList.remove(item);
         return item;
@@ -88,7 +108,7 @@ public class Character {
     private int animationTime;
     private int animationCounter;
     private String[] sentences = new String[10];
-    private ArrayList<Item> itemList;   //former itemCollection
+    private ArrayList<Item> itemList;               //contains all items the character holds
     private BufferedImage picture;
     private BufferedImage[] character = new BufferedImage[10];
 }

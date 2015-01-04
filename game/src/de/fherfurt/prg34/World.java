@@ -60,7 +60,7 @@ public class World {
         this.characterList.add(character);
     }
 
-    private int xPos;   //position of active sector of the world, will be shown on screen
+    private int xPos;   //position of active sector of the world that will be shown on screen
     private int yPos;
     private Player player;
 
