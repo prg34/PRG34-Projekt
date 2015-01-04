@@ -22,7 +22,6 @@ public class Character {
         this.yPos = yPos;
         this.sizeX = 50;
         this.sizeY = 20;
-        animationTime = 20;
         animationCounter = 0;
         this.sentences = sentences;
         this.itemList = new ArrayList<Item>(itemList);
@@ -45,22 +44,17 @@ public class Character {
     }
 
     public void update() {
+        animationCounter++;
 
-        if (animationCounter >= animationTime) {
+        if (animationCounter > animationTime) {
             animationCounter = 0;
         }
         if (animationCounter == 0) {
             picture = character[0];
-            animationCounter++;
         }
         if(animationCounter == 10) {
             picture = character[1];
-            animationCounter++;
         }
-        else {
-            animationCounter++;
-        }
-
     }
 
     /*
@@ -105,7 +99,7 @@ public class Character {
     private int yPos;
     private int sizeX;
     private int sizeY;
-    private int animationTime;
+    private final int animationTime = 20;
     private int animationCounter;
     private String[] sentences = new String[10];
     private ArrayList<Item> itemList;               //contains all items the character holds
