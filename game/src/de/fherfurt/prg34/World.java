@@ -60,6 +60,10 @@ public class World {
         this.characterList.add(character);
     }
 
+    /**
+     * Returns the size of the item list, only necessary for unit tests so far
+     * @return Size of itemList
+     */
     public int getSizeItemList(){
         return itemList.size();
     }
