@@ -9,6 +9,7 @@ public class World {
     public World(int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
+        this.player = null;
         this.itemList = new ArrayList<Item>();
         this.objectList = new ArrayList<Object>();
         this.characterList = new ArrayList<Character>();
@@ -26,6 +27,10 @@ public class World {
      * to be implemented later
      */
     public void draw() {
+    }
+
+    public void addPlayer(Player player){
+        this.player = player;
     }
 
     /**
