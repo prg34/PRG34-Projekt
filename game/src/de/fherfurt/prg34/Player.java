@@ -12,6 +12,7 @@ public class Player {
         this.ySpeed = 0;
         this.width = 20;
         this.height = 20;
+        inventory = new Inventory();
     }
 
     /**
@@ -73,11 +74,21 @@ public class Player {
         return item.getDescription();
     }
 
-    /* still to be implemented:
-    useItem(item)
-	useItemWith(item1, item2)
-	useItemWith(item1, object)
-    */
+    /**
+     * Adds an item to the inventory of the player, e.g. after the player picked up an item or received one from a character
+     * @param item Item to be added to the inventory
+     */
+    public void addItem(Item item) {
+        inventory.addItem(item);
+    }
+
+    /**
+     * Removes the item from the inventory of the player, e.g. after the player used an item or gave it to a character
+     * @param item Item to be removed from inventory
+     */
+    public void removeItem(Item item) {
+        inventory.removeItem(item);
+    }
 
     private String name;    //name of the player
     private int xPos;       //position of the player in the world

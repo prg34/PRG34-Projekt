@@ -5,7 +5,7 @@ package de.fherfurt.prg34;
  */
 
 public class Item {
-    public Item(String name, String description, String correctlyUsedWith, String correctUseResult, int xPos, int yPos) {
+    public Item(String name, String description, Item correctlyUsedWith, Item correctUseResult, int xPos, int yPos) {
         this.name = name;
         this.description = description;
         this.correctlyUsedWith = correctlyUsedWith;
@@ -22,13 +22,24 @@ public class Item {
         return description;
     }
 
+
+	public Item useItemWith(Item item){
+        Item result = null;
+        if (item == this.correctlyUsedWith){
+            result = this.correctUseResult;
+            //perhaps remove the 2 used items from inventory of the player, but how to manage that from here?
+        }
+        return result;
+    }
+
+
     public void draw() {
     }
 
     private String name;
     private String description;         //will be used for player.lookAt(item)
-    private String correctlyUsedWith;
-    private String correctUseResult;
+    private Item correctlyUsedWith;
+    private Item correctUseResult;
     private int xPos;
     private int yPos;
 

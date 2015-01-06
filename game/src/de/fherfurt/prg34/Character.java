@@ -25,18 +25,16 @@ public class Character {
         animationCounter = 0;
         this.sentences = sentences;
         this.itemList = new ArrayList<Item>(itemList);
-
+        /*
         try
         {
             character[0] = ImageIO.read(getClass().getClassLoader().getResource("Bild.png")); // move player picture
             character[1] = ImageIO.read(getClass().getClassLoader().getResource("Bild.png")); // move player picture
-
-
         } catch (IOException e)
         {
             e.printStackTrace();
         }
-
+        */
     }
 
     public void draw(java.awt.Graphics G) {
