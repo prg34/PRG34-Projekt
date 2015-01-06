@@ -37,13 +37,11 @@ public class Item {
     }
 
     private String name;
-    private String description;         //will be used for player.lookAt(item)
+    private String description;         //is used by Player.lookAt(item)
     private Item correctlyUsedWith;
     private Item correctUseResult;
     private int xPos;
     private int yPos;
 
     //bufferedImage
-
-    //useItem()  //replaced by correctlyUsedWith/correctUseResult
 }
