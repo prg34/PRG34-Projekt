@@ -12,7 +12,7 @@ public class Player {
         this.ySpeed = 0;
         this.width = 20;
         this.height = 20;
-        inventory = new Inventory();
+        this.inventory = new Inventory();
     }
 
     /**
@@ -79,7 +79,7 @@ public class Player {
      * @param item Item to be added to the inventory
      */
     public void addItem(Item item) {
-        inventory.addItem(item);
+        if (item != null) inventory.addItem(item);
     }
 
     /**
@@ -88,6 +88,14 @@ public class Player {
      */
     public void removeItem(Item item) {
         inventory.removeItem(item);
+    }
+
+    /**
+     * Returns the size of the inventory, only necessary for unit tests so far
+     * @return Size of inventory
+     */
+    public int getInventorySize(){
+        return inventory.getInventorySize();
     }
 
     private String name;    //name of the player

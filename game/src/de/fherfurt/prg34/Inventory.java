@@ -27,6 +27,14 @@ public class Inventory {
     }
 
     /**
+     * Returns the size of the inventory, only necessary for unit tests so far
+     * @return Size of inventory
+     */
+    public int getInventorySize(){
+        return itemList.size();
+    }
+
+    /**
      * used to draw the inventory and its contents on the screen, called by class Frame
      * to be implemented later
      */

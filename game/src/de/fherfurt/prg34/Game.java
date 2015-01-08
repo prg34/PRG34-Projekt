@@ -16,9 +16,7 @@ public class Game {
         Object tree = new Object("Baum", 10, 10);
 
         //create string array for character
-        String[] saetze = new String[10];
-        saetze[0] = "Hallo!";
-        saetze[1] = "Ciao!";
+        String[] saetze = {"Hallo!", "Wie geht's?", "Ciao!"};
         Character monster = new Character("Nessi", 20, 20, saetze, new ArrayList<Item>());
         
         //place all objects in the world
