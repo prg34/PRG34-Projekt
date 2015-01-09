@@ -26,7 +26,11 @@ public class Item {
         return description;
     }
 
-
+    /**
+     * Checks if 2 items match when used with each other and returns a resulting item in that case
+     * @param item The item this.item is used with
+     * @return The item that is returned if one used 2 matching items in the proper order
+     */
 	public Item useItemWith(Item item){
         Item result = null;
         if (item == this.correctlyUsedWith){
@@ -36,16 +40,14 @@ public class Item {
         return result;
     }
 
-
     public void draw() {
     }
 
-    private String name;
-    private String description;         //is used by Player.lookAt(item)
-    private Item correctlyUsedWith;
-    private Item correctUseResult;
+    private final String name;
+    private final String description;         //is used by Player.lookAt(item)
+    private final Item correctlyUsedWith;
+    private final Item correctUseResult;
     private int xPos;
     private int yPos;
-
-    //bufferedImage
+    //bufferedImage     //to be implemented later
 }

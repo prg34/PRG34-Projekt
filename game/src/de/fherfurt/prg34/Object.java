@@ -33,11 +33,27 @@ public class Object {
     public void draw() {
     }
 
-    private String name;
+    public int getxPos() {
+        return xPos;
+    }
+
+    public int getyPos() {
+        return yPos;
+    }
+
+    public int getSizeX() {
+        return sizeX;
+    }
+
+    public int getSizeY() {
+        return sizeY;
+    }
+
+    private final String name;
     private int xPos;
     private int yPos;
-    private int sizeX;
-    private int sizeY;
+    private final int sizeX;
+    private final int sizeY;
     private boolean opened;  // shows if the object ist opened or closed, like chests or doors, default value closed
 
     //bufferedImage

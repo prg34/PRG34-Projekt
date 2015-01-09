@@ -22,7 +22,7 @@ public class Character {
         this.yPos = yPos;
         this.sizeX = 50;
         this.sizeY = 20;
-        animationCounter = 0;
+        this.animationCounter = 0;
         this.sentences = sentences;
         this.itemList = new ArrayList<Item>(itemList);
         /*
@@ -92,11 +92,11 @@ public class Character {
         return item;
     }
 
-    private String name;
+    private final String name;
     private int xPos;
     private int yPos;
-    private int sizeX;
-    private int sizeY;
+    private final int sizeX;
+    private final int sizeY;
     private final int animationTime = 20;
     private int animationCounter;
     private String[] sentences = new String[10];

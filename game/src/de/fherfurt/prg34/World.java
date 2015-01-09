@@ -73,6 +73,25 @@ public class World {
         return itemList.size();
     }
 
+    public boolean checkForCollision(){
+        for(Object object : objectList) {
+            if (checkForCollisionWithObject(object)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkForCollisionWithObject(Object object){
+
+        if((player.getxPos() + player.getSizeX() >= object.getxPos())
+                && (player.getxPos() - player.getSizeX() <= object.getxPos())
+                && (player.getyPos() + player.getSizeY() >= object.getyPos())
+                && (player.getyPos() - player.getSizeY() <= object.getyPos()))
+                return true;
+        return false;
+    }
+
     private int xPos;   //position of active sector of the world that will be shown on screen
     private int yPos;
     private Player player;

@@ -10,8 +10,8 @@ public class Player {
         this.yPos = yPos;
         this.xSpeed = 0;
         this.ySpeed = 0;
-        this.width = 20;
-        this.height = 20;
+        this.sizeX = 20;
+        this.sizeY = 20;
         this.inventory = new Inventory();
     }
 
@@ -98,13 +98,29 @@ public class Player {
         return inventory.getInventorySize();
     }
 
-    private String name;    //name of the player
-    private int xPos;       //position of the player in the world
+    public int getyPos() {
+        return yPos;
+    }
+
+    public int getxPos() {
+        return xPos;
+    }
+
+    public int getSizeX() {
+        return sizeX;
+    }
+
+    public int getSizeY() {
+        return sizeY;
+    }
+
+    private String name;        //name of the player
+    private int xPos;           //position of the player in the world
     private int yPos;
     private double xSpeed;
     private double ySpeed;
-    private int width;      //size of the player for collision detection etc.
-    private int height;
+    private final int sizeX;    //size of the player for collision detection etc.
+    private final int sizeY;
     private Inventory inventory;
-    //bufferedImage         //to be implemented later
+    //bufferedImage             //to be implemented later
 }
