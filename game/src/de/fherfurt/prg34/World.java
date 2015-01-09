@@ -21,12 +21,27 @@ public class World {
     public void update() {
     }
 
+    public void drawBackground(){
+
+    }
+
     /**
      * used to draw the world on the screen, called by class Frame
      * calls draw methods of all items, objects and characters it manages
      * to be implemented later
      */
     public void draw() {
+        drawBackground();
+        for(Object object : objectList) {
+            object.draw();
+        }
+        for(Item item : itemList) {
+            if (item.isOutInTheWorld()) item.draw();
+        }
+        for(Character character : characterList) {
+            character.draw();
+        }
+        player.draw();
     }
 
     public void addPlayer(Player player){
@@ -79,23 +94,49 @@ public class World {
                 return true;
             }
         }
+        for(Character character : characterList) {
+            if (checkForCollisionWithCharacter(character)){
+                return true;
+            }
+        }
+        for(Item item : itemList) {
+            if (item.isOutInTheWorld() && checkForCollisionWithItem(item)){
+                return true;
+            }
+        }
         return false;
     }
 
     public boolean checkForCollisionWithObject(Object object){
+        return this.player.getxPos() < object.getxPos() + object.getSizeX()       &&
+                object.getxPos() < this.player.getxPos() + this.player.getSizeX() &&
+                this.player.getyPos() < object.getyPos() + object.getSizeY()      &&
+                object.getyPos() < this.player.getyPos() + this.player.getSizeY();
+        }
 
-        if((player.getxPos() + player.getSizeX() >= object.getxPos())
-                && (player.getxPos() - player.getSizeX() <= object.getxPos())
-                && (player.getyPos() + player.getSizeY() >= object.getyPos())
-                && (player.getyPos() - player.getSizeY() <= object.getyPos()))
-                return true;
-        return false;
+    public boolean checkForCollisionWithCharacter(Character character){
+        return this.player.getxPos() < character.getxPos() + character.getSizeX()       &&
+                character.getxPos() < this.player.getxPos() + this.player.getSizeX()    &&
+                this.player.getyPos() < character.getyPos() + character.getSizeY()      &&
+                character.getyPos() < this.player.getyPos() + this.player.getSizeY();
+    }
+
+    public boolean checkForCollisionWithItem(Item item){
+        return this.player.getxPos() < item.getxPos() + item.getSizeX()       &&
+                item.getxPos() < this.player.getxPos() + this.player.getSizeX()    &&
+                this.player.getyPos() < item.getyPos() + item.getSizeY()      &&
+                item.getyPos() < this.player.getyPos() + this.player.getSizeY();
+    }
+
+    public void pickUpItem(Item item){
+        this.player.addItemToInventory(item);
+        this.removeItem(item);
+        item.setOutInTheWorld(false);
     }
 
     private int xPos;   //position of active sector of the world that will be shown on screen
     private int yPos;
     private Player player;
-
     /*
         contains all items of the world that are not stored in the player's inventory or owned by a character
         items can be collected and used by the player, like keys etc.

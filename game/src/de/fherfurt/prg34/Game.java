@@ -9,11 +9,15 @@ import java.util.ArrayList;
 public class Game {
     public static void main(String[] args) {
 
+        //to do:  boolean outInTheWorld, pickUpItem()
+
         Player player = new Player("Spieler", 0, 0);
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
-        Item plate = new Item("Teller", "Ein gefüllter Teller.", null, null, 15, 15);
-        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", plate, ring, 10, 10);
-        Object tree = new Object("Baum", 10, 10);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15, false);
+        Item plate = new Item("Teller", "Ein gefüllter Teller.", null, null, 15, 15, false);
+        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", plate, ring, 10, 10, false);
+        Item key = new Item("Schlüssel", "Ein Schlüssel um etwas zu öffnen", null, null, 20, 20, false);
+        Object tree = new Object("Baum", 10, 10, null, null);
+        Object door = new Object("Tür", 30, 30, key, null);
 
         //create string array for character
         String[] saetze = {"Hallo!", "Wie geht's?", "Ciao!"};
@@ -24,13 +28,15 @@ public class Game {
         world.addPlayer(player);
         world.addItem(spoon);
         world.addItem(plate);
+        world.addItem(key);
         world.addObject(tree);
+        world.addObject(door);
         world.addCharacter(monster);
 
         //spoon is used with plate, the resulting ring is stored in the player's inventory
-        player.addItem(spoon.useItemWith(plate));
+        player.addItemToInventory(spoon.useWithItem(plate));
         //the other way round, nothing should happen
-        player.addItem(plate.useItemWith(spoon));
+        player.addItemToInventory(plate.useWithItem(spoon));
 
         world.removeItem(spoon);
     }

@@ -5,13 +5,15 @@ package de.fherfurt.prg34;
  */
 
 public class Object {
-    public Object(String name, int xPos, int yPos) {
+    public Object(String name, int xPos, int yPos, Item openedWithItem, Item content) {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
         this.sizeX = 20;
         this.sizeY = 20;
         this.opened = false;
+        this.openedWithItem = openedWithItem;
+        this.content = content;
     }
 
     /**
@@ -28,6 +30,15 @@ public class Object {
      */
     public void close() {
         this.opened = false;
+    }
+
+    public Item useItemToOpen(Item item){
+        Item result = null;
+        if (item == this.openedWithItem){
+            open();
+            result = this.content;
+        }
+        return result;
     }
 
     public void draw() {
@@ -50,11 +61,13 @@ public class Object {
     }
 
     private final String name;
-    private int xPos;
+    private int xPos;           //position of the object in the world, marks upper left corner
     private int yPos;
     private final int sizeX;
     private final int sizeY;
-    private boolean opened;  // shows if the object ist opened or closed, like chests or doors, default value closed
+    private boolean opened;      // shows if the object ist opened or closed, like chests or doors, default value closed
+    private Item openedWithItem;    //proper item, like a key, to open a door or a chest
+    private Item content;          //if chest was opened, content of it is returned
 
     //bufferedImage
 }

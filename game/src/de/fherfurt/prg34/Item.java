@@ -5,13 +5,15 @@ package de.fherfurt.prg34;
  */
 
 public class Item {
-    public Item(String name, String description, Item correctlyUsedWith, Item correctUseResult, int xPos, int yPos) {
+    public Item(String name, String description, Item correctlyUsedWithItem, Item correctUseResult, int xPos, int yPos, boolean outInTheWorld) {
         this.name = name;
         this.description = description;
-        this.correctlyUsedWith = correctlyUsedWith;
+        this.correctlyUsedWithItem = correctlyUsedWithItem;
         this.correctUseResult = correctUseResult;
         this.xPos = xPos;
         this.yPos = yPos;
+        this.sizeX = 10;
+        this.sizeY = 10;
     }
 
     public String getName() {
@@ -31,13 +33,37 @@ public class Item {
      * @param item The item this.item is used with
      * @return The item that is returned if one used 2 matching items in the proper order
      */
-	public Item useItemWith(Item item){
+	public Item useWithItem(Item item){
         Item result = null;
-        if (item == this.correctlyUsedWith){
+        if (item == this.correctlyUsedWithItem){
             result = this.correctUseResult;
             //perhaps remove the 2 used items from inventory of the player, but how to manage that from here?
         }
         return result;
+    }
+
+    public int getxPos() {
+        return xPos;
+    }
+
+    public int getyPos() {
+        return yPos;
+    }
+
+    public int getSizeX() {
+        return sizeX;
+    }
+
+    public int getSizeY() {
+        return sizeY;
+    }
+
+    public boolean isOutInTheWorld() {
+        return outInTheWorld;
+    }
+
+    public void setOutInTheWorld(boolean outInTheWorld) {
+        this.outInTheWorld = outInTheWorld;
     }
 
     public void draw() {
@@ -45,9 +71,13 @@ public class Item {
 
     private final String name;
     private final String description;         //is used by Player.lookAt(item)
-    private final Item correctlyUsedWith;
+    private final Item correctlyUsedWithItem;
     private final Item correctUseResult;
-    private int xPos;
+    private int xPos;              //position of the item in the world, marks upper left corner
     private int yPos;
+    private final int sizeX;
+    private final int sizeY;
+    private boolean outInTheWorld;  //marks if item is placed out in the world (and need to be drawn), otherwise no need to draw it
+                                    // otherwise = stored in inventory, in an object like a chest, or in possession of a character
     //bufferedImage     //to be implemented later
 }

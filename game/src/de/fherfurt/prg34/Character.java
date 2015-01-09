@@ -92,8 +92,28 @@ public class Character {
         return item;
     }
 
+    public void draw(){
+
+    }
+
+    public int getxPos() {
+        return xPos;
+    }
+
+    public int getyPos() {
+        return yPos;
+    }
+
+    public int getSizeX() {
+        return sizeX;
+    }
+
+    public int getSizeY() {
+        return sizeY;
+    }
+
     private final String name;
-    private int xPos;
+    private int xPos;           //position of the character in the world, marks upper left corner
     private int yPos;
     private final int sizeX;
     private final int sizeY;

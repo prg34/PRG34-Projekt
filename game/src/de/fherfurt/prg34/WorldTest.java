@@ -9,8 +9,8 @@ public class WorldTest {
     @Test
     public void testAddItem() throws Exception {
         World world = new World(0, 0);
-        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", null, null, 10, 10);
-        Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", item, item, 10, 10);
+        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", null, null, 10, 10, false);
+        Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", item, item, 10, 10, false);
         world.addItem(item);
         world.addItem(item2);
         assertEquals(
