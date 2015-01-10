@@ -28,7 +28,6 @@ public class World {
     /**
      * used to draw the world on the screen, called by class Frame
      * calls draw methods of all items, objects and characters it manages
-     * to be implemented later
      */
     public void draw() {
         drawBackground();

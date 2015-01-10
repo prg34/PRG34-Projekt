@@ -58,8 +58,7 @@ public class Character {
     /*
     output will be handled by draw()-method
     getSentence()-method provides proper answer as string to draw()-method for output
-    */
-    /*
+
     public void speak(String sentence) {
         System.out.println(sentence);
     }

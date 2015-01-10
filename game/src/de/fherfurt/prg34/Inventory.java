@@ -34,6 +34,10 @@ public class Inventory {
         return itemList.size();
     }
 
+    public boolean isInInventory(Item item){
+        return this.itemList.contains(item);
+    }
+
     /**
      * used to draw the inventory and its contents on the screen, called by class Frame
      * to be implemented later
