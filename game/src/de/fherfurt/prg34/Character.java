@@ -78,7 +78,8 @@ public class Character {
      * @param item The item that is transferred from player to this character
      */
     public void receiveItemFromPlayer(Item item){
-        this.itemList.add(item);
+        if ((item != null) && (!this.itemList.contains(item)))
+            this.itemList.add(item);
     }
 
     /**

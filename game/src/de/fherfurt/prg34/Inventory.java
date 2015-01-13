@@ -15,7 +15,8 @@ public class Inventory {
      * @param item Item to be added to the inventory
      */
     public void addItem(Item item) {
-        itemList.add(item);
+        if ((item != null) && (!this.itemList.contains(item)))
+            itemList.add(item);
     }
 
     /**

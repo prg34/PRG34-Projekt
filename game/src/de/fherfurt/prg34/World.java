@@ -44,7 +44,8 @@ public class World {
     }
 
     public void addPlayer(Player player){
-        this.player = player;
+        if (player != null)
+            this.player = player;
     }
 
     /**
@@ -52,7 +53,8 @@ public class World {
      * @param item The Item that is to be added to the world
      */
     public void addItem(Item item) {
-        this.itemList.add(item);
+        if ((item != null) && (!this.itemList.contains(item)))
+            this.itemList.add(item);
     }
 
     /**
@@ -68,7 +70,8 @@ public class World {
      * @param object The object that is to be added to the world
      */
     public void addObject(Object object) {
-        this.objectList.add(object);
+        if ((object != null) && (!this.objectList.contains(object)))
+            this.objectList.add(object);
     }
 
     /**
@@ -76,7 +79,8 @@ public class World {
      * @param character The character that is to be added to the world
      */
     public void addCharacter(Character character) {
-        this.characterList.add(character);
+        if ((character != null) && (!this.characterList.contains(character)))
+            this.characterList.add(character);
     }
 
     /**

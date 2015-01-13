@@ -33,7 +33,7 @@ public class Player {
      * @param item The item the player just picked up
      */
     public void takeItem(Item item) {
-        this.inventory.addItem(item);
+        this.addItemToInventory(item);
     }
 
     /**
@@ -52,7 +52,7 @@ public class Player {
      * @param character The character who gives the item to the player
      */
     public void takeItemFromCharacter(Item item, Character character) {
-        this.inventory.addItem(character.giveItemToPlayer(item));
+        this.addItemToInventory(character.giveItemToPlayer(item));
     }
 
     /**
@@ -79,7 +79,7 @@ public class Player {
      * @param item Item to be added to the inventory
      */
     public void addItemToInventory(Item item) {
-        if (item != null) inventory.addItem(item);
+        this.inventory.addItem(item);
     }
 
     /**
