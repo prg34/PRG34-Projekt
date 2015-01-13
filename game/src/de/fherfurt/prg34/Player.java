@@ -66,15 +66,6 @@ public class Player {
     }
 
     /**
-     * Returns the description of the item to be shown on the screen when player looked at that item
-     * @param item The item the player looks at
-     * @return The description of the item to be shown on Screen
-     */
-    public String lookAt(Item item){
-        return item.getDescription();
-    }
-
-    /**
      * Adds an item to the inventory of the player, e.g. after the player picked up an item or received one from a character
      * @param item Item to be added to the inventory
      */

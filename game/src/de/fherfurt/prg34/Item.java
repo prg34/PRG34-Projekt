@@ -21,11 +21,11 @@ public class Item {
     }
 
     /**
-     * Delivers description of the object if player uses looksAt(item)
-     * @return Description of the object to be shown on screen
+     * Returns the description of the item to be shown on the screen when player looks at that item
+     * @return The description of the item
      */
-    public String getDescription() {
-        return description;
+    public String lookAt(){
+        return this.description;
     }
 
     /**
