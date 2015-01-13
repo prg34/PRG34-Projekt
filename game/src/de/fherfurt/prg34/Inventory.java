@@ -15,7 +15,7 @@ public class Inventory {
      * @param item Item to be added to the inventory
      */
     public void addItem(Item item) {
-        if ((item != null) && (!this.itemList.contains(item)))
+        if ((item != null) && (!this.isInInventory(item)))
             itemList.add(item);
     }
 
@@ -35,6 +35,11 @@ public class Inventory {
         return itemList.size();
     }
 
+    /**
+     * Checks if item is already in inventory
+     * @param item The item to be checked
+     * @return If item is in inventory then return = true, else return = false
+     */
     public boolean isInInventory(Item item){
         return this.itemList.contains(item);
     }

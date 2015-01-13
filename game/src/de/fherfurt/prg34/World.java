@@ -21,6 +21,9 @@ public class World {
     public void update() {
     }
 
+    /**
+     * draws the background (= landscape), only dummy method so far
+     */
     public void drawBackground(){
 
     }
@@ -43,6 +46,10 @@ public class World {
         player.draw();
     }
 
+    /**
+     * Sets the player reference to the actual player object
+     * @param player The actual player that is used in this game
+     */
     public void addPlayer(Player player){
         if (player != null)
             this.player = player;
@@ -91,6 +98,10 @@ public class World {
         return itemList.size();
     }
 
+    /**
+     * Checks for a collision between the player and all items, objects and characters in the world
+     * @return Returns true if there was a collision between the player and anything else
+     */
     public boolean checkForCollision(){
         for(Object object : objectList) {
             if (checkForCollisionWithObject(object)){
@@ -110,6 +121,11 @@ public class World {
         return false;
     }
 
+    /**
+     * Checks for a collision between the player and an object (like a tree or a house)
+     * @param object The object that might have collided with the player
+     * @return Returns true if there was a collision between the player and the object
+     */
     public boolean checkForCollisionWithObject(Object object){
         return this.player.getxPos() < object.getxPos() + object.getSizeX()       &&
                 object.getxPos() < this.player.getxPos() + this.player.getSizeX() &&
@@ -117,6 +133,11 @@ public class World {
                 object.getyPos() < this.player.getyPos() + this.player.getSizeY();
         }
 
+    /**
+     * Checks for a collision between the player and a character
+     * @param character The character that might have collided with the player
+     * @return Returns true if there was a collision between the player and the character
+     */
     public boolean checkForCollisionWithCharacter(Character character){
         return this.player.getxPos() < character.getxPos() + character.getSizeX()       &&
                 character.getxPos() < this.player.getxPos() + this.player.getSizeX()    &&
@@ -124,6 +145,11 @@ public class World {
                 character.getyPos() < this.player.getyPos() + this.player.getSizeY();
     }
 
+    /**
+     * Checks for a collision between the player and an item placed somewhere in the world
+     * @param item The item that might have collided with the player
+     * @return Returns true if there was a collision between the player and the item
+     */
     public boolean checkForCollisionWithItem(Item item){
         return this.player.getxPos() < item.getxPos() + item.getSizeX()       &&
                 item.getxPos() < this.player.getxPos() + this.player.getSizeX()    &&
@@ -131,6 +157,10 @@ public class World {
                 item.getyPos() < this.player.getyPos() + this.player.getSizeY();
     }
 
+    /**
+     * Handles the process of picking up an item by the player
+     * @param item The item that is picked up by the player
+     */
     public void pickUpItem(Item item){
         this.player.addItemToInventory(item);
         this.removeItem(item);

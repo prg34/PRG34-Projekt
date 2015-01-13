@@ -58,14 +58,25 @@ public class Item {
         return sizeY;
     }
 
+    /**
+     * Indicates if item is placed somewhere out in the world (only then it is drawn in the world)
+     * @return If item is placed somewhere out in the world return = true, else return = false
+     */
     public boolean isOutInTheWorld() {
         return outInTheWorld;
     }
 
+    /**
+     * outInTheWorld needs to be updated if item is picked up etc.
+     * @param outInTheWorld new value for outInTheWorld
+     */
     public void setOutInTheWorld(boolean outInTheWorld) {
         this.outInTheWorld = outInTheWorld;
     }
 
+    /**
+     * used to draw the item on the screen, only dummy method so far
+     */
     public void draw() {
     }
 
@@ -73,11 +84,10 @@ public class Item {
     private final String description;         //is used by Player.lookAt(item)
     private final Item correctlyUsedWithItem;
     private final Item correctUseResult;
-    private int xPos;              //position of the item in the world, marks upper left corner
+    private int xPos;                       //position of the item in the world, marks upper left corner
     private int yPos;
     private final int sizeX;
     private final int sizeY;
-    private boolean outInTheWorld;  //marks if item is placed out in the world (and need to be drawn), otherwise no need to draw it
-                                    // otherwise = stored in inventory, in an object like a chest, or in possession of a character
-    //bufferedImage     //to be implemented later
+    private boolean outInTheWorld;      //marks if item is placed out in the world (and need to be drawn), otherwise no need to draw it
+                                        // otherwise = stored in inventory, in an object like a chest, or in possession of a character
 }

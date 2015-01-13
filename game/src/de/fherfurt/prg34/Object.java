@@ -32,6 +32,11 @@ public class Object {
         this.opened = false;
     }
 
+    /**
+     * Uses an item with an object to try to open it, if they match the object opens (door, chest), and gives back its contents (if object is a chest)
+     * @param item The item that is used to try to open the object
+     * @return The item that is given back if object is a chest
+     */
     public Item useItemToOpen(Item item){
         Item result = null;
         if (item == this.openedWithItem){
