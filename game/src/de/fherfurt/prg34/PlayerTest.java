@@ -1,6 +1,9 @@
 package de.fherfurt.prg34;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -25,4 +28,45 @@ public class PlayerTest {
                 "using the plate on the spoon has no effect, i.e. nothing new is added to the inventory, so size is still 1",
                 player.getInventorySize(), 1);
     }
+
+    @Test
+    public void testGiveItemToCharacter() throws Exception {
+        Player player = new Player("Spieler", 0, 0);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15, false);
+
+        //create string array for character
+        String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
+        Character monster = new Character("Nessi", 20, 20, sentences, new ArrayList<Item>());
+
+
+        player.addItemToInventory(ring);
+        assertEquals(
+                "after adding item to inventory, size of inventory should be 1",
+                player.getInventorySize(), 1);
+        assertEquals(
+                "after adding item to inventory, item should be part of list now",
+                player.isInInventory(ring), true);
+        assertEquals(
+                "monster does not own the item yet",
+                monster.isPossessedByCharacter(ring), false);
+
+
+        player.giveItemToCharacter(ring, monster);
+        assertEquals(
+                "after giving item to character, it is no longer in the player's inventory",
+                player.isInInventory(ring), false);
+        assertEquals(
+                "after giving item to character, monster should now possess the item",
+                monster.isPossessedByCharacter(ring), true);
+
+
+        player.takeItemFromCharacter(ring, monster);
+        assertEquals(
+                "after taking item from character, it should be part of the inventory list again",
+                player.isInInventory(ring), true);
+        assertEquals(
+                "after giving back the item to the player, character does not own the item anymore",
+                monster.isPossessedByCharacter(ring), false);
+    }
+
 }

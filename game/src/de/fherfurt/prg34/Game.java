@@ -20,8 +20,8 @@ public class Game {
         Object door = new Object("Tür", 30, 30, key, null);
 
         //create string array for character
-        String[] saetze = {"Hallo!", "Wie geht's?", "Ciao!"};
-        Character monster = new Character("Nessi", 20, 20, saetze, new ArrayList<Item>());
+        String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
+        Character monster = new Character("Nessi", 20, 20, sentences, new ArrayList<Item>());
         
         //place all objects in the world
         World world = new World(0, 0);

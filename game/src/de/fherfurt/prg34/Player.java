@@ -82,6 +82,15 @@ public class Player {
     }
 
     /**
+     * Checks if item is already in inventory
+     * @param item The item to be checked
+     * @return If item is in inventory then return = true, else return = false
+     */
+    public boolean isInInventory(Item item){
+        return this.inventory.isInInventory(item);
+    }
+
+    /**
      * Returns the size of the inventory, only necessary for unit tests so far
      * @return Size of inventory
      */

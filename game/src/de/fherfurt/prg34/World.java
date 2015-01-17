@@ -60,8 +60,10 @@ public class World {
      * @param item The Item that is to be added to the world
      */
     public void addItem(Item item) {
-        if ((item != null) && (!this.itemList.contains(item)))
+        if ((item != null) && (!this.itemList.contains(item))) {
             this.itemList.add(item);
+            item.setOutInTheWorld(true);
+        }
     }
 
     /**
@@ -69,7 +71,10 @@ public class World {
      * @param item The item to be removed from the world
      */
     public void removeItem(Item item) {
-        this.itemList.remove(item);
+        if ((item != null) && (this.itemList.contains(item))) {
+            this.itemList.remove(item);
+            item.setOutInTheWorld(false);
+        }
     }
 
     /**

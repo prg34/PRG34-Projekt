@@ -55,15 +55,6 @@ public class Character {
         }
     }
 
-    /*
-    output will be handled by draw()-method
-    getSentence()-method provides proper answer as string to draw()-method for output
-
-    public void speak(String sentence) {
-        System.out.println(sentence);
-    }
-    */
-
     /**
      * Delivers the answer of the character when the player talks to him
      * @param num Tells which of the characters possible answers is used here
@@ -90,6 +81,15 @@ public class Character {
     public Item giveItemToPlayer(Item item){
         this.itemList.remove(item);
         return item;
+    }
+
+    /**
+     * Checks if item is in possession character
+     * @param item The item to be checked
+     * @return If item is in possession of character then return = true, else return = false
+     */
+    public boolean isPossessedByCharacter(Item item){
+        return this.itemList.contains(item);
     }
 
     public void draw(){

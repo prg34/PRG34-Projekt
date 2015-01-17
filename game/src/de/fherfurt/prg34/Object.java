@@ -1,7 +1,7 @@
 package de.fherfurt.prg34;
 
 /**
- * The objects contained in the world, also not usable ones.
+ * The objects contained in the world (like trees, fences, doors, houses etc.), with some the user is able to interact
  */
 
 public class Object {
