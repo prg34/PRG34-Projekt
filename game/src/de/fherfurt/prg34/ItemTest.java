@@ -15,6 +15,6 @@ public class ItemTest {
 
         assertEquals(
                 "After using the match on the log, the item ash is returned",
-                match.useWithItem(log));
+                match.useWithItem(log), ash); 
     }
 }
