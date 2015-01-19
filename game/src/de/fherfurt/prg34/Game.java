@@ -12,10 +12,10 @@ public class Game {
         //to do:  boolean outInTheWorld, pickUpItem()
 
         Player player = new Player("Spieler", 0, 0);
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15, false);
-        Item plate = new Item("Teller", "Ein gefüllter Teller.", null, null, 15, 15, false);
-        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", plate, ring, 10, 10, false);
-        Item key = new Item("Schlüssel", "Ein Schlüssel um etwas zu öffnen", null, null, 20, 20, false);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
+        Item plate = new Item("Teller", "Ein gefüllter Teller.", null, null, 15, 15);
+        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", plate, ring, 10, 10);
+        Item key = new Item("Schlüssel", "Ein Schlüssel um etwas zu öffnen", null, null, 20, 20);
         Object tree = new Object("Baum", 10, 10, null, null);
         Object door = new Object("Tür", 30, 30, key, null);
 

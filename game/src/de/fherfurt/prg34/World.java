@@ -38,7 +38,7 @@ public class World {
             object.draw();
         }
         for(Item item : itemList) {
-            if (item.isOutInTheWorld()) item.draw();
+            item.draw();
         }
         for(Character character : characterList) {
             character.draw();
@@ -62,7 +62,6 @@ public class World {
     public void addItem(Item item) {
         if ((item != null) && (!this.itemList.contains(item))) {
             this.itemList.add(item);
-            item.setOutInTheWorld(true);
         }
     }
 
@@ -73,7 +72,6 @@ public class World {
     public void removeItem(Item item) {
         if ((item != null) && (this.itemList.contains(item))) {
             this.itemList.remove(item);
-            item.setOutInTheWorld(false);
         }
     }
 
@@ -119,7 +117,7 @@ public class World {
             }
         }
         for(Item item : itemList) {
-            if (item.isOutInTheWorld() && checkForCollisionWithItem(item)){
+            if (checkForCollisionWithItem(item)){
                 return true;
             }
         }
@@ -169,7 +167,6 @@ public class World {
     public void pickUpItem(Item item){
         this.player.addItemToInventory(item);
         this.removeItem(item);
-        item.setOutInTheWorld(false);
     }
 
     private int xPos;   //position of active sector of the world that will be shown on screen

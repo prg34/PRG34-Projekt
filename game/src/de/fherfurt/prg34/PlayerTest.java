@@ -12,9 +12,9 @@ public class PlayerTest {
     @Test
     public void testAddItem() throws Exception {
         Player player = new Player("Spieler", 0, 0);
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15, false);
-        Item plate = new Item("Teller", "Ein gefüllter Teller.", null, null, 15, 15, false);
-        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", plate, ring, 10, 10, false);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
+        Item plate = new Item("Teller", "Ein gefüllter Teller.", null, null, 15, 15);
+        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", plate, ring, 10, 10);
 
         //spoon is used with plate, the resulting ring is stored in the player's inventory
         player.addItemToInventory(spoon.useWithItem(plate));
@@ -32,7 +32,7 @@ public class PlayerTest {
     @Test
     public void testGiveItemToCharacter() throws Exception {
         Player player = new Player("Spieler", 0, 0);
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15, false);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
 
         //create string array for character
         String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};

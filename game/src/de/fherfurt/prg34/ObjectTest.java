@@ -8,8 +8,8 @@ public class ObjectTest {
 
     @Test
     public void testUseItemToOpen() throws Exception {
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15, false);
-        Item key = new Item("Schlüssel", "Ein Schlüssel um etwas zu öffnen", null, null, 20, 20, false);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
+        Item key = new Item("Schlüssel", "Ein Schlüssel um etwas zu öffnen", null, null, 20, 20);
         Object chest = new Object("Tür", 30, 30, key, ring);
 
         assertEquals(

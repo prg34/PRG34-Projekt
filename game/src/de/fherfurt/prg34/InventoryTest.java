@@ -10,7 +10,7 @@ public class InventoryTest {
     @Test
     public void testAddItem() throws Exception {
         Inventory inventar = new Inventory();
-        Item ash = new Item("Asche", "Was das wohl mal war?", null, null, 15, 15, false);
+        Item ash = new Item("Asche", "Was das wohl mal war?", null, null, 15, 15);
         inventar.addItem(ash);
 
         assertEquals(
@@ -21,7 +21,7 @@ public class InventoryTest {
     @Test
     public void testRemoveItem() throws Exception {
         Inventory inventar = new Inventory();
-        Item ash = new Item("Asche", "Was das wohl mal war?", null, null, 15, 15, false);
+        Item ash = new Item("Asche", "Was das wohl mal war?", null, null, 15, 15);
         inventar.addItem(ash);
         inventar.removeItem(ash);
 
