@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>de.fherfurt.prg34</OriginalElement>
+  <nodes>
+    <node x="" y="">de.fherfurt.prg34.Inventory</node>
+    <node x="-350.0" y="282.0">de.fherfurt.prg34.ItemTest</node>
+    <node x="-281.5" y="480.5">de.fherfurt.prg34.Object</node>
+    <node x="-75.76862745098043" y="-27.5">de.fherfurt.prg34.Item</node>
+    <node x="" y="">de.fherfurt.prg34.CharacterTest</node>
+    <node x="7.0" y="541.0">de.fherfurt.prg34.InventoryTest</node>
+    <node x="" y="">de.fherfurt.prg34.Game</node>
+    <node x="" y="">de.fherfurt.prg34.Character</node>
+    <node x="" y="">de.fherfurt.prg34.ObjectTest</node>
+    <node x="" y="">de.fherfurt.prg34.World</node>
+    <node x="-570.0" y="1261.5">de.fherfurt.prg34.Frame</node>
+    <node x="-142.2171568627453" y="1148.5">de.fherfurt.prg34.WorldTest</node>
+    <node x="209.0" y="420.5">de.fherfurt.prg34.Player</node>
+    <node x="498.5" y="900.0">de.fherfurt.prg34.PlayerTest</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="de.fherfurt.prg34.WorldTest" target="de.fherfurt.prg34.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.ObjectTest" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.World" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.Inventory" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.PlayerTest" target="de.fherfurt.prg34.Character">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.WorldTest" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.CharacterTest" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.Character" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.ItemTest" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.Object" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.Game" target="de.fherfurt.prg34.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.InventoryTest" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.World" target="de.fherfurt.prg34.Object">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.PlayerTest" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.World" target="de.fherfurt.prg34.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.Player" target="de.fherfurt.prg34.Inventory">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.PlayerTest" target="de.fherfurt.prg34.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.WorldTest" target="de.fherfurt.prg34.World">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.Game" target="de.fherfurt.prg34.Object">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.CharacterTest" target="de.fherfurt.prg34.Character">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.Game" target="de.fherfurt.prg34.World">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.ObjectTest" target="de.fherfurt.prg34.Object">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.InventoryTest" target="de.fherfurt.prg34.Inventory">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.Game" target="de.fherfurt.prg34.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.Game" target="de.fherfurt.prg34.Character">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="de.fherfurt.prg34.World" target="de.fherfurt.prg34.Character">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="267.9999999999999" y="271.83333333333326" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
