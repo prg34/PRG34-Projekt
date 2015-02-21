@@ -2,7 +2,6 @@ package de.fherfurt.prg34;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class ItemTest {
@@ -15,6 +14,6 @@ public class ItemTest {
 
         assertEquals(
                 "After using the match on the log, the item ash is returned",
-                match.useWithItem(log), ash); 
+                match.useWithItem(log), ash);
     }
 }
