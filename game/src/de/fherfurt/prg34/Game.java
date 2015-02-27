@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Game {
     public static void main(String[] args) {
 
-        //just play around a little with the objects, to show how they can be used later in the actual game
+        //just playing around a little with the objects, to show how they can be used later in the actual game
 
         Player player = new Player("Spieler", 0, 0);
         Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
