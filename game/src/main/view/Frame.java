@@ -1,4 +1,4 @@
-package de.fherfurt.prg34;
+package main.view;
 
 /**
  * draws all objects on the screen, calls the draw-method of each object;

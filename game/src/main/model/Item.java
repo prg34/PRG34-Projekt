@@ -1,4 +1,4 @@
-package de.fherfurt.prg34;
+package main.model;
 
 /**
  * The items contained in the world, the player is allowed to take them and/or use them.

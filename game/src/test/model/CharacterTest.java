@@ -1,10 +1,11 @@
-package de.fherfurt.prg34;
+package test.model;
 
+import main.model.Character;
+import main.model.Item;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class CharacterTest {

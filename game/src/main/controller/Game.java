@@ -1,4 +1,9 @@
-package de.fherfurt.prg34;
+package main.controller;
+
+import main.model.Item;
+import main.model.Object;
+import main.model.Player;
+import main.model.World;
 
 import java.util.ArrayList;
 
@@ -21,7 +26,7 @@ public class Game {
 
         //create string array for character
         String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
-        Character monster = new Character("Nessi", 20, 20, sentences, new ArrayList<Item>());
+        main.model.Character monster = new main.model.Character("Nessi", 20, 20, sentences, new ArrayList<Item>());
         
         //place all objects in the world
         World world = new World(0, 0);

@@ -1,4 +1,4 @@
-package de.fherfurt.prg34;
+package main.model;
 
 import java.util.ArrayList;
 

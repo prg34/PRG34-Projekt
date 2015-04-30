@@ -1,6 +1,8 @@
-package de.fherfurt.prg34;
+package test.model;
 
-import org.junit.Before;
+import main.model.Character;
+import main.model.Item;
+import main.model.Player;
 import org.junit.Test;
 
 import java.util.ArrayList;

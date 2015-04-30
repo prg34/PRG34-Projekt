@@ -1,4 +1,4 @@
-package de.fherfurt.prg34;
+package main.model;
 
 /*
 import com.sun.deploy.ui.ImageLoader;
@@ -10,9 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 */
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
 
 public class Character {
 

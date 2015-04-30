@@ -1,4 +1,4 @@
-package de.fherfurt.prg34;
+package main.model;
 
 /**
  * the Character controlled by the human player

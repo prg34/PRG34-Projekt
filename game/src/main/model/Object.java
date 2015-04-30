@@ -1,4 +1,4 @@
-package de.fherfurt.prg34;
+package main.model;
 
 /**
  * The objects contained in the world (like trees, fences, doors, houses etc.), with some the user is able to interact

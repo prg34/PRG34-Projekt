@@ -1,5 +1,7 @@
-package de.fherfurt.prg34;
+package test.model;
 
+import main.model.Item;
+import main.model.Object;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
