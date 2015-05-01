@@ -7,10 +7,16 @@ import main.model.World;
 
 import java.util.ArrayList;
 
+import main.view.GameMap;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
  * main class to create all objects initially and run the game;
  * to be implemented later, so far only for test purposes
  */
+/*
 public class Game {
     public static void main(String[] args) {
 
@@ -44,5 +50,40 @@ public class Game {
         player.addItemToInventory(plate.useWithItem(spoon));
 
         world.removeItem(spoon);
+    }
+}
+*/
+
+public class Game extends Application {
+
+    /**
+     * Initializes a new JavaFx-Scene with a game map
+     *
+     * @return Scene
+     */
+    public Scene initGameScene(){
+        GameMap gameMap = new GameMap();
+        Scene scene = new Scene(gameMap.getMainGroup(), 352, 352);
+        return scene;
+    }
+
+    /**
+     * Anchor for JavaFx to start the application
+     *
+     * @param primaryStage
+     */
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Point and Click Adventure");
+        primaryStage.setScene(initGameScene());
+        primaryStage.show();
+    }
+
+    /**
+     * Usually ignored, only used if JavaFx can not not be started with start(Stage)
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        launch(args);
     }
 }
