@@ -44,13 +44,5 @@ public class Inventory {
         return this.itemList.contains(item);
     }
 
-    /**
-     * used to draw the inventory and its contents on the screen, called by class Frame
-     * to be implemented later
-     */
-    public void draw() {
-
-    }
-
     private ArrayList<Item> itemList;   //to collect all items of the inventory
 }

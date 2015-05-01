@@ -1,4 +1,4 @@
-package main.controller;
+package main;
 
 import main.model.Item;
 import main.model.Object;

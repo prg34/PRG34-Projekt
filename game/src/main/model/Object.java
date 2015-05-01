@@ -46,9 +46,6 @@ public class Object {
         return result;
     }
 
-    public void draw() {
-    }
-
     public int getxPos() {
         return xPos;
     }
@@ -73,6 +70,4 @@ public class Object {
     private boolean opened;      // shows if the object ist opened or closed, like chests or doors, default value closed
     private Item openedWithItem;    //proper item, like a key, to open a door or a chest
     private Item content;          //if chest was opened, content of it is returned
-
-    //bufferedImage
 }

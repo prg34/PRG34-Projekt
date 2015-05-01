@@ -21,17 +21,10 @@ public class World {
     public void update() {
     }
 
-    /**
-     * draws the background (= landscape), only dummy method so far
-     */
-    public void drawBackground(){
-
-    }
-
-    /**
+    /*
      * used to draw the world on the screen, called by class Frame
      * calls draw methods of all items, objects and characters it manages
-     */
+
     public void draw() {
         drawBackground();
         for(Object object : objectList) {
@@ -45,6 +38,7 @@ public class World {
         }
         player.draw();
     }
+    */
 
     /**
      * Sets the player reference to the actual player object

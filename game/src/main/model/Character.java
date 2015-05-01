@@ -1,15 +1,5 @@
 package main.model;
 
-/*
-import com.sun.deploy.ui.ImageLoader;
-import javafx.scene.layout.Background;
-import com.sun.prism.Graphics;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.geom.AffineTransform;
-*/
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class Character {
@@ -23,20 +13,6 @@ public class Character {
         this.animationCounter = 0;
         this.sentences = sentences;
         this.itemList = new ArrayList<Item>(itemList);
-        /*
-        try
-        {
-            character[0] = ImageIO.read(getClass().getClassLoader().getResource("Bild.png")); // move player picture
-            character[1] = ImageIO.read(getClass().getClassLoader().getResource("Bild.png")); // move player picture
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        */
-    }
-
-    public void draw(java.awt.Graphics G) {
-        G.drawImage(picture, xPos, yPos, null);
     }
 
     public void update() {
@@ -46,10 +22,10 @@ public class Character {
             animationCounter = 0;
         }
         if (animationCounter == 0) {
-            picture = character[0];
+            currentAnimationSequence = 0;
         }
         if(animationCounter == 10) {
-            picture = character[1];
+            currentAnimationSequence = 1;
         }
     }
 
@@ -90,10 +66,6 @@ public class Character {
         return this.itemList.contains(item);
     }
 
-    public void draw(){
-
-    }
-
     public int getxPos() {
         return xPos;
     }
@@ -117,8 +89,7 @@ public class Character {
     private final int sizeY;
     private final int animationTime = 20;
     private int animationCounter;
+    private int currentAnimationSequence;
     private String[] sentences = new String[10];
     private ArrayList<Item> itemList;               //contains all items the character holds
-    private BufferedImage picture;
-    private BufferedImage[] character = new BufferedImage[10];
 }

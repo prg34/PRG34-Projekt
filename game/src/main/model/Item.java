@@ -58,12 +58,6 @@ public class Item {
         return sizeY;
     }
 
-    /**
-     * used to draw the item on the screen, only dummy method so far
-     */
-    public void draw() {
-    }
-
     private final String name;
     private final String description;         //is used by Player.lookAt(item)
     private final Item correctlyUsedWithItem;

@@ -16,13 +16,6 @@ public class Player {
     }
 
     /**
-     * used to draw the player on the screen, called by class Frame
-     * to be implemented later
-     */
-    public void draw() {
-    }
-
-    /**
      * updates the state of the player, e.g. his position and his current animation-frame
      */
     public void update() {
@@ -122,5 +115,4 @@ public class Player {
     private final int sizeX;    //size of the player for collision detection etc.
     private final int sizeY;
     private Inventory inventory;
-    //bufferedImage             //to be implemented later
 }
