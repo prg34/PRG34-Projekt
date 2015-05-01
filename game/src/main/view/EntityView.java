@@ -3,6 +3,7 @@ package main.view;
 //import main.view.SquareEventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import main.controller.KeyEventHandler;
 
 public class EntityView extends ImageView{
 
@@ -16,7 +17,7 @@ public class EntityView extends ImageView{
         this.yPos = yPos;
         this.gameMap = gameMap;
         setImage(KNIGHT_IMAGE);
-        //setOnMousePressed(new SquareEventHandler());
+        setOnKeyPressed(new KeyEventHandler());
     }
 
     /**
