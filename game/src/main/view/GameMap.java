@@ -1,7 +1,6 @@
 package main.view;
 
 import javafx.scene.Group;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import main.controller.MainController;
@@ -13,7 +12,6 @@ public class GameMap {
     private Group mainGroup;
     private Group entityGroup;
     private EntityView entityView;
-    private Label label;
     private MainController mainController;
 
     /**
@@ -29,15 +27,15 @@ public class GameMap {
      */
     private void initGameMap() {
         entityGroup = new Group();
-        //mainGroup = new Group();
+        mainGroup = new Group();
         entityView = new EntityView(mainController);
 
         entityView.setTranslateX(130);
         entityView.setTranslateY(130);
         entityGroup.getChildren().add(entityView);
         ImageView backgroundView = new ImageView(BACKGROUND_IMAGE);
-        label = new Label("a label");
-        mainGroup = new Group(backgroundView, entityGroup, label);
+        mainGroup.getChildren().add(backgroundView);
+        mainGroup.getChildren().add(entityGroup);
     }
 
     /**
@@ -48,9 +46,4 @@ public class GameMap {
     public Group getMainGroup() {
         return mainGroup;
     }
-
-    public void setLabel(String text) {
-        label.setText(text);
-    }
-
 }
