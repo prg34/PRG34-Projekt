@@ -1,26 +1,42 @@
-package main;
+package main.controller;
 
-import main.model.Item;
-import main.model.Object;
-import main.model.Player;
-import main.model.World;
-
-import java.util.ArrayList;
-
-import main.view.GameMap;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import main.view.GameMap;
 
-/**
- * main class to create all objects initially and run the game;
- * to be implemented later, so far only for test purposes
- */
+public class MainController extends Application {
+
+    /**
+     * Anchor for JavaFx to start the application
+     * Initializes a new JavaFx-Scene with a game map
+     *
+     * @param primaryStage
+     */
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Point and Click Adventure");
+        GameMap gameMap = new GameMap(this);
+        Scene scene = new Scene(gameMap.getMainGroup(), 352, 352);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, new KeyEventHandler());
+    }
+
+    /**
+     * Usually ignored, only used if JavaFx can not not be started with start(Stage)
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+
 /*
 public class Game {
     public static void main(String[] args) {
-
-        //just playing around a little with the objects, to show how they can be used later in the actual game
 
         Player player = new Player("Spieler", 0, 0);
         Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
@@ -33,7 +49,7 @@ public class Game {
         //create string array for character
         String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
         main.model.Character monster = new main.model.Character("Nessi", 20, 20, sentences, new ArrayList<Item>());
-        
+
         //place all objects in the world
         World world = new World(0, 0);
         world.addPlayer(player);
@@ -53,37 +69,3 @@ public class Game {
     }
 }
 */
-
-public class Game extends Application {
-
-    /**
-     * Initializes a new JavaFx-Scene with a game map
-     *
-     * @return Scene
-     */
-    public Scene initGameScene(){
-        GameMap gameMap = new GameMap();
-        Scene scene = new Scene(gameMap.getMainGroup(), 352, 352);
-        return scene;
-    }
-
-    /**
-     * Anchor for JavaFx to start the application
-     *
-     * @param primaryStage
-     */
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Point and Click Adventure");
-        primaryStage.setScene(initGameScene());
-        primaryStage.show();
-    }
-
-    /**
-     * Usually ignored, only used if JavaFx can not not be started with start(Stage)
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-}
