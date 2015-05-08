@@ -12,8 +12,8 @@ public class Item {
         this.correctUseResult = correctUseResult;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.sizeX = 10;
-        this.sizeY = 10;
+        this.sizeX = 32;
+        this.sizeY = 32;
     }
 
     public String getName() {

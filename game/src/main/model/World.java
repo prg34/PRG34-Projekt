@@ -16,31 +16,6 @@ public class World {
     }
 
     /**
-     * updates the state of the world, e.g. the position of the active sector
-     */
-    public void update() {
-    }
-
-    /*
-     * used to draw the world on the screen, called by class Frame
-     * calls draw methods of all items, objects and characters it manages
-
-    public void draw() {
-        drawBackground();
-        for(Object object : objectList) {
-            object.draw();
-        }
-        for(Item item : itemList) {
-            item.draw();
-        }
-        for(Character character : characterList) {
-            character.draw();
-        }
-        player.draw();
-    }
-    */
-
-    /**
      * Sets the player reference to the actual player object
      * @param player The actual player that is used in this game
      */
@@ -183,6 +158,4 @@ public class World {
         player can talk to and transfer items from/to a character
      */
     private ArrayList<Character> characterList;
-
-    //bufferedImage         //contains background-image, to be implemented later
 }

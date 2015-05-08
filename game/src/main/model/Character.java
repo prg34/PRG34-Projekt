@@ -8,13 +8,14 @@ public class Character {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.sizeX = 50;
-        this.sizeY = 20;
+        this.sizeX = 32;
+        this.sizeY = 32;
         this.animationCounter = 0;
         this.sentences = sentences;
         this.itemList = new ArrayList<Item>(itemList);
     }
 
+    /*
     public void update() {
         animationCounter++;
 
@@ -28,6 +29,7 @@ public class Character {
             currentAnimationSequence = 1;
         }
     }
+    */
 
     /**
      * Delivers the answer of the character when the player talks to him

@@ -11,11 +11,6 @@ import static org.junit.Assert.assertEquals;
 public class CharacterTest {
 
     @Test
-    public void testReceiveItemFromPlayer() throws Exception { /*relevant? 18.01*/
-
-    }
-
-    @Test
     public void testGiveItemToPlayer() throws Exception {
         Item ash = new Item("Asche", "Was das wohl mal war?", null, null, 15, 15);
         String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};

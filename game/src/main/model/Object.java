@@ -9,8 +9,8 @@ public class Object {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.sizeX = 20;
-        this.sizeY = 20;
+        this.sizeX = 32;
+        this.sizeY = 32;
         this.opened = false;
         this.openedWithItem = openedWithItem;
         this.content = content;

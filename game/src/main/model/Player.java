@@ -8,15 +8,9 @@ public class Player {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.sizeX = 20;
-        this.sizeY = 20;
+        this.sizeX = 32;
+        this.sizeY = 32;
         this.inventory = new Inventory();
-    }
-
-    /**
-     * updates the state of the player, e.g. his position and his current animation-frame
-     */
-    public void update() {
     }
 
     /**

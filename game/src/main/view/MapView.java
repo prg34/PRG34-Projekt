@@ -7,9 +7,7 @@ public class MapView {
 
     private final static Image BACKGROUND_IMAGE = new Image(MapView.class.getResource("/images/background.png").toString());
 
-    /**
-     * Creates a new GameMap
-     */
+
     public MapView() {
     }
 
