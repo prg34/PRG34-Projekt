@@ -16,35 +16,30 @@ public class MainController extends Application {
 
     /**
      * Anchor for JavaFx to start the application
-     * Initializes a new JavaFx-Scene with a game map
+     * Initializes a new JavaFx-Scene
      *
      * @param primaryStage
      */
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Point and Click Adventure");
-        MapView mapView = new MapView();
-        this.mapView = mapView;
 
-        Player player = new Player("Spieler", 150, 150);
-        this.player = player;
-        World world = new World(0, 0);
-        this.world = world;
+        this.player = new Player("Spieler", 150, 150);
+        this.world = new World(0, 0);
         world.addPlayer(player);
 
-
-        Group entityGroup = new Group();
-        Group mainGroup = new Group();
-        PlayerView playerView = new PlayerView();
-        this.playerView = playerView;
-
+        this.playerView = new PlayerView();
         playerView.setTranslateX(player.getxPos());
         playerView.setTranslateY(player.getyPos());
+
+        Group entityGroup = new Group();
         entityGroup.getChildren().add(playerView);
+
+        Group mainGroup = new Group();
+        this.mapView = new MapView();
         mainGroup.getChildren().add(mapView.getBackgroundView());
         mainGroup.getChildren().add(entityGroup);
         Scene scene = new Scene(mainGroup, 352, 352);
 
-
+        primaryStage.setTitle("Point and Click Adventure");
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, new KeyEventHandler());
