@@ -1,10 +1,16 @@
 package main.controller;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import main.view.GameMap;
+import main.model.Player;
+import main.model.World;
+import main.view.MapView;
+import main.view.PlayerView;
 
 public class MainController extends Application {
 
@@ -16,8 +22,29 @@ public class MainController extends Application {
      */
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Point and Click Adventure");
-        GameMap gameMap = new GameMap(this);
-        Scene scene = new Scene(gameMap.getMainGroup(), 352, 352);
+        MapView mapView = new MapView();
+        this.mapView = mapView;
+
+        Player player = new Player("Spieler", 150, 150);
+        this.player = player;
+        World world = new World(0, 0);
+        this.world = world;
+        world.addPlayer(player);
+
+
+        Group entityGroup = new Group();
+        Group mainGroup = new Group();
+        PlayerView playerView = new PlayerView();
+        this.playerView = playerView;
+
+        playerView.setTranslateX(player.getxPos());
+        playerView.setTranslateY(player.getyPos());
+        entityGroup.getChildren().add(playerView);
+        mainGroup.getChildren().add(mapView.getBackgroundView());
+        mainGroup.getChildren().add(entityGroup);
+        Scene scene = new Scene(mainGroup, 352, 352);
+
+
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, new KeyEventHandler());
@@ -31,6 +58,34 @@ public class MainController extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public class KeyEventHandler implements EventHandler<KeyEvent> {
+
+        @Override
+        public void handle(KeyEvent ke) {
+
+            if (ke.getCode() == KeyCode.DOWN) {
+                player.setyPos(player.getyPos() + 2);
+            }
+            else if (ke.getCode() == KeyCode.UP) {
+                player.setyPos(player.getyPos() - 2);
+            }
+            else if (ke.getCode() == KeyCode.RIGHT) {
+                player.setxPos(player.getxPos() + 2);
+            }
+            else if (ke.getCode() == KeyCode.LEFT) {
+                player.setxPos(player.getxPos() - 2);
+            }
+            playerView.setTranslateX(player.getxPos());
+            playerView.setTranslateY(player.getyPos());
+            ke.consume();
+        }
+    }
+
+    private Player player;
+    private World world;
+    private MapView mapView;
+    private PlayerView playerView;
 }
 
 

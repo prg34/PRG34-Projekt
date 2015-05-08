@@ -8,8 +8,6 @@ public class Player {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.xSpeed = 0;
-        this.ySpeed = 0;
         this.sizeX = 20;
         this.sizeY = 20;
         this.inventory = new Inventory();
@@ -95,8 +93,18 @@ public class Player {
         return yPos;
     }
 
+    public void setyPos(int yPos)
+    {
+        this.yPos = yPos;
+    }
+
     public int getxPos() {
         return xPos;
+    }
+
+    public void setxPos(int xPos)
+    {
+        this.xPos = xPos;
     }
 
     public int getSizeX() {
@@ -110,8 +118,6 @@ public class Player {
     private String name;        //name of the player
     private int xPos;           //position of the player in the world, marks upper left corner
     private int yPos;
-    private double xSpeed;
-    private double ySpeed;
     private final int sizeX;    //size of the player for collision detection etc.
     private final int sizeY;
     private Inventory inventory;
