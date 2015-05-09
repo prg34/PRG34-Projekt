@@ -6,14 +6,12 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import main.model.Player;
-import main.model.World;
+import main.model.*;
 import main.model.Object;
-import main.view.MapView;
-import main.view.ObjectView;
-import main.view.PlayerView;
+import main.view.*;
+
+import java.util.ArrayList;
 
 public class MainController extends Application {
 
@@ -25,36 +23,52 @@ public class MainController extends Application {
      */
     public void start(Stage primaryStage) {
 
-        this.world = new World(0, 0);
-        this.player = new Player("Spieler", 150, 150, "knight.png", 32, 32);
+        world = new World(0, 0);
+        player = new Player("Spieler", 250, 250, "player.png", 50, 50);
         world.addPlayer(player);
-        someObject = new Object("irgendein Objekt", 50, 50, "object.png", 100, 100, null, null);
+        someObject = new Object("irgendein Objekt", 100, 100, "object.png", 100, 100, null, null);
         world.addObject(someObject);
+        item = new Item("Gabel", "Yup, eine Gabel!", 500, 500, "item.png", 50, 50, null, null);
+        world.addItem(item);
+        item2 = new Item("Messer", "ein Messer!", 100, 500, "item.png", 50, 50, null, null);
+        world.addItem(item2);
+        String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
+        character = new main.model.Character("Nessi", 500, 100, "character.png", 50, 50, sentences, new ArrayList<Item>());
+        world.addCharacter(character);
 
-        this.playerView = new PlayerView(player);
+        playerView = new PlayerView(player);
         playerView.setTranslateX(player.getxPos());
         playerView.setTranslateY(player.getyPos());
-        this.objectView = new ObjectView(someObject);
+        objectView = new ObjectView(someObject);
         objectView.setTranslateX(someObject.getxPos());
         objectView.setTranslateY(someObject.getyPos());
-
-        //objectView.setOnMousePressed(new MouseEventHandler());
+        itemView = new ItemView(item);
+        itemView.setTranslateX(item.getxPos());
+        itemView.setTranslateY(item.getyPos());
+        itemView2 = new ItemView(item2);
+        itemView2.setTranslateX(item2.getxPos());
+        itemView2.setTranslateY(item2.getyPos());
+        characterView = new CharacterView(character);
+        characterView.setTranslateX(character.getxPos());
+        characterView.setTranslateY(character.getyPos());
 
         Group entityGroup = new Group();
         entityGroup.getChildren().add(playerView);
         entityGroup.getChildren().add(objectView);
+        entityGroup.getChildren().add(itemView);
+        entityGroup.getChildren().add(itemView2);
+        entityGroup.getChildren().add(characterView);
 
         Group mainGroup = new Group();
         this.mapView = new MapView();
         mainGroup.getChildren().add(mapView.getBackgroundView());
         mainGroup.getChildren().add(entityGroup);
-        Scene scene = new Scene(mainGroup, 352, 352);
+        Scene scene = new Scene(mainGroup, 704, 704);
 
         primaryStage.setTitle("Point and Click Adventure");
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, new KeyEventHandler());
-        //primaryStage.addEventHandler(MouseEvent.MOUSE_PRESSED, new MouseEventHandler());
     }
 
     /**
@@ -70,29 +84,30 @@ public class MainController extends Application {
 
         @Override
         public void handle(KeyEvent ke) {
+            final int stepSize = 5;
 
             if (ke.getCode() == KeyCode.DOWN) {
-                player.setyPos(player.getyPos() + 2);
+                player.setyPos(player.getyPos() + stepSize);
                 if (world.checkForCollision()){
-                    player.setyPos(player.getyPos() - 2);
+                    player.setyPos(player.getyPos() - stepSize);
                 }
             }
             else if (ke.getCode() == KeyCode.UP) {
-                player.setyPos(player.getyPos() - 2);
+                player.setyPos(player.getyPos() - stepSize);
                 if (world.checkForCollision()){
-                    player.setyPos(player.getyPos() + 2);
+                    player.setyPos(player.getyPos() + stepSize);
                 }
             }
             else if (ke.getCode() == KeyCode.RIGHT) {
-                player.setxPos(player.getxPos() + 2);
+                player.setxPos(player.getxPos() + stepSize);
                 if (world.checkForCollision()){
-                    player.setxPos(player.getxPos() - 2);
+                    player.setxPos(player.getxPos() - stepSize);
                 }
             }
             else if (ke.getCode() == KeyCode.LEFT) {
-                player.setxPos(player.getxPos() - 2);
+                player.setxPos(player.getxPos() - stepSize);
                 if (world.checkForCollision()){
-                    player.setxPos(player.getxPos() + 2);
+                    player.setxPos(player.getxPos() + stepSize);
                 }
             }
             playerView.setTranslateX(player.getxPos());
@@ -101,14 +116,18 @@ public class MainController extends Application {
         }
     }
 
-
-
-    private Player player;
     private World world;
     private MapView mapView;
+    private Player player;
     private PlayerView playerView;
-    private Object someObject;
+    private main.model.Object someObject;
     private ObjectView objectView;
+    private Item item;
+    private ItemView itemView;
+    private Item item2;
+    private ItemView itemView2;
+    private main.model.Character character;
+    private CharacterView characterView;
 }
 
 

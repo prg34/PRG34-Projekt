@@ -91,7 +91,7 @@ public class Player {
     public void setyPos(int yPos)
     {
         this.yPos = yPos;
-        if (this.yPos > 352 - sizeY) this.yPos = 352 - sizeY;
+        if (this.yPos > 704 - sizeY) this.yPos = 704 - sizeY;
         if (this.yPos < 0) this.yPos = 0;
     }
 
@@ -102,7 +102,7 @@ public class Player {
     public void setxPos(int xPos)
     {
         this.xPos = xPos;
-        if (this.xPos > 352 - sizeX) this.xPos = 352 - sizeX;
+        if (this.xPos > 704 - sizeX) this.xPos = 704 - sizeX;
         if (this.xPos < 0) this.xPos = 0;
     }
 

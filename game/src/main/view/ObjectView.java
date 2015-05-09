@@ -21,16 +21,10 @@ public class ObjectView extends ImageView{
         /**
          * Handles mouse clicks on an object
          *
-         * @param mouseEvent
          */
         @Override
         public void handle(MouseEvent me) {
-
-		    /* Get the current clicked object */
-            java.lang.Object clickedObject = me.getSource();
-            if (clickedObject instanceof ObjectView) {
-                System.out.println("Objekt \"" + object.getName() + "\" geklickt");
-            }
+            System.out.println("Objekt \"" + object.getName() + "\" geklickt");
         }
     }
 
