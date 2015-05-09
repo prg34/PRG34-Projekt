@@ -4,12 +4,13 @@ package main.model;
  * the Character controlled by the human player
  */
 public class Player {
-    public Player(String name, int xPos, int yPos) {
+    public Player(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY) {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.sizeX = 32;
-        this.sizeY = 32;
+        this.imageFilename = imageFilename;
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
         this.inventory = new Inventory();
     }
 
@@ -113,9 +114,14 @@ public class Player {
         return sizeY;
     }
 
+    public String getImageFilename(){
+        return this.imageFilename;
+    }
+
     private String name;        //name of the player
     private int xPos;           //position of the player in the world, marks upper left corner
     private int yPos;
+    private String imageFilename;
     private final int sizeX;    //size of the player for collision detection etc.
     private final int sizeY;
     private Inventory inventory;

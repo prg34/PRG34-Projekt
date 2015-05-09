@@ -13,7 +13,7 @@ public class PlayerTest {
 
     @Test
     public void testAddItem() throws Exception {
-        Player player = new Player("Spieler", 0, 0);
+        Player player = new Player("Spieler", 0, 0, "knight.png", 32, 32);
         Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", 15, 15, "finished.png", 250, 100, null, null);
         Item plate = new Item("Teller", "Ein gefüllter Teller.", 15, 15, "finished.png", 250, 100, null, null);
         Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, plate, ring);
@@ -33,7 +33,7 @@ public class PlayerTest {
 
     @Test
     public void testGiveItemToCharacter() throws Exception {
-        Player player = new Player("Spieler", 0, 0);
+        Player player = new Player("Spieler", 0, 0, "knight.png", 32, 32);
         Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", 15, 15, "finished.png", 250, 100, null, null);
 
         //create string array for character

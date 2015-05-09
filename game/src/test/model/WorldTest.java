@@ -29,7 +29,7 @@ public class WorldTest {
     @Test
     public void testCheckForCollision() throws Exception {
         World world = new World(0, 0);
-        Player player = new Player("Spieler", 10, 10);
+        Player player = new Player("Spieler", 10, 10, "knight.png", 32, 32);
         Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
 
         world.addPlayer(player);

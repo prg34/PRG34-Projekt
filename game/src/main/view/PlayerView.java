@@ -6,10 +6,10 @@ import main.model.Player;
 
 public class PlayerView extends ImageView{
 
-    public final static Image KNIGHT_IMAGE = new Image(PlayerView.class.getResource("/images/knight.png").toString());
-
     public PlayerView(Player player) {
         this.player = player;
+        String path = "/images/" + player.getImageFilename();
+        final Image KNIGHT_IMAGE = new Image(PlayerView.class.getResource(path).toString());
         setImage(KNIGHT_IMAGE);
     }
 

@@ -25,9 +25,9 @@ public class MainController extends Application {
     public void start(Stage primaryStage) {
 
         this.world = new World(0, 0);
-        this.player = new Player("Spieler", 150, 150);
+        this.player = new Player("Spieler", 150, 150, "knight.png", 32, 32);
         world.addPlayer(player);
-        someObject = new Object("irgendein Objekt", 10, 10, "finished.png", 250, 100, null, null);
+        someObject = new Object("irgendein Objekt", 50, 50, "object.png", 100, 100, null, null);
         world.addObject(someObject);
 
         this.playerView = new PlayerView(player);
