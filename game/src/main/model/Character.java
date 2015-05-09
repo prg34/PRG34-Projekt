@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class Character {
 
-    public Character(String name, int xPos, int yPos, String[] sentences, ArrayList<Item> itemList) {
+    public Character(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, String[] sentences, ArrayList<Item> itemList) {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.sizeX = 32;
-        this.sizeY = 32;
+        this.imageFilename = imageFilename;
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
         this.animationCounter = 0;
         this.sentences = sentences;
         this.itemList = new ArrayList<Item>(itemList);
@@ -87,6 +88,7 @@ public class Character {
     private final String name;
     private int xPos;           //position of the character in the world, marks upper left corner
     private int yPos;
+    private String imageFilename;
     private final int sizeX;
     private final int sizeY;
     private final int animationTime = 20;

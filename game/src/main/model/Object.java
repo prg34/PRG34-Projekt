@@ -5,12 +5,13 @@ package main.model;
  */
 
 public class Object {
-    public Object(String name, int xPos, int yPos, Item openedWithItem, Item content) {
+    public Object(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, Item openedWithItem, Item content) {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.sizeX = 32;
-        this.sizeY = 32;
+        this.imageFilename = imageFilename;
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
         this.opened = false;
         this.openedWithItem = openedWithItem;
         this.content = content;
@@ -62,9 +63,15 @@ public class Object {
         return sizeY;
     }
 
+    public String getImageFilename()
+    {
+        return imageFilename;
+    }
+
     private final String name;
     private int xPos;           //position of the object in the world, marks upper left corner
     private int yPos;
+    private String imageFilename;
     private final int sizeX;
     private final int sizeY;
     private boolean opened;      // shows if the object ist opened or closed, like chests or doors, default value closed

@@ -12,8 +12,8 @@ public class WorldTest {
     @Test
     public void testAddItem() throws Exception {
         World world = new World(0, 0);
-        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", null, null, 10, 10);
-        Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", item, item, 10, 10);
+        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
+        Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, item, item);
         world.addItem(item);
         world.addItem(item2);
         assertEquals(
@@ -30,7 +30,7 @@ public class WorldTest {
     public void testCheckForCollision() throws Exception {
         World world = new World(0, 0);
         Player player = new Player("Spieler", 10, 10);
-        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", null, null, 20, 25);
+        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
 
         world.addPlayer(player);
         world.addItem(item);

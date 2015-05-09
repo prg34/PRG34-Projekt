@@ -9,7 +9,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import main.model.Player;
 import main.model.World;
+import main.model.Object;
 import main.view.MapView;
+import main.view.ObjectView;
 import main.view.PlayerView;
 
 public class MainController extends Application {
@@ -22,16 +24,22 @@ public class MainController extends Application {
      */
     public void start(Stage primaryStage) {
 
-        this.player = new Player("Spieler", 150, 150);
         this.world = new World(0, 0);
+        this.player = new Player("Spieler", 150, 150);
         world.addPlayer(player);
+        someObject = new Object("irgendein Objekt", 10, 10, "finished.png", 250, 100, null, null);
+        world.addObject(someObject);
 
-        this.playerView = new PlayerView();
+        this.playerView = new PlayerView(player);
         playerView.setTranslateX(player.getxPos());
         playerView.setTranslateY(player.getyPos());
+        this.objectView = new ObjectView(someObject);
+        objectView.setTranslateX(someObject.getxPos());
+        objectView.setTranslateY(someObject.getyPos());
 
         Group entityGroup = new Group();
         entityGroup.getChildren().add(playerView);
+        entityGroup.getChildren().add(objectView);
 
         Group mainGroup = new Group();
         this.mapView = new MapView();
@@ -61,15 +69,27 @@ public class MainController extends Application {
 
             if (ke.getCode() == KeyCode.DOWN) {
                 player.setyPos(player.getyPos() + 2);
+                if (world.checkForCollision()){
+                    player.setyPos(player.getyPos() - 2);
+                }
             }
             else if (ke.getCode() == KeyCode.UP) {
                 player.setyPos(player.getyPos() - 2);
+                if (world.checkForCollision()){
+                    player.setyPos(player.getyPos() + 2);
+                }
             }
             else if (ke.getCode() == KeyCode.RIGHT) {
                 player.setxPos(player.getxPos() + 2);
+                if (world.checkForCollision()){
+                    player.setxPos(player.getxPos() - 2);
+                }
             }
             else if (ke.getCode() == KeyCode.LEFT) {
                 player.setxPos(player.getxPos() - 2);
+                if (world.checkForCollision()){
+                    player.setxPos(player.getxPos() + 2);
+                }
             }
             playerView.setTranslateX(player.getxPos());
             playerView.setTranslateY(player.getyPos());
@@ -81,6 +101,8 @@ public class MainController extends Application {
     private World world;
     private MapView mapView;
     private PlayerView playerView;
+    private Object someObject;
+    private ObjectView objectView;
 }
 
 

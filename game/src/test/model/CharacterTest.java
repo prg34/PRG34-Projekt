@@ -12,9 +12,9 @@ public class CharacterTest {
 
     @Test
     public void testGiveItemToPlayer() throws Exception {
-        Item ash = new Item("Asche", "Was das wohl mal war?", null, null, 15, 15);
+        Item ash = new Item("Asche", "Was das wohl mal war?", 15, 15, "finished.png", 250, 100, null, null);
         String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
-        Character niklas = new Character("Niklas", 15, 15, sentences, new ArrayList<Item>());
+        Character niklas = new Character("Niklas", 15, 15, "finished.png", 250, 100, sentences, new ArrayList<Item>());
 
         niklas.receiveItemFromPlayer(ash);
         assertEquals(

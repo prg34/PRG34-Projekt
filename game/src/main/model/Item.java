@@ -5,15 +5,16 @@ package main.model;
  */
 
 public class Item {
-    public Item(String name, String description, Item correctlyUsedWithItem, Item correctUseResult, int xPos, int yPos) {
+    public Item(String name, String description, int xPos, int yPos, String ImageFilename, int sizeX, int sizeY, Item correctlyUsedWithItem, Item correctUseResult) {
         this.name = name;
         this.description = description;
-        this.correctlyUsedWithItem = correctlyUsedWithItem;
-        this.correctUseResult = correctUseResult;
         this.xPos = xPos;
         this.yPos = yPos;
-        this.sizeX = 32;
-        this.sizeY = 32;
+        this.ImageFilename = ImageFilename;
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+        this.correctlyUsedWithItem = correctlyUsedWithItem;
+        this.correctUseResult = correctUseResult;
     }
 
     public String getName() {
@@ -58,12 +59,17 @@ public class Item {
         return sizeY;
     }
 
+    public String getImageFilename(){
+        return ImageFilename;
+    }
+
     private final String name;
     private final String description;         //is used by Player.lookAt(item)
-    private final Item correctlyUsedWithItem;
-    private final Item correctUseResult;
     private int xPos;                       //position of the item in the world, marks upper left corner
     private int yPos;
+    private String ImageFilename;
     private final int sizeX;
     private final int sizeY;
+    private final Item correctlyUsedWithItem;
+    private final Item correctUseResult;
 }

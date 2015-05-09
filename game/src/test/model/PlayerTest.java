@@ -14,9 +14,9 @@ public class PlayerTest {
     @Test
     public void testAddItem() throws Exception {
         Player player = new Player("Spieler", 0, 0);
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
-        Item plate = new Item("Teller", "Ein gefüllter Teller.", null, null, 15, 15);
-        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", plate, ring, 10, 10);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", 15, 15, "finished.png", 250, 100, null, null);
+        Item plate = new Item("Teller", "Ein gefüllter Teller.", 15, 15, "finished.png", 250, 100, null, null);
+        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, plate, ring);
 
         //the wrong way, nothing should happen -> inventory size still zero
         player.addItemToInventory(plate.useWithItem(spoon));
@@ -34,11 +34,11 @@ public class PlayerTest {
     @Test
     public void testGiveItemToCharacter() throws Exception {
         Player player = new Player("Spieler", 0, 0);
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", 15, 15, "finished.png", 250, 100, null, null);
 
         //create string array for character
         String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
-        Character monster = new Character("Nessi", 20, 20, sentences, new ArrayList<Item>());
+        Character monster = new Character("Nessi", 20, 20, "finished.png", 250, 100, sentences, new ArrayList<Item>());
 
 
         player.addItemToInventory(ring);
