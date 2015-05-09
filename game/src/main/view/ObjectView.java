@@ -27,13 +27,13 @@ public class ObjectView extends ImageView{
         public void handle(MouseEvent me) {
 
 		    /* Get the current clicked object */
-            java.lang.Object object = me.getSource();
-            if (object instanceof ObjectView) {
-                System.out.println("Objekt geklickt");
+            java.lang.Object clickedObject = me.getSource();
+            if (clickedObject instanceof ObjectView) {
+                System.out.println("Objekt \"" + object.getName() + "\" geklickt");
             }
         }
     }
 
-    private Object object;
+    private main.model.Object object;
 
 }

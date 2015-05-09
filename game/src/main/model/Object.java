@@ -68,6 +68,10 @@ public class Object {
         return imageFilename;
     }
 
+    public String getName(){
+        return name;
+    }
+
     private final String name;
     private int xPos;           //position of the object in the world, marks upper left corner
     private int yPos;
