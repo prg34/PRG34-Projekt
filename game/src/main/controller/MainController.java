@@ -6,6 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import main.model.Player;
 import main.model.World;
@@ -37,6 +38,8 @@ public class MainController extends Application {
         objectView.setTranslateX(someObject.getxPos());
         objectView.setTranslateY(someObject.getyPos());
 
+        //objectView.setOnMousePressed(new MouseEventHandler());
+
         Group entityGroup = new Group();
         entityGroup.getChildren().add(playerView);
         entityGroup.getChildren().add(objectView);
@@ -51,6 +54,7 @@ public class MainController extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, new KeyEventHandler());
+        //primaryStage.addEventHandler(MouseEvent.MOUSE_PRESSED, new MouseEventHandler());
     }
 
     /**
@@ -96,6 +100,8 @@ public class MainController extends Application {
             ke.consume();
         }
     }
+
+
 
     private Player player;
     private World world;
