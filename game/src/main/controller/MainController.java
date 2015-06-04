@@ -24,17 +24,18 @@ public class MainController extends Application {
     public void start(Stage primaryStage) {
 
         world = new World(0, 0);
+        EntityLists.getInstance().setWorld(world);
         player = new Player("Spieler", 250, 250, "player.png", 50, 50);
-        world.addPlayer(player);
+        EntityLists.getInstance().setPlayer(player);
         someObject = new Object("irgendein Objekt", 100, 100, "object.png", 100, 100, null, null);
-        world.addObject(someObject);
+        EntityLists.getInstance().addObject(someObject);
         item = new Item("Gabel", "Yup, eine Gabel!", 500, 500, "item.png", 50, 50, null, null);
-        world.addItem(item);
+        EntityLists.getInstance().addItem(item);
         item2 = new Item("Messer", "ein Messer!", 100, 500, "item.png", 50, 50, null, null);
-        world.addItem(item2);
+        EntityLists.getInstance().addItem(item2);
         String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
         character = new main.model.Character("Nessi", 500, 100, "character.png", 50, 50, sentences, new ArrayList<Item>());
-        world.addCharacter(character);
+        EntityLists.getInstance().addCharacter(character);
 
         playerView = new PlayerView(player);
         playerView.setTranslateX(player.getxPos());

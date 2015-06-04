@@ -1,5 +1,6 @@
 package test.model;
 
+import main.model.EntityLists;
 import main.model.Item;
 import main.model.Player;
 import main.model.World;
@@ -14,16 +15,16 @@ public class WorldTest {
         World world = new World(0, 0);
         Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
         Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, item, item);
-        world.addItem(item);
-        world.addItem(item2);
+        EntityLists.getInstance().addItem(item);
+        EntityLists.getInstance().addItem(item2);
         assertEquals(
                 "After adding 2 items to a new itemList, its size should be 2",
-                world.getSizeItemList(), 2);
-        world.removeItem(item);
-        world.removeItem(item);
+                EntityLists.getInstance().getSizeItemList(), 2);
+        EntityLists.getInstance().removeItem(item);
+        EntityLists.getInstance().removeItem(item);
         assertEquals(
                 "After removing 'item', its size should be 1 now",
-                world.getSizeItemList(), 1 );
+                EntityLists.getInstance().getSizeItemList(), 1 );
     }
 
     @Test
@@ -32,8 +33,8 @@ public class WorldTest {
         Player player = new Player("Spieler", 10, 10, "knight.png", 32, 32);
         Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
 
-        world.addPlayer(player);
-        world.addItem(item);
+        EntityLists.getInstance().setPlayer(player);
+        EntityLists.getInstance().addItem(item);
 
         assertEquals(
                 "After adding 2 items to a new itemList, its size should be 2",
