@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -15,13 +16,19 @@ import java.util.ArrayList;
 
 public class MainController extends Application {
 
-    /**
-     * Anchor for JavaFx to start the application
-     * Initializes a new JavaFx-Scene
-     *
-     * @param primaryStage
-     */
-    public void start(Stage primaryStage) {
+    private void initGame()
+    {
+        World world;
+        Player player;
+        PlayerView playerView;
+        main.model.Object someObject;
+        ObjectView objectView;
+        Item item;
+        ItemView itemView;
+        Item item2;
+        ItemView itemView2;
+        main.model.Character character;
+        CharacterView characterView;
 
         world = new World(0, 0);
         EntityLists.getInstance().setWorld(world);
@@ -40,25 +47,51 @@ public class MainController extends Application {
         playerView = new PlayerView(player);
         playerView.setTranslateX(player.getxPos());
         playerView.setTranslateY(player.getyPos());
+        addView(playerView);
+        this.playerView = playerView;
         objectView = new ObjectView(someObject);
         objectView.setTranslateX(someObject.getxPos());
         objectView.setTranslateY(someObject.getyPos());
+        addView(objectView);
         itemView = new ItemView(item);
         itemView.setTranslateX(item.getxPos());
         itemView.setTranslateY(item.getyPos());
+        addView(itemView);
         itemView2 = new ItemView(item2);
         itemView2.setTranslateX(item2.getxPos());
         itemView2.setTranslateY(item2.getyPos());
+        addView(itemView2);
         characterView = new CharacterView(character);
         characterView.setTranslateX(character.getxPos());
         characterView.setTranslateY(character.getyPos());
+        addView(characterView);
+    }
+
+    /**
+     * Anchor for JavaFx to start the application
+     * Initializes a new JavaFx-Scene
+     *
+     * @param primaryStage
+     */
+    public void start(Stage primaryStage) {
+
+        viewList = new ArrayList<ImageView>();
+
+        initGame();
 
         Group entityGroup = new Group();
+
+        for (ImageView view : viewList)
+        {
+            entityGroup.getChildren().add(view);
+        }
+        /*
         entityGroup.getChildren().add(playerView);
         entityGroup.getChildren().add(objectView);
         entityGroup.getChildren().add(itemView);
         entityGroup.getChildren().add(itemView2);
         entityGroup.getChildren().add(characterView);
+        */
 
         Group mainGroup = new Group();
         this.mapView = new MapView();
@@ -86,6 +119,8 @@ public class MainController extends Application {
         @Override
         public void handle(KeyEvent ke) {
             final int stepSize = 5;
+            World world = EntityLists.getInstance().getWorld();
+            Player player = EntityLists.getInstance().getPlayer();
 
             if (ke.getCode() == KeyCode.DOWN) {
                 player.setyPos(player.getyPos() + stepSize);
@@ -117,18 +152,15 @@ public class MainController extends Application {
         }
     }
 
-    private World world;
+    public void addView(ImageView view) {
+        if ((view != null) && (!this.viewList.contains(view))) {
+            this.viewList.add(view);
+        }
+    }
+
     private MapView mapView;
-    private Player player;
+    private ArrayList<ImageView> viewList;
     private PlayerView playerView;
-    private main.model.Object someObject;
-    private ObjectView objectView;
-    private Item item;
-    private ItemView itemView;
-    private Item item2;
-    private ItemView itemView2;
-    private main.model.Character character;
-    private CharacterView characterView;
 }
 
 
