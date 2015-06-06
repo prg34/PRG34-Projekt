@@ -356,7 +356,7 @@ public class MainController extends Application {
                 if (clickedObject instanceof Character)
                 {
                     for (String sentence : ((Character) clickedObject).getSentences())
-                        System.out.println(sentence + "%n");
+                        System.out.println(sentence);
                 }
                 clickedButton = ClickedButton.NONE;
                 break;
