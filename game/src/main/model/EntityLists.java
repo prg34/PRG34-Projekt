@@ -12,7 +12,6 @@ public class EntityLists {
     private EntityLists()
     {
         this.player = null;
-        this.world = null;
         this.itemList = new ArrayList<Item>();
         this.objectList = new ArrayList<Object>();
         this.characterList = new ArrayList<Character>();
@@ -23,16 +22,6 @@ public class EntityLists {
             EntityLists.instance = new EntityLists();
         }
         return EntityLists.instance;
-    }
-
-
-    /**
-     * Sets the world reference to the actual world object
-     * @param world The actual world that is used in this game
-     */
-    public void setWorld(World world){
-        if (world != null)
-            this.world = world;
     }
 
     /**
@@ -90,11 +79,6 @@ public class EntityLists {
         return itemList.size();
     }
 
-    public World getWorld()
-    {
-        return world;
-    }
-
     public Player getPlayer()
     {
         return player;
@@ -115,7 +99,6 @@ public class EntityLists {
         return characterList;
     }
 
-    private World world;
     private Player player;
     /*
         contains all items of the world that are not stored in the player's inventory or owned by a character

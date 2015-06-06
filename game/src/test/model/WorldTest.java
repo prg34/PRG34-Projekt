@@ -2,8 +2,6 @@ package test.model;
 
 import main.model.EntityLists;
 import main.model.Item;
-import main.model.Player;
-import main.model.World;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,7 +10,6 @@ public class WorldTest {
 
     @Test
     public void testAddItem() throws Exception {
-        World world = new World();
         Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
         Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, item, item);
         EntityLists.getInstance().addItem(item);

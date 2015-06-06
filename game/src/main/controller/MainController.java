@@ -19,7 +19,6 @@ public class MainController extends Application {
 
     private void initGame()
     {
-        World world;
         Player player;
         PlayerView playerView;
         Object someObject;
@@ -31,8 +30,6 @@ public class MainController extends Application {
         Character character;
         CharacterView characterView;
 
-        world = new World();
-        EntityLists.getInstance().setWorld(world);
         player = new Player("Spieler", 250, 250, "player.png", 50, 50);
         EntityLists.getInstance().setPlayer(player);
         someObject = new Object("irgendein Objekt", 100, 100, "object.png", 100, 100, null, null);
@@ -113,7 +110,6 @@ public class MainController extends Application {
         @Override
         public void handle(KeyEvent ke) {
             final int stepSize = 5;
-            World world = EntityLists.getInstance().getWorld();
             Player player = EntityLists.getInstance().getPlayer();
 
             if (ke.getCode() == KeyCode.DOWN) {
@@ -213,6 +209,15 @@ public class MainController extends Application {
                 item.getxPos() < player.getxPos() + player.getSizeX()    &&
                 player.getyPos() < item.getyPos() + item.getSizeY()      &&
                 item.getyPos() < player.getyPos() + player.getSizeY();
+    }
+
+    /**
+     * Handles the process of picking up an item by the player
+     * @param item The item that is picked up by the player
+     */
+    public void pickUpItem(Item item){
+        EntityLists.getInstance().getPlayer().addItemToInventory(item);
+        EntityLists.getInstance().removeItem(item);
     }
 
     private MapView mapView;
