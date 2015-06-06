@@ -38,7 +38,6 @@ public class Item {
         Item result = null;
         if (item == this.correctlyUsedWithItem){
             result = this.correctUseResult;
-            //perhaps remove the 2 used items from inventory of the player, but how to manage that from here?
         }
         return result;
     }

@@ -1,5 +1,7 @@
 package main.model;
 
+import java.util.ArrayList;
+
 /**
  * the Character controlled by the human player
  */
@@ -44,11 +46,10 @@ public class Player {
     /**
      * Delivers the answer of the character the player talks to
      * @param character The character the player talks to
-     * @param num Tells which of the characters possible answers is used here
      * @return The answer of the character to be shown on screen
      */
-    String talkTo(Character character, int num){
-        return character.getSentence(num);
+    ArrayList<String> talkTo(Character character){
+        return character.getSentences();
     }
 
     /**

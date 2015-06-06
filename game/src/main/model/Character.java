@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Character {
 
-    public Character(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, String[] sentences, ArrayList<Item> itemList) {
+    public Character(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, ArrayList<String> sentences, ArrayList<Item> itemList) {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
@@ -16,29 +16,12 @@ public class Character {
         this.itemList = new ArrayList<Item>(itemList);
     }
 
-    /*
-    public void update() {
-        animationCounter++;
-
-        if (animationCounter > animationTime) {
-            animationCounter = 0;
-        }
-        if (animationCounter == 0) {
-            currentAnimationSequence = 0;
-        }
-        if(animationCounter == 10) {
-            currentAnimationSequence = 1;
-        }
-    }
-    */
-
     /**
      * Delivers the answer of the character when the player talks to him
-     * @param num Tells which of the characters possible answers is used here
      * @return The answer of the character to be shown on screen
      */
-    public String getSentence(int num) {
-        return sentences[num];
+    public ArrayList<String> getSentences() {
+        return sentences;
     }
 
     /**
@@ -102,6 +85,6 @@ public class Character {
     private final int animationTime = 20;
     private int animationCounter;
     private int currentAnimationSequence;
-    private String[] sentences = new String[10];
+    private ArrayList<String> sentences = new ArrayList<>();
     private ArrayList<Item> itemList;               //contains all items the character holds
 }
