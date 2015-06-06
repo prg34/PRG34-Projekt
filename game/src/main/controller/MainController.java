@@ -9,6 +9,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import main.model.*;
+import main.model.Character;
 import main.model.Object;
 import main.view.*;
 
@@ -21,16 +22,16 @@ public class MainController extends Application {
         World world;
         Player player;
         PlayerView playerView;
-        main.model.Object someObject;
+        Object someObject;
         ObjectView objectView;
         Item item;
         ItemView itemView;
         Item item2;
         ItemView itemView2;
-        main.model.Character character;
+        Character character;
         CharacterView characterView;
 
-        world = new World(0, 0);
+        world = new World();
         EntityLists.getInstance().setWorld(world);
         player = new Player("Spieler", 250, 250, "player.png", 50, 50);
         EntityLists.getInstance().setPlayer(player);
@@ -41,7 +42,7 @@ public class MainController extends Application {
         item2 = new Item("Messer", "ein Messer!", 100, 500, "item.png", 50, 50, null, null);
         EntityLists.getInstance().addItem(item2);
         String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
-        character = new main.model.Character("Nessi", 500, 100, "character.png", 50, 50, sentences, new ArrayList<Item>());
+        character = new Character("Nessi", 500, 100, "character.png", 50, 50, sentences, new ArrayList<Item>());
         EntityLists.getInstance().addCharacter(character);
 
         playerView = new PlayerView(player);
@@ -85,13 +86,6 @@ public class MainController extends Application {
         {
             entityGroup.getChildren().add(view);
         }
-        /*
-        entityGroup.getChildren().add(playerView);
-        entityGroup.getChildren().add(objectView);
-        entityGroup.getChildren().add(itemView);
-        entityGroup.getChildren().add(itemView2);
-        entityGroup.getChildren().add(characterView);
-        */
 
         Group mainGroup = new Group();
         this.mapView = new MapView();
@@ -124,25 +118,25 @@ public class MainController extends Application {
 
             if (ke.getCode() == KeyCode.DOWN) {
                 player.setyPos(player.getyPos() + stepSize);
-                if (world.checkForCollision()){
+                if (checkForCollision()){
                     player.setyPos(player.getyPos() - stepSize);
                 }
             }
             else if (ke.getCode() == KeyCode.UP) {
                 player.setyPos(player.getyPos() - stepSize);
-                if (world.checkForCollision()){
+                if (checkForCollision()){
                     player.setyPos(player.getyPos() + stepSize);
                 }
             }
             else if (ke.getCode() == KeyCode.RIGHT) {
                 player.setxPos(player.getxPos() + stepSize);
-                if (world.checkForCollision()){
+                if (checkForCollision()){
                     player.setxPos(player.getxPos() - stepSize);
                 }
             }
             else if (ke.getCode() == KeyCode.LEFT) {
                 player.setxPos(player.getxPos() - stepSize);
-                if (world.checkForCollision()){
+                if (checkForCollision()){
                     player.setxPos(player.getxPos() + stepSize);
                 }
             }
@@ -156,6 +150,69 @@ public class MainController extends Application {
         if ((view != null) && (!this.viewList.contains(view))) {
             this.viewList.add(view);
         }
+    }
+
+
+    /**
+     * Checks for a collision between the player and all items, objects and characters in the world
+     * @return Returns true if there was a collision between the player and anything else
+     */
+    public boolean checkForCollision(){
+        for(Object object : EntityLists.getInstance().getObjectList()) {
+            if (checkForCollisionWithObject(object)){
+                return true;
+            }
+        }
+        for(Character character : EntityLists.getInstance().getCharacterList()) {
+            if (checkForCollisionWithCharacter(character)){
+                return true;
+            }
+        }
+        for(Item item : EntityLists.getInstance().getItemList()) {
+            if (checkForCollisionWithItem(item)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Checks for a collision between the player and an object (like a tree or a house)
+     * @param object The object that might have collided with the player
+     * @return Returns true if there was a collision between the player and the object
+     */
+    public boolean checkForCollisionWithObject(Object object){
+        Player player = EntityLists.getInstance().getPlayer();
+        return player.getxPos() < object.getxPos() + object.getSizeX()       &&
+                object.getxPos() < player.getxPos() + player.getSizeX() &&
+                player.getyPos() < object.getyPos() + object.getSizeY()      &&
+                object.getyPos() < player.getyPos() + player.getSizeY();
+    }
+
+    /**
+     * Checks for a collision between the player and a character
+     * @param character The character that might have collided with the player
+     * @return Returns true if there was a collision between the player and the character
+     */
+    public boolean checkForCollisionWithCharacter(Character character){
+        Player player = EntityLists.getInstance().getPlayer();
+        return player.getxPos() < character.getxPos() + character.getSizeX()       &&
+                character.getxPos() < player.getxPos() + player.getSizeX()    &&
+                player.getyPos() < character.getyPos() + character.getSizeY()      &&
+                character.getyPos() < player.getyPos() + player.getSizeY();
+    }
+
+    /**
+     * Checks for a collision between the player and an item placed somewhere in the world
+     * @param item The item that might have collided with the player
+     * @return Returns true if there was a collision between the player and the item
+     */
+    public boolean checkForCollisionWithItem(Item item){
+        Player player = EntityLists.getInstance().getPlayer();
+        return player.getxPos() < item.getxPos() + item.getSizeX()       &&
+                item.getxPos() < player.getxPos() + player.getSizeX()    &&
+                player.getyPos() < item.getyPos() + item.getSizeY()      &&
+                item.getyPos() < player.getyPos() + player.getSizeY();
     }
 
     private MapView mapView;

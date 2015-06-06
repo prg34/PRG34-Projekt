@@ -12,7 +12,7 @@ public class WorldTest {
 
     @Test
     public void testAddItem() throws Exception {
-        World world = new World(0, 0);
+        World world = new World();
         Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
         Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, item, item);
         EntityLists.getInstance().addItem(item);
@@ -27,9 +27,11 @@ public class WorldTest {
                 EntityLists.getInstance().getSizeItemList(), 1 );
     }
 
+    //to be moved to Controller
+    /*
     @Test
     public void testCheckForCollision() throws Exception {
-        World world = new World(0, 0);
+        World world = new World();
         Player player = new Player("Spieler", 10, 10, "knight.png", 32, 32);
         Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
 
@@ -37,8 +39,8 @@ public class WorldTest {
         EntityLists.getInstance().addItem(item);
 
         assertEquals(
-                "After adding 2 items to a new itemList, its size should be 2",
-                world.checkForCollision(), true);
-
+                "with the given coordinates and sizes, there should be a collission between the 2 objects",
+                checkForCollision(), true);
     }
+    */
 }
