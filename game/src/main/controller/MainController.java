@@ -70,7 +70,6 @@ public class MainController extends Application {
      */
     public void start(Stage primaryStage) {
 
-        mapView = null;
         viewList = new ArrayList<ImageView>();
         playerView = null;
         clickedButton = ClickedButton.NONE;
@@ -110,8 +109,8 @@ public class MainController extends Application {
             entityGroup.getChildren().add(view);
         }
 
-        Group mainGroup = new Group();
-        this.mapView = new MapView();
+        this.mainGroup = new Group();
+        MapView mapView = new MapView();
         mainGroup.getChildren().add(mapView.getBackgroundView());
         mainGroup.getChildren().add(entityGroup);
         mainGroup.getChildren().add(useButton);
@@ -365,18 +364,29 @@ public class MainController extends Application {
                 if (clickedObject instanceof Item)
                 {
                     pickUpItem((Item)clickedObject);
+                    System.out.println("Item " + ((Item) clickedObject).getName() + " aufgelesen");
+                    for (ImageView imageView: viewList) {
+                        if (imageView instanceof ItemView)
+                        {
+                            if (((ItemView) imageView).getItem() == clickedObject)
+                            {
+                                imageView.setVisible(false);
+                                //mainGroup.getChildren().remove(imageView);
+                                System.out.println("ItemView von " + ((Item) clickedObject).getName() + " entfernt");
+                            }
+                        }
+                    }
                 }
-
                 break;
         }
     }
 
-    private MapView mapView;
     private ArrayList<ImageView> viewList;
     private PlayerView playerView;
     public enum ClickedButton {NONE, USE, GIVE, INFO, TALK, PICKUP}
     private ClickedButton clickedButton;
     private java.lang.Object firstClickedObject;
+    private Group mainGroup;
 }
 
 

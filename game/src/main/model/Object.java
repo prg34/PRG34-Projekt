@@ -1,7 +1,8 @@
 package main.model;
 
 /**
- * The objects contained in the world (like trees, fences, doors, houses etc.), with some the user is able to interact
+ * The objects contained in the world (like trees, fences, doors, houses etc.)
+ * with certain objects the user is able to interact (like open a door)
  */
 
 public class Object {
@@ -34,7 +35,8 @@ public class Object {
     }
 
     /**
-     * Uses an item with an object to try to open it, if they match the object opens (door, chest), and gives back its contents (if object is a chest)
+     * Uses an item with an object to try to open it, if they match the object opens (door, chest),
+     * and gives back its contents (if object is a chest)
      * @param item The item that is used to try to open the object
      * @return The item that is given back if object is a chest
      */

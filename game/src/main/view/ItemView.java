@@ -18,6 +18,9 @@ public class ItemView extends ImageView {
             setOnMousePressed(new MouseEventHandler());
         }
 
+        public Item getItem()
+        {return item;}
+
         public class MouseEventHandler implements EventHandler<MouseEvent> {
             /**
              * Handles mouse clicks on an object
