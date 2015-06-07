@@ -82,26 +82,31 @@ public class MainController extends Application {
         useButton.setTranslateX(0);
         useButton.setTranslateY(704);
         useButton.setOnMousePressed(new MouseEventHandlerUseButton());
+        useButton.setFocusTraversable(false);
 
         Button giveButton = new Button("Gib");
         giveButton.setTranslateX(70);
         giveButton.setTranslateY(704);
         giveButton.setOnMousePressed(new MouseEventHandlerGiveButton());
+        giveButton.setFocusTraversable(false);
 
         Button infoButton = new Button("Info");
         infoButton.setTranslateX(120);
         infoButton.setTranslateY(704);
         infoButton.setOnMousePressed(new MouseEventHandlerInfoButton());
+        infoButton.setFocusTraversable(false);
 
         Button talkButton = new Button("Rede mit");
         talkButton.setTranslateX(170);
         talkButton.setTranslateY(704);
         talkButton.setOnMousePressed(new MouseEventHandlerTalkButton());
+        talkButton.setFocusTraversable(false);
 
         Button pickUpButton = new Button("Nimm");
         pickUpButton.setTranslateX(250);
         pickUpButton.setTranslateY(704);
         pickUpButton.setOnMousePressed(new MouseEventHandlerPickUpButton());
+        pickUpButton.setFocusTraversable(false);
 
         Group entityGroup = new Group();
 
