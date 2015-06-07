@@ -17,7 +17,7 @@ public class CharacterTest {
         sentences.add("Hallo!");
         sentences.add("Wie geht's?");
         sentences.add("Ciao!");
-        Character niklas = new Character("Niklas", 15, 15, "finished.png", 250, 100, sentences, new ArrayList<Item>());
+        Character niklas = new Character("Niklas", 15, 15, "finished.png", 250, 100, sentences, ash);
 
         niklas.receiveItemFromPlayer(ash);
         assertEquals(
@@ -25,7 +25,7 @@ public class CharacterTest {
                 niklas.isPossessedByCharacter(ash), true);
 
 
-        niklas.giveItemToPlayer(ash);
+        niklas.giveItemToPlayer();
         assertEquals(
                 "character should be in possession of the item after it was given to him",
                 niklas.isPossessedByCharacter(ash), false);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Character {
 
-    public Character(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, ArrayList<String> sentences, ArrayList<Item> itemList) {
+    public Character(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, ArrayList<String> sentences, Item item) {
         this.name = name;
         this.xPos = xPos;
         this.yPos = yPos;
@@ -13,7 +13,7 @@ public class Character {
         this.sizeY = sizeY;
         this.animationCounter = 0;
         this.sentences = sentences;
-        this.itemList = new ArrayList<Item>(itemList);
+        this.item = item;
     }
 
     /**
@@ -29,18 +29,18 @@ public class Character {
      * @param item The item that is transferred from player to this character
      */
     public void receiveItemFromPlayer(Item item){
-        if ((item != null) && (!this.itemList.contains(item)))
-            this.itemList.add(item);
+        if (item != null)
+            this.item = item;
     }
 
     /**
      * Handles transfer of item from character to player
-     * @param item The item that is transferred from character to player
      * @return The item that is transferred so player can add it to his inventory
      */
-    public Item giveItemToPlayer(Item item){
-        this.itemList.remove(item);
-        return item;
+    public Item giveItemToPlayer(){
+        Item itemTemp = this.item;
+        item = null;
+        return itemTemp;
     }
 
     /**
@@ -49,7 +49,7 @@ public class Character {
      * @return If item is in possession of character then return = true, else return = false
      */
     public boolean isPossessedByCharacter(Item item){
-        return this.itemList.contains(item);
+        return this.item == item;
     }
 
     public int getxPos() {
@@ -86,5 +86,5 @@ public class Character {
     private int animationCounter;
     private int currentAnimationSequence;
     private ArrayList<String> sentences = new ArrayList<>();
-    private ArrayList<Item> itemList;               //contains all items the character holds
+    Item item;
 }

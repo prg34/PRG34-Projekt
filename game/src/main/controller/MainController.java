@@ -54,7 +54,7 @@ public class MainController extends Application {
         sentences.add("Hallo!");
         sentences.add("Wie geht's?");
         sentences.add("Ciao!");
-        Character character = new Character("Nessi", 500, 100, "character.png", 50, 50, sentences, new ArrayList<Item>());
+        Character character = new Character("Nessi", 500, 100, "character.png", 50, 50, sentences, item2);
         EntityLists.getInstance().addCharacter(character);
         CharacterView characterView = new CharacterView(character, this);
         characterView.setTranslateX(character.getxPos());
@@ -70,6 +70,7 @@ public class MainController extends Application {
      */
     public void start(Stage primaryStage) {
 
+        mainGroup = null;
         viewList = new ArrayList<ImageView>();
         playerView = null;
         clickedButton = ClickedButton.NONE;
@@ -323,7 +324,6 @@ public class MainController extends Application {
                     }
                     clickedButton = ClickedButton.NONE;
                 }
-
                 break;
 
             case GIVE:
@@ -336,7 +336,6 @@ public class MainController extends Application {
                     EntityLists.getInstance().getPlayer().giveItemToCharacter((Item)firstClickedObject, (Character)clickedObject);
                     clickedButton = ClickedButton.NONE;
                 }
-
                 break;
 
             case INFO:
@@ -356,6 +355,8 @@ public class MainController extends Application {
                 {
                     for (String sentence : ((Character) clickedObject).getSentences())
                         System.out.println(sentence);
+                    Item itemReceived = ((Character) clickedObject).giveItemToPlayer();
+                    EntityLists.getInstance().getPlayer().addItemToInventory(itemReceived);
                 }
                 clickedButton = ClickedButton.NONE;
                 break;
@@ -372,7 +373,6 @@ public class MainController extends Application {
                             {
                                 imageView.setVisible(false);
                                 //mainGroup.getChildren().remove(imageView);
-                                System.out.println("ItemView von " + ((Item) clickedObject).getName() + " entfernt");
                             }
                         }
                     }
@@ -381,12 +381,12 @@ public class MainController extends Application {
         }
     }
 
+    private Group mainGroup;
     private ArrayList<ImageView> viewList;
     private PlayerView playerView;
     public enum ClickedButton {NONE, USE, GIVE, INFO, TALK, PICKUP}
     private ClickedButton clickedButton;
     private java.lang.Object firstClickedObject;
-    private Group mainGroup;
 }
 
 

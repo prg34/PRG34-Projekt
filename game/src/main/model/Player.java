@@ -39,9 +39,11 @@ public class Player {
      * @param item The item the player receives from the character
      * @param character The character who gives the item to the player
      */
+    /*
     public void takeItemFromCharacter(Item item, Character character) {
         this.addItemToInventory(character.giveItemToPlayer(item));
     }
+    */
 
     /**
      * Delivers the answer of the character the player talks to
