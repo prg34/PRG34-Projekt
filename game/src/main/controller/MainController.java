@@ -130,7 +130,7 @@ public class MainController extends Application {
         mainGroup.getChildren().add(infoButton);
         mainGroup.getChildren().add(talkButton);
         mainGroup.getChildren().add(pickUpButton);
-        Scene scene = new Scene(mainGroup, 704, 754);
+        Scene scene = new Scene(mainGroup, 754, 754);
 
         primaryStage.setTitle("Point and Click Adventure");
         primaryStage.setScene(scene);
@@ -370,6 +370,7 @@ public class MainController extends Application {
                     EntityLists.getInstance().getPlayer().addItemToInventory(itemReceived);
                 }
                 clickedButton = ClickedButton.NONE;
+                drawInventory();
                 break;
 
             case PICKUP:
@@ -388,12 +389,29 @@ public class MainController extends Application {
                             }
                         }
                     }*/
+                    /*
                     ImageView imageView = modelToView.get(clickedObject);
                     if (imageView != null) {
                         imageView.setVisible(false);
                     }
+                    */
+                    drawInventory();
                 }
                 break;
+        }
+    }
+
+    void drawInventory()
+    {
+        int counter = 0;
+        for (Item item : EntityLists.getInstance().getPlayer().getInventory())
+        {
+            ImageView imageView = modelToView.get(item);
+            if (imageView != null) {
+                imageView.setTranslateX(704);
+                imageView.setTranslateY(counter * 50);
+            }
+            ++counter;
         }
     }
 

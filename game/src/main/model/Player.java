@@ -117,6 +117,11 @@ public class Player {
         return sizeY;
     }
 
+    public ArrayList<Item> getInventory()
+    {
+        return inventory.getItemList();
+    }
+
     public String getImageFilename(){
         return this.imageFilename;
     }

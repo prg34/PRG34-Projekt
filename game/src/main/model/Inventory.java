@@ -35,6 +35,11 @@ public class Inventory {
         return itemList.size();
     }
 
+    public ArrayList<Item> getItemList()
+    {
+        return itemList;
+    }
+
     /**
      * Checks if item is already in inventory
      * @param item The item to be checked
