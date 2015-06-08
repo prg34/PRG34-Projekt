@@ -6,7 +6,6 @@ public class Character extends Entity {
 
     public Character(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, ArrayList<String> sentences, Item item) {
         super(name, xPos, yPos, sizeX, sizeY, imageFilename);
-        this.animationCounter = 0;
         this.sentences = sentences;
         this.item = item;
     }
@@ -47,9 +46,6 @@ public class Character extends Entity {
         return this.item == item;
     }
 
-    private final int animationTime = 20;
-    private int animationCounter;
-    private int currentAnimationSequence;
     private ArrayList<String> sentences = new ArrayList<>();
     Item item;
 }

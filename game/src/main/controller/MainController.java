@@ -36,6 +36,7 @@ public class MainController extends Application {
         objectView.setTranslateX(someObject.getxPos());
         objectView.setTranslateY(someObject.getyPos());
         addView(objectView);
+        modelToView.put(someObject, objectView);
 
         Item item = new Item("Gabel", "Yup, eine Gabel!", 500, 500, "item.png", 50, 50, null, null);
         EntityLists.getInstance().addItem(item);
@@ -43,6 +44,7 @@ public class MainController extends Application {
         itemView.setTranslateX(item.getxPos());
         itemView.setTranslateY(item.getyPos());
         addView(itemView);
+        modelToView.put(item, itemView);
 
         Item item2 = new Item("Messer", "ein Messer!", 100, 500, "item.png", 50, 50, null, null);
         EntityLists.getInstance().addItem(item2);
@@ -50,6 +52,7 @@ public class MainController extends Application {
         itemView2.setTranslateX(item2.getxPos());
         itemView2.setTranslateY(item2.getyPos());
         addView(itemView2);
+        modelToView.put(item2, itemView2);
 
         ArrayList<String> sentences = new ArrayList<>();
         sentences.add("Hallo!");
@@ -61,6 +64,7 @@ public class MainController extends Application {
         characterView.setTranslateX(character.getxPos());
         characterView.setTranslateY(character.getyPos());
         addView(characterView);
+        modelToView.put(character, characterView);
     }
 
     /**
@@ -76,6 +80,7 @@ public class MainController extends Application {
         playerView = null;
         clickedButton = ClickedButton.NONE;
         firstClickedObject = null;
+        modelToView = new Hashtable<Entity, ImageView>();
 
         initGame();
 
@@ -372,6 +377,7 @@ public class MainController extends Application {
                 {
                     pickUpItem((Item)clickedObject);
                     System.out.println("Item " + ((Item) clickedObject).getName() + " aufgelesen");
+                    /*
                     for (ImageView imageView: viewList) {
                         if (imageView instanceof ItemView)
                         {
@@ -381,6 +387,10 @@ public class MainController extends Application {
                                 //mainGroup.getChildren().remove(imageView);
                             }
                         }
+                    }*/
+                    ImageView imageView = modelToView.get(clickedObject);
+                    if (imageView != null) {
+                        imageView.setVisible(false);
                     }
                 }
                 break;
@@ -393,6 +403,7 @@ public class MainController extends Application {
     public enum ClickedButton {NONE, USE, GIVE, INFO, TALK, PICKUP}
     private ClickedButton clickedButton;
     private java.lang.Object firstClickedObject;
+    private Hashtable<Entity, ImageView> modelToView;
 }
 
 
