@@ -11,7 +11,7 @@ public class CharacterView extends ImageView {
     public CharacterView(Character character, MainController mainController) {
         this.character = character;
         this.mainController = mainController;
-        String path = "/images/" + character.getImageFilename();
+        String path = "/" + character.getImageFilename();
         final Image ITEM_IMAGE = new Image(PlayerView.class.getResource(path).toString());
         setImage(ITEM_IMAGE);
         setOnMousePressed(new MouseEventHandler());

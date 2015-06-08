@@ -13,7 +13,7 @@ public class ObjectView extends ImageView{
     public ObjectView(Object object, MainController mainController) {
         this.object = object;
         this.mainController = mainController;
-        String path = "/images/" + object.getImageFilename();
+        String path = "/" + object.getImageFilename();
         final Image OBJECT_IMAGE = new Image(PlayerView.class.getResource(path).toString());
         setImage(OBJECT_IMAGE);
         setOnMousePressed(new MouseEventHandler());

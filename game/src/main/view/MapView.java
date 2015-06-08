@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 
 public class MapView {
 
-    private final static Image BACKGROUND_IMAGE = new Image(MapView.class.getResource("/images/background.png").toString());
+    private final static Image BACKGROUND_IMAGE = new Image(MapView.class.getResource("/background.png").toString());
 
 
     public MapView() {

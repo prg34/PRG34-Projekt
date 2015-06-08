@@ -12,7 +12,7 @@ public class ItemView extends ImageView {
         public ItemView(Item item, MainController mainController) {
             this.item = item;
             this.mainController = mainController;
-            String path = "/images/" + item.getImageFilename();
+            String path = "/" + item.getImageFilename();
             final Image ITEM_IMAGE = new Image(PlayerView.class.getResource(path).toString());
             setImage(ITEM_IMAGE);
             setOnMousePressed(new MouseEventHandler());
