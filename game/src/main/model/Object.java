@@ -5,14 +5,9 @@ package main.model;
  * with certain objects the user is able to interact (like open a door)
  */
 
-public class Object {
+public class Object extends Entity{
     public Object(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, Item openedWithItem, Item content) {
-        this.name = name;
-        this.xPos = xPos;
-        this.yPos = yPos;
-        this.imageFilename = imageFilename;
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
+        super(name, xPos, yPos, sizeX, sizeY, imageFilename);
         this.opened = false;
         this.openedWithItem = openedWithItem;
         this.content = content;
@@ -49,37 +44,6 @@ public class Object {
         return result;
     }
 
-    public int getxPos() {
-        return xPos;
-    }
-
-    public int getyPos() {
-        return yPos;
-    }
-
-    public int getSizeX() {
-        return sizeX;
-    }
-
-    public int getSizeY() {
-        return sizeY;
-    }
-
-    public String getImageFilename()
-    {
-        return imageFilename;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    private final String name;
-    private int xPos;           //position of the object in the world, marks upper left corner
-    private int yPos;
-    private String imageFilename;
-    private final int sizeX;
-    private final int sizeY;
     private boolean opened;      // shows if the object ist opened or closed, like chests or doors, default value closed
     private Item openedWithItem;    //proper item, like a key, to open a door or a chest
     private Item content;          //if chest was opened, content of it is returned

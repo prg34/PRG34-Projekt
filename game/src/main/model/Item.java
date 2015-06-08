@@ -4,21 +4,12 @@ package main.model;
  * The items contained in the world, the player is allowed to take them and/or use them.
  */
 
-public class Item {
-    public Item(String name, String description, int xPos, int yPos, String ImageFilename, int sizeX, int sizeY, Item correctlyUsedWithItem, Item correctUseResult) {
-        this.name = name;
+public class Item extends Entity {
+    public Item(String name, String description, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, Item correctlyUsedWithItem, Item correctUseResult) {
+        super(name, xPos, yPos, sizeX, sizeY, imageFilename);
         this.description = description;
-        this.xPos = xPos;
-        this.yPos = yPos;
-        this.ImageFilename = ImageFilename;
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
         this.correctlyUsedWithItem = correctlyUsedWithItem;
         this.correctUseResult = correctUseResult;
-    }
-
-    public String getName() {
-        return name;
     }
 
     /**
@@ -42,33 +33,7 @@ public class Item {
         return result;
     }
 
-    public int getxPos() {
-        return xPos;
-    }
-
-    public int getyPos() {
-        return yPos;
-    }
-
-    public int getSizeX() {
-        return sizeX;
-    }
-
-    public int getSizeY() {
-        return sizeY;
-    }
-
-    public String getImageFilename(){
-        return ImageFilename;
-    }
-
-    private final String name;
     private final String description;         //is used by Player.lookAt(item)
-    private int xPos;                       //position of the item in the world, marks upper left corner
-    private int yPos;
-    private String ImageFilename;
-    private final int sizeX;
-    private final int sizeY;
     private final Item correctlyUsedWithItem;
     private final Item correctUseResult;
 }

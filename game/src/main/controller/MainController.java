@@ -16,6 +16,7 @@ import main.model.Object;
 import main.view.*;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class MainController extends Application {
 

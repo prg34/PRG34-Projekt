@@ -2,15 +2,10 @@ package main.model;
 
 import java.util.ArrayList;
 
-public class Character {
+public class Character extends Entity {
 
     public Character(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, ArrayList<String> sentences, Item item) {
-        this.name = name;
-        this.xPos = xPos;
-        this.yPos = yPos;
-        this.imageFilename = imageFilename;
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
+        super(name, xPos, yPos, sizeX, sizeY, imageFilename);
         this.animationCounter = 0;
         this.sentences = sentences;
         this.item = item;
@@ -52,36 +47,6 @@ public class Character {
         return this.item == item;
     }
 
-    public int getxPos() {
-        return xPos;
-    }
-
-    public int getyPos() {
-        return yPos;
-    }
-
-    public int getSizeX() {
-        return sizeX;
-    }
-
-    public int getSizeY() {
-        return sizeY;
-    }
-
-    public String getImageFilename(){
-        return imageFilename;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    private final String name;
-    private int xPos;           //position of the character in the world, marks upper left corner
-    private int yPos;
-    private String imageFilename;
-    private final int sizeX;
-    private final int sizeY;
     private final int animationTime = 20;
     private int animationCounter;
     private int currentAnimationSequence;
