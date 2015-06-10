@@ -2,6 +2,7 @@ package main.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * contains and manages all items collected by the player
@@ -41,7 +42,7 @@ public class Inventory {
         return itemList.size();
     }
 
-    public ArrayList<Item> getItemList()
+    public List<Item> getItemList()
     {
         return itemList;
     }
@@ -55,6 +56,6 @@ public class Inventory {
         return this.itemList.contains(item);
     }
 
-    //@OneToMany
-    private ArrayList<Item> itemList;   //to collect all items of the inventory
+    @OneToMany
+    private List<Item> itemList;   //to collect all items of the inventory
 }

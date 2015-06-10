@@ -56,10 +56,7 @@ public class MainController extends Application {
         addView(itemView2);
         modelToView.put(item2, itemView2);
 
-        ArrayList<String> sentences = new ArrayList<>();
-        sentences.add("Hallo!");
-        sentences.add("Wie geht's?");
-        sentences.add("Ciao!");
+        String sentences = "Hallo!" + "\n" + "Wie geht's?" + "\n" + "Ciao!";
         Character character = new Character("Nessi", 500, 100, "character.png", 50, 50, sentences, item2);
         EntityLists.getInstance().addCharacter(character);
         CharacterView characterView = new CharacterView(character, this);
@@ -405,10 +402,7 @@ public class MainController extends Application {
             case TALK:
                 if (clickedObject instanceof Character)
                 {
-                    String outputString = "";
-                    for (String sentence : ((Character) clickedObject).getSentences())
-                        outputString += sentence + "\n";
-                    outputText.setText(outputString);
+                    outputText.setText(((Character) clickedObject).getSentences());
                     Item itemReceived = ((Character) clickedObject).giveItemToPlayer();
                     EntityLists.getInstance().getPlayer().addItemToInventory(itemReceived);
                     modelToView.get(itemReceived).setVisible(true);

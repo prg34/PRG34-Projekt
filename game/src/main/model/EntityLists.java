@@ -2,6 +2,7 @@ package main.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -91,17 +92,17 @@ public class EntityLists {
         return player;
     }
 
-    public ArrayList<Item> getItemList()
+    public List<Item> getItemList()
     {
         return itemList;
     }
 
-    public ArrayList<Object> getObjectList()
+    public List<Object> getObjectList()
     {
         return objectList;
     }
 
-    public ArrayList<Character> getCharacterList()
+    public List<Character> getCharacterList()
     {
         return characterList;
     }
@@ -113,20 +114,20 @@ public class EntityLists {
         contains all items of the world that are not stored in the player's inventory or owned by a character
         items can be collected and used by the player, like keys etc.
      */
-    //@OneToMany
-    private ArrayList<Item> itemList;
+    @OneToMany
+    private List<Item> itemList;
 
     /*
         contains all objects of the world, like trees, houses, fences etc. (=foreground)
         collision detection needed
      */
-    //@OneToMany
-    private ArrayList<Object> objectList;
+    @OneToMany
+    private List<Object> objectList;
 
     /*
         contains all characters of the world, i.e. all persons not controlled by the human player
         player can talk to and transfer items from/to a character
      */
-    //@OneToMany
-    private ArrayList<Character> characterList;
+    @OneToMany
+    private List<Character> characterList;
 }

@@ -13,10 +13,7 @@ public class CharacterTest {
     @Test
     public void testGiveItemToPlayer() throws Exception {
         Item ash = new Item("Asche", "Was das wohl mal war?", 15, 15, "finished.png", 250, 100, null, null);
-        ArrayList<String> sentences = new ArrayList<>();
-        sentences.add("Hallo!");
-        sentences.add("Wie geht's?");
-        sentences.add("Ciao!");
+        String sentences = "Hallo!" + "\n" + "Wie geht's?" + "\n" + "Ciao!";
         Character niklas = new Character("Niklas", 15, 15, "finished.png", 250, 100, sentences, ash);
 
         niklas.receiveItemFromPlayer(ash);

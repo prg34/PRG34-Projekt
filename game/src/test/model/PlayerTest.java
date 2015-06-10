@@ -36,11 +36,7 @@ public class PlayerTest {
         Player player = new Player("Spieler", 0, 0, "knight.png", 32, 32);
         Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", 15, 15, "finished.png", 250, 100, null, null);
 
-        //create string array for character
-        ArrayList<String> sentences = new ArrayList<>();
-        sentences.add("Hallo!");
-        sentences.add("Wie geht's?");
-        sentences.add("Ciao!");
+        String sentences = "Hallo!" + "\n" + "Wie geht's?" + "\n" + "Ciao!";
         Character monster = new Character("Nessi", 20, 20, "finished.png", 250, 100, sentences, ring);
 
 

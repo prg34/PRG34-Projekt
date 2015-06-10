@@ -2,6 +2,7 @@ package main.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * the Character controlled by the human player
@@ -66,7 +67,7 @@ public class Player {
      * @param character The character the player talks to
      * @return The answer of the character to be shown on screen
      */
-    ArrayList<String> talkTo(Character character){
+    String talkTo(Character character){
         return character.getSentences();
     }
 
@@ -133,7 +134,7 @@ public class Player {
         return sizeY;
     }
 
-    public ArrayList<Item> getInventory()
+    public List<Item> getInventory()
     {
         return inventory.getItemList();
     }

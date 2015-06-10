@@ -2,11 +2,12 @@ package main.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Character extends GameEntity {
 
-    public Character(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, ArrayList<String> sentences, Item item) {
+    public Character(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, String sentences, Item item) {
         super(name, xPos, yPos, sizeX, sizeY, imageFilename);
         this.sentences = sentences;
         this.item = item;
@@ -26,7 +27,7 @@ public class Character extends GameEntity {
      * Delivers the answer of the character when the player talks to him
      * @return The answer of the character to be shown on screen
      */
-    public ArrayList<String> getSentences() {
+    public String getSentences() {
         return sentences;
     }
 
@@ -58,18 +59,8 @@ public class Character extends GameEntity {
         return this.item == item;
     }
 
-    @Override
-    public int hashCode()
-    {
-        int result = super.hashCode();
-        long temp = Double.doubleToLongBits(xPos);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+    private String sentences;
 
-        return result;
-    }
-
-    //@OneToMany
-    private ArrayList<String> sentences = new ArrayList<>();
     @OneToOne
     Item item;
 }
