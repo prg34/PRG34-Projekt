@@ -10,6 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.scene.text.*;
 import main.model.*;
 import main.model.Character;
 import main.model.Object;
@@ -47,10 +48,11 @@ public class MainController extends Application {
         modelToView.put(item, itemView);
 
         Item item2 = new Item("Messer", "ein Messer!", 100, 500, "item.png", 50, 50, null, null);
-        EntityLists.getInstance().addItem(item2);
+        //EntityLists.getInstance().addItem(item2);
         ItemView itemView2 = new ItemView(item2, this);
-        itemView2.setTranslateX(item2.getxPos());
-        itemView2.setTranslateY(item2.getyPos());
+        //itemView2.setTranslateX(item2.getxPos());
+        //itemView2.setTranslateY(item2.getyPos());
+        itemView2.setVisible(false);
         addView(itemView2);
         modelToView.put(item2, itemView2);
 
@@ -81,6 +83,7 @@ public class MainController extends Application {
         clickedButton = ClickedButton.NONE;
         firstClickedObject = null;
         modelToView = new Hashtable<Entity, ImageView>();
+        outputText = new Text();
 
         initGame();
 
@@ -114,6 +117,8 @@ public class MainController extends Application {
         pickUpButton.setOnMousePressed(new MouseEventHandlerPickUpButton());
         pickUpButton.setFocusTraversable(false);
 
+        outputText.setTranslateY(754);
+
         Group entityGroup = new Group();
 
         for (ImageView view : viewList)
@@ -130,7 +135,8 @@ public class MainController extends Application {
         mainGroup.getChildren().add(infoButton);
         mainGroup.getChildren().add(talkButton);
         mainGroup.getChildren().add(pickUpButton);
-        Scene scene = new Scene(mainGroup, 754, 754);
+        mainGroup.getChildren().add(outputText);
+        Scene scene = new Scene(mainGroup, 754, 794);
 
         primaryStage.setTitle("Point and Click Adventure");
         primaryStage.setScene(scene);
@@ -345,18 +351,21 @@ public class MainController extends Application {
                 else if (firstClickedObject instanceof Item && clickedObject instanceof Character)
                 {
                     EntityLists.getInstance().getPlayer().giveItemToCharacter((Item)firstClickedObject, (Character)clickedObject);
+                    outputText.setText(((Item) firstClickedObject).getName() + " an " + ((Character) clickedObject).getName() + " übergeben");
                     clickedButton = ClickedButton.NONE;
+                    modelToView.get(firstClickedObject).setVisible(false);
+                    drawInventory();
                 }
                 break;
 
             case INFO:
                 if (clickedObject instanceof Item)
                 {
-                    System.out.println(((Item) clickedObject).lookAt());
+                    outputText.setText(((Item) clickedObject).lookAt());
                 }
                 else if (clickedObject instanceof Object)
                 {
-                    System.out.println(((Object) clickedObject).getName());
+                    outputText.setText(((Object) clickedObject).getName());
                 }
                 clickedButton = ClickedButton.NONE;
                 break;
@@ -364,10 +373,13 @@ public class MainController extends Application {
             case TALK:
                 if (clickedObject instanceof Character)
                 {
+                    String outputString = "";
                     for (String sentence : ((Character) clickedObject).getSentences())
-                        System.out.println(sentence);
+                        outputString += sentence + "\n";
+                    outputText.setText(outputString);
                     Item itemReceived = ((Character) clickedObject).giveItemToPlayer();
                     EntityLists.getInstance().getPlayer().addItemToInventory(itemReceived);
+                    modelToView.get(itemReceived).setVisible(true);
                 }
                 clickedButton = ClickedButton.NONE;
                 drawInventory();
@@ -377,24 +389,7 @@ public class MainController extends Application {
                 if (clickedObject instanceof Item)
                 {
                     pickUpItem((Item)clickedObject);
-                    System.out.println("Item " + ((Item) clickedObject).getName() + " aufgelesen");
-                    /*
-                    for (ImageView imageView: viewList) {
-                        if (imageView instanceof ItemView)
-                        {
-                            if (((ItemView) imageView).getItem() == clickedObject)
-                            {
-                                imageView.setVisible(false);
-                                //mainGroup.getChildren().remove(imageView);
-                            }
-                        }
-                    }*/
-                    /*
-                    ImageView imageView = modelToView.get(clickedObject);
-                    if (imageView != null) {
-                        imageView.setVisible(false);
-                    }
-                    */
+                    outputText.setText("Item " + ((Item) clickedObject).getName() + " aufgelesen");
                     drawInventory();
                 }
                 break;
@@ -422,6 +417,7 @@ public class MainController extends Application {
     private ClickedButton clickedButton;
     private java.lang.Object firstClickedObject;
     private Hashtable<Entity, ImageView> modelToView;
+    Text outputText;
 }
 
 
@@ -441,16 +437,6 @@ public class Game {
         //create string array for character
         String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
         main.model.Character monster = new main.model.Character("Nessi", 20, 20, sentences, new ArrayList<Item>());
-
-        //place all objects in the world
-        World world = new World(0, 0);
-        world.addPlayer(player);
-        world.addItem(spoon);
-        world.addItem(plate);
-        world.addItem(key);
-        world.addObject(tree);
-        world.addObject(door);
-        world.addCharacter(monster);
 
         //spoon is used with plate, the resulting ring is stored in the player's inventory
         player.addItemToInventory(spoon.useWithItem(plate));
