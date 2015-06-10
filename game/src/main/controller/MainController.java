@@ -329,6 +329,8 @@ public class MainController extends Application {
                         player.addItemToInventory(item);
                         player.removeItemFromInventory((Item) firstClickedObject);
                         player.removeItemFromInventory((Item) clickedObject);
+                        modelToView.get(firstClickedObject).setVisible(false);
+                        modelToView.get(clickedObject).setVisible(false);
                     }
                     clickedButton = ClickedButton.NONE;
                 }
@@ -338,6 +340,7 @@ public class MainController extends Application {
                     if (item != null) {
                         player.addItemToInventory(item);
                         player.removeItemFromInventory((Item) firstClickedObject);
+                        modelToView.get(firstClickedObject).setVisible(false);
                     }
                     clickedButton = ClickedButton.NONE;
                 }

@@ -12,8 +12,13 @@ public class CharacterView extends ImageView {
         this.character = character;
         this.mainController = mainController;
         String path = "/" + character.getImageFilename();
-        final Image ITEM_IMAGE = new Image(PlayerView.class.getResource(path).toString());
-        setImage(ITEM_IMAGE);
+        try {
+            final Image characterImage = new Image(CharacterView.class.getResource(path).toString());
+            setImage(characterImage);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         setOnMousePressed(new MouseEventHandler());
     }
 
@@ -25,7 +30,6 @@ public class CharacterView extends ImageView {
         @Override
         public void handle(MouseEvent me) {
             mainController.processMouseEvent(character);
-            //System.out.println("Character \"" + character.getName() + "\" geklickt");
         }
     }
 

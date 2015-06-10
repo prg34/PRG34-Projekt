@@ -14,8 +14,13 @@ public class ObjectView extends ImageView{
         this.object = object;
         this.mainController = mainController;
         String path = "/" + object.getImageFilename();
-        final Image OBJECT_IMAGE = new Image(PlayerView.class.getResource(path).toString());
-        setImage(OBJECT_IMAGE);
+        try {
+            final Image objectImage = new Image(ObjectView.class.getResource(path).toString());
+            setImage(objectImage);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         setOnMousePressed(new MouseEventHandler());
         }
 
@@ -27,7 +32,6 @@ public class ObjectView extends ImageView{
         @Override
         public void handle(MouseEvent me) {
             mainController.processMouseEvent(object);
-            //System.out.println("Objekt \"" + object.getName() + "\" geklickt");
         }
     }
 

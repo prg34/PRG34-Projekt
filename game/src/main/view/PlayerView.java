@@ -11,8 +11,14 @@ public class PlayerView extends ImageView{
         this.player = player;
         this.mainController = mainController;
         String path = "/" + player.getImageFilename();
-        final Image KNIGHT_IMAGE = new Image(PlayerView.class.getResource(path).toString());
-        setImage(KNIGHT_IMAGE);
+        try {
+            final Image playerImage = new Image(PlayerView.class.getResource(path).toString());
+            setImage(playerImage);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private Player player;

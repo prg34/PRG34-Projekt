@@ -13,8 +13,13 @@ public class ItemView extends ImageView {
             this.item = item;
             this.mainController = mainController;
             String path = "/" + item.getImageFilename();
-            final Image ITEM_IMAGE = new Image(PlayerView.class.getResource(path).toString());
-            setImage(ITEM_IMAGE);
+            try {
+                final Image itemImage = new Image(ItemView.class.getResource(path).toString());
+                setImage(itemImage);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
             setOnMousePressed(new MouseEventHandler());
         }
 
@@ -29,7 +34,6 @@ public class ItemView extends ImageView {
             @Override
             public void handle(MouseEvent me) {
                 mainController.processMouseEvent(item);
-                //System.out.println("Item \"" + item.getName() + "\" geklickt");
             }
         }
 
