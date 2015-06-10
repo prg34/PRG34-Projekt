@@ -1,10 +1,12 @@
 package main.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
 /**
  * the Character controlled by the human player
  */
+@Entity
 public class Player {
     public Player(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY) {
         this.name = name;
@@ -15,6 +17,20 @@ public class Player {
         this.sizeY = sizeY;
         this.inventory = new Inventory();
     }
+
+    public Player() {
+        this.name = "";
+        this.xPos = 0;
+        this.yPos = 0;
+        this.imageFilename = "";
+        this.sizeX = 0;
+        this.sizeY = 0;
+        this.inventory = new Inventory();
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * Adds an item to the inventory the player just picked up or got form somewhere else
@@ -132,5 +148,6 @@ public class Player {
     private String imageFilename;
     private final int sizeX;    //size of the player for collision detection etc.
     private final int sizeY;
+    @OneToOne
     private Inventory inventory;
 }

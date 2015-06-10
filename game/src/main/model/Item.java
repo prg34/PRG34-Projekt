@@ -1,16 +1,29 @@
 package main.model;
 
+import javax.persistence.*;
+
 /**
  * The items contained in the world, the player is allowed to take them and/or use them.
  */
-
-public class Item extends Entity {
+@Entity
+public class Item extends GameEntity {
     public Item(String name, String description, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, Item correctlyUsedWithItem, Item correctUseResult) {
         super(name, xPos, yPos, sizeX, sizeY, imageFilename);
         this.description = description;
         this.correctlyUsedWithItem = correctlyUsedWithItem;
         this.correctUseResult = correctUseResult;
     }
+
+    public Item() {
+        super();
+        this.description = "";
+        this.correctlyUsedWithItem = null;
+        this.correctUseResult = null;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * Returns the description of the item to be shown on the screen when player looks at that item
@@ -34,6 +47,8 @@ public class Item extends Entity {
     }
 
     private final String description;         //is used by Player.lookAt(item)
+    @OneToOne
     private final Item correctlyUsedWithItem;
+    @OneToOne
     private final Item correctUseResult;
 }

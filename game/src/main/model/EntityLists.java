@@ -1,15 +1,18 @@
 package main.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
 /**
  *
  */
+@Entity
 public class EntityLists {
 
     private static EntityLists instance;
 
-    private EntityLists()
+    // made the constructor "protected", cause JPA asked for it (despite the fact it's a singleton)
+    protected EntityLists()
     {
         this.player = null;
         this.itemList = new ArrayList<Item>();
@@ -23,6 +26,10 @@ public class EntityLists {
         }
         return EntityLists.instance;
     }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * Sets the player reference to the actual player object
@@ -99,22 +106,27 @@ public class EntityLists {
         return characterList;
     }
 
+    @OneToOne
     private Player player;
+
     /*
         contains all items of the world that are not stored in the player's inventory or owned by a character
         items can be collected and used by the player, like keys etc.
      */
+    //@OneToMany
     private ArrayList<Item> itemList;
 
     /*
         contains all objects of the world, like trees, houses, fences etc. (=foreground)
         collision detection needed
      */
+    //@OneToMany
     private ArrayList<Object> objectList;
 
     /*
         contains all characters of the world, i.e. all persons not controlled by the human player
         player can talk to and transfer items from/to a character
      */
+    //@OneToMany
     private ArrayList<Character> characterList;
 }

@@ -82,8 +82,9 @@ public class MainController extends Application {
         playerView = null;
         clickedButton = ClickedButton.NONE;
         firstClickedObject = null;
-        modelToView = new Hashtable<Entity, ImageView>();
+        modelToView = new Hashtable<GameEntity, ImageView>();
         outputText = new Text();
+        jpaController = new JPAController();
 
         initGame();
 
@@ -117,6 +118,18 @@ public class MainController extends Application {
         pickUpButton.setOnMousePressed(new MouseEventHandlerPickUpButton());
         pickUpButton.setFocusTraversable(false);
 
+        Button SaveButton = new Button("Speichern");
+        SaveButton.setTranslateX(320);
+        SaveButton.setTranslateY(704);
+        SaveButton.setOnMousePressed(new MouseEventHandlerSaveButton());
+        SaveButton.setFocusTraversable(false);
+
+        Button LoadButton = new Button("Laden");
+        LoadButton.setTranslateX(390);
+        LoadButton.setTranslateY(704);
+        LoadButton.setOnMousePressed(new MouseEventHandlerLoadButton());
+        LoadButton.setFocusTraversable(false);
+
         outputText.setTranslateY(754);
 
         Group entityGroup = new Group();
@@ -135,6 +148,8 @@ public class MainController extends Application {
         mainGroup.getChildren().add(infoButton);
         mainGroup.getChildren().add(talkButton);
         mainGroup.getChildren().add(pickUpButton);
+        mainGroup.getChildren().add(SaveButton);
+        mainGroup.getChildren().add(LoadButton);
         mainGroup.getChildren().add(outputText);
         Scene scene = new Scene(mainGroup, 754, 794);
 
@@ -190,6 +205,20 @@ public class MainController extends Application {
         public void handle(MouseEvent me) {
             firstClickedObject = null;
             clickedButton = ClickedButton.PICKUP;
+        }
+    }
+
+    public class MouseEventHandlerSaveButton implements EventHandler<MouseEvent> {
+        @Override
+        public void handle(MouseEvent me) {
+            jpaController.save();
+        }
+    }
+
+    public class MouseEventHandlerLoadButton implements EventHandler<MouseEvent> {
+        @Override
+        public void handle(MouseEvent me) {
+
         }
     }
 
@@ -419,8 +448,9 @@ public class MainController extends Application {
     public enum ClickedButton {NONE, USE, GIVE, INFO, TALK, PICKUP}
     private ClickedButton clickedButton;
     private java.lang.Object firstClickedObject;
-    private Hashtable<Entity, ImageView> modelToView;
+    private Hashtable<GameEntity, ImageView> modelToView;
     Text outputText;
+    JPAController jpaController;
 }
 
 

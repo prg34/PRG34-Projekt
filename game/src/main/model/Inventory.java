@@ -1,14 +1,20 @@
 package main.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
 /**
  * contains and manages all items collected by the player
  */
+@Entity
 public class Inventory {
     public Inventory() {
         this.itemList = new ArrayList<Item>();
     }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * Adds an item to the inventory of the player, e.g. after the player picked up an item or received one from a character
@@ -49,5 +55,6 @@ public class Inventory {
         return this.itemList.contains(item);
     }
 
+    //@OneToMany
     private ArrayList<Item> itemList;   //to collect all items of the inventory
 }

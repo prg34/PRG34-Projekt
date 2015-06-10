@@ -1,17 +1,30 @@
 package main.model;
 
+import javax.persistence.*;
+
 /**
  * The objects contained in the world (like trees, fences, doors, houses etc.)
  * with certain objects the user is able to interact (like open a door)
  */
-
-public class Object extends Entity{
+@Entity
+public class Object extends GameEntity {
     public Object(String name, int xPos, int yPos, String imageFilename, int sizeX, int sizeY, Item openedWithItem, Item content) {
         super(name, xPos, yPos, sizeX, sizeY, imageFilename);
         this.opened = false;
         this.openedWithItem = openedWithItem;
         this.content = content;
     }
+
+    public Object() {
+        super();
+        this.opened = false;
+        this.openedWithItem = null;
+        this.content = null;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * Used if player opens an object, e.g. a door or a chest
@@ -45,6 +58,8 @@ public class Object extends Entity{
     }
 
     private boolean opened;      // shows if the object ist opened or closed, like chests or doors, default value closed
+    @OneToOne
     private Item openedWithItem;    //proper item, like a key, to open a door or a chest
+    @OneToOne
     private Item content;          //if chest was opened, content of it is returned
 }
