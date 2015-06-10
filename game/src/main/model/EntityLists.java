@@ -107,27 +107,27 @@ public class EntityLists {
         return characterList;
     }
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Player player;
 
     /*
         contains all items of the world that are not stored in the player's inventory or owned by a character
         items can be collected and used by the player, like keys etc.
      */
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Item> itemList;
 
     /*
         contains all objects of the world, like trees, houses, fences etc. (=foreground)
         collision detection needed
      */
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Object> objectList;
 
     /*
         contains all characters of the world, i.e. all persons not controlled by the human player
         player can talk to and transfer items from/to a character
      */
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Character> characterList;
 }

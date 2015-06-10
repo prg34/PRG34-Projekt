@@ -46,9 +46,9 @@ public class Item extends GameEntity {
         return result;
     }
 
-    private final String description;         //is used by Player.lookAt(item)
-    @OneToOne
+    private final String description;
+    @OneToOne(cascade = CascadeType.PERSIST)
     private final Item correctlyUsedWithItem;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private final Item correctUseResult;
 }

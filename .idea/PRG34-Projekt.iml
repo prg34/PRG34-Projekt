@@ -4,7 +4,7 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
+        <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/game/src/META-INF/persistence.xml" />
       </configuration>
@@ -30,5 +30,117 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://E:/download/JPA/eclipselink/jlib/jpa" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://E:/download/JPA/eclipselink/jlib/jpa" />
+        </SOURCES>
+        <jarDirectory url="file://E:/download/JPA/eclipselink/jlib/jpa" recursive="false" />
+        <jarDirectory url="file://E:/download/JPA/eclipselink/jlib/jpa" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.antlr.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.asm.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.core.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.dbws.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.jpa.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.jpa.jpql.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.jpa.modelgen.processor.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.moxy.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.oracle.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/javax.persistence.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/download/JPA/h2/bin/h2-1.4.187.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

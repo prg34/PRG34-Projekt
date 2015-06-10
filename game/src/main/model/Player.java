@@ -149,6 +149,7 @@ public class Player {
     private String imageFilename;
     private final int sizeX;    //size of the player for collision detection etc.
     private final int sizeY;
-    @OneToOne
+    
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Inventory inventory;
 }

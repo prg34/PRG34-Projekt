@@ -61,6 +61,6 @@ public class Character extends GameEntity {
 
     private String sentences;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     Item item;
 }
