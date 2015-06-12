@@ -209,13 +209,14 @@ public class MainController extends Application {
         @Override
         public void handle(MouseEvent me) {
             jpaController.save();
+            outputText.setText("Spielstand gespeichert");
         }
     }
 
     public class MouseEventHandlerLoadButton implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent me) {
-
+            if (jpaController.load()) outputText.setText("Spielstand geladen");
         }
     }
 

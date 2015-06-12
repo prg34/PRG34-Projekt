@@ -56,7 +56,7 @@ public class Inventory {
         return this.itemList.contains(item);
     }
 
-    int i = 0;  // dummy variable to make sure there is something to store in the database table
+    int dummy = 0;  // dummy variable to make sure there is something to store in the database table
 
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Item> itemList;   //to collect all items of the inventory
