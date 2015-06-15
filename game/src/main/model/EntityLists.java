@@ -107,6 +107,21 @@ public class EntityLists {
         return characterList;
     }
 
+    public void setItemList(List<Item> itemList)
+    {
+        this.itemList = itemList;
+    }
+
+    public void setObjectList(List<Object> objectList)
+    {
+        this.objectList = objectList;
+    }
+
+    public void setCharacterList(List<Character> characterList)
+    {
+        this.characterList = characterList;
+    }
+
     @OneToOne(cascade = CascadeType.PERSIST)
     private Player player;
 

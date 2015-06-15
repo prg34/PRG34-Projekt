@@ -354,8 +354,11 @@ public class MainController extends Application {
                     item = ((Item) firstClickedObject).useWithItem((Item) clickedObject);
                     if (item != null) {
                         player.addItemToInventory(item);
+                        item.setIsInInventory(true);
                         player.removeItemFromInventory((Item) firstClickedObject);
+                        ((Item) firstClickedObject).setIsInInventory(false);
                         player.removeItemFromInventory((Item) clickedObject);
+                        ((Item) clickedObject).setIsInInventory(false);
                         modelToView.get(firstClickedObject).setVisible(false);
                         modelToView.get(clickedObject).setVisible(false);
                     }
@@ -366,6 +369,7 @@ public class MainController extends Application {
                     item = ((Object) clickedObject).useItemToOpen((Item)firstClickedObject);
                     if (item != null) {
                         player.addItemToInventory(item);
+                        item.setIsInInventory(true);
                         player.removeItemFromInventory((Item) firstClickedObject);
                         modelToView.get(firstClickedObject).setVisible(false);
                     }
@@ -381,6 +385,7 @@ public class MainController extends Application {
                 else if (firstClickedObject instanceof Item && clickedObject instanceof Character)
                 {
                     EntityLists.getInstance().getPlayer().giveItemToCharacter((Item)firstClickedObject, (Character)clickedObject);
+                    ((Item) firstClickedObject).setIsInInventory(false);
                     outputText.setText(((Item) firstClickedObject).getName() + " an " + ((Character) clickedObject).getName() + " übergeben");
                     clickedButton = ClickedButton.NONE;
                     modelToView.get(firstClickedObject).setVisible(false);
@@ -405,8 +410,11 @@ public class MainController extends Application {
                 {
                     outputText.setText(((Character) clickedObject).getSentences());
                     Item itemReceived = ((Character) clickedObject).giveItemToPlayer();
-                    EntityLists.getInstance().getPlayer().addItemToInventory(itemReceived);
-                    modelToView.get(itemReceived).setVisible(true);
+                    if (itemReceived != null) {
+                        EntityLists.getInstance().getPlayer().addItemToInventory(itemReceived);
+                        itemReceived.setIsInInventory(true);
+                        modelToView.get(itemReceived).setVisible(true);
+                    }
                 }
                 clickedButton = ClickedButton.NONE;
                 drawInventory();
@@ -415,7 +423,8 @@ public class MainController extends Application {
             case PICKUP:
                 if (clickedObject instanceof Item)
                 {
-                    pickUpItem((Item)clickedObject);
+                    pickUpItem((Item) clickedObject);
+                    ((Item) clickedObject).setIsInInventory(true);
                     outputText.setText("Item " + ((Item) clickedObject).getName() + " aufgelesen");
                     drawInventory();
                 }

@@ -12,6 +12,7 @@ public class Item extends GameEntity {
         this.description = description;
         this.correctlyUsedWithItem = correctlyUsedWithItem;
         this.correctUseResult = correctUseResult;
+        this.isInInventory = false;
     }
 
     public Item() {
@@ -46,9 +47,15 @@ public class Item extends GameEntity {
         return result;
     }
 
+    public void setIsInInventory(boolean isInInventory)
+    {
+        this.isInInventory = isInInventory;
+    }
+
     private final String description;
     @OneToOne(cascade = CascadeType.PERSIST)
     private final Item correctlyUsedWithItem;
     @OneToOne(cascade = CascadeType.PERSIST)
     private final Item correctUseResult;
+    boolean isInInventory;
 }

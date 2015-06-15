@@ -1,11 +1,14 @@
 package main.controller;
 
 import main.model.*;
+import main.model.Character;
+import main.model.Object;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.util.List;
 
 /**
  *
@@ -20,47 +23,29 @@ public class JPAController {
 
     public void save()
     {
+        EntityLists entityLists = EntityLists.getInstance();
         factory = Persistence.createEntityManagerFactory("my_unit");
         em = factory.createEntityManager();
 
+        em.getTransaction().begin();
+
         /*
-        em.getTransaction().begin();
-        em.persist(EntityLists.getInstance().getPlayer());
-        em.getTransaction().commit();
+        em.persist(entityLists.getPlayer());
 
-        em.getTransaction().begin();
-        em.persist(EntityLists.getInstance());
-        em.getTransaction().commit();
-
-        em.getTransaction().begin();
-        em.persist(EntityLists.getInstance().getPlayer().getInventory());
-        em.getTransaction().commit();
-
-
-        em.getTransaction().begin();
-        for (Item item : EntityLists.getInstance().getPlayer().getInventory())
+        for (Item item : entityLists.getPlayer().getInventory())
             em.persist(item);
-        em.getTransaction().commit();
 
-        em.getTransaction().begin();
-        for (Item item : EntityLists.getInstance().getItemList())
-            em .persist(item);
-        em.getTransaction().commit();
+        for (Item item : entityLists.getItemList())
+            em.persist(item);
 
-        em.getTransaction().begin();
-        for (main.model.Object object : EntityLists.getInstance().getObjectList())
+        for (main.model.Object object : entityLists.getObjectList())
             em.persist(object);
-        em.getTransaction().commit();
 
-        em.getTransaction().begin();
-        for (main.model.Character character : EntityLists.getInstance().getCharacterList())
+        for (main.model.Character character : entityLists.getCharacterList())
             em.persist(character);
-        em.getTransaction().commit();
-
-        em.getTransaction().begin();
-        em.persist(EntityLists.getInstance());
-        em.getTransaction().commit();
         */
+
+        em.getTransaction().commit();
 
         em.close();
         factory.close();
@@ -71,23 +56,34 @@ public class JPAController {
     {
         if (!saved) return false;
 
+        EntityLists entityLists = EntityLists.getInstance();
         factory = Persistence.createEntityManagerFactory("my_unit");
         em = factory.createEntityManager();
 
+        em.getTransaction().begin();
+
         /*
         Query q1 = em.createNativeQuery("select * from Player", Player.class);
-        EntityLists.getInstance().setPlayer((Player) q1.getSingleResult());
+        entityLists.setPlayer((Player) q1.getSingleResult());
 
-        Query q2 = em.createNativeQuery("select * from EntityLists", EntityLists.class);
-        EntityLists = q2.getSingleResult();
+        Query q2 = em.createNativeQuery( "select * from Item i where i.isInInventory = FALSE", Item.class );
+        List<Item> dbInventoryList = q2.getResultList();
+        entityLists.getPlayer().setInventory(dbInventoryList);
 
+        Query q3 = em.createNativeQuery( "select * from Item i where i.isInInventory = TRUE", Item.class );
+        List<Item> dbItemList = q3.getResultList();
+        entityLists.setItemList(dbItemList);
 
-        Query q = em.createNativeQuery( "select * from Inventory", Inventory.class );
-        List<Customer> dbCustomerList = q.getResultList();
-        for (Customer c : dbCustomerList)
-        {
-        }
+        Query q4 = em.createNativeQuery( "select * from Object", main.model.Object.class );
+        List<main.model.Object> dbObjectList = q4.getResultList();
+        entityLists.setObjectList(dbObjectList);
+
+        Query q5 = em.createNativeQuery( "select * from Character", Character.class );
+        List<Character> dbCharacterList = q5.getResultList();
+        entityLists.setCharacterList(dbCharacterList);
         */
+
+        em.getTransaction().commit();
 
         em.close();
         factory.close();

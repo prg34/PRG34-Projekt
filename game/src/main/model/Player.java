@@ -16,17 +16,17 @@ public class Player {
         this.imageFilename = imageFilename;
         this.sizeX = sizeX;
         this.sizeY = sizeY;
-        this.inventory = new Inventory();
+        this.itemList = new ArrayList<Item>();
     }
 
-    public Player() {
+    //JPA asks for a no-arg constructor...
+    protected Player() {
         this.name = "";
         this.xPos = 0;
         this.yPos = 0;
         this.imageFilename = "";
         this.sizeX = 0;
         this.sizeY = 0;
-        this.inventory = new Inventory();
     }
 
     @Id
@@ -48,7 +48,7 @@ public class Player {
      */
     public void giveItemToCharacter(Item item, Character character) {
         character.receiveItemFromPlayer(item);
-        this.inventory.removeItem(item);
+        removeItem(item);
     }
 
     /**
@@ -76,7 +76,7 @@ public class Player {
      * @param item Item to be added to the inventory
      */
     public void addItemToInventory(Item item) {
-        this.inventory.addItem(item);
+        addItem(item);
     }
 
     /**
@@ -84,24 +84,7 @@ public class Player {
      * @param item Item to be removed from inventory
      */
     public void removeItemFromInventory(Item item) {
-        inventory.removeItem(item);
-    }
-
-    /**
-     * Checks if item is already in inventory
-     * @param item The item to be checked
-     * @return If item is in inventory then return = true, else return = false
-     */
-    public boolean isInInventory(Item item){
-        return this.inventory.isInInventory(item);
-    }
-
-    /**
-     * Returns the size of the inventory, only necessary for unit tests so far
-     * @return Size of inventory
-     */
-    public int getInventorySize(){
-        return inventory.getInventorySize();
+        removeItem(item);
     }
 
     public int getyPos() {
@@ -136,12 +119,55 @@ public class Player {
 
     public List<Item> getInventory()
     {
-        return inventory.getItemList();
+        return itemList;
     }
 
     public String getImageFilename(){
         return this.imageFilename;
     }
+
+    public void addItem(Item item) {
+        if ((item != null) && (!this.isInInventory(item)))
+            itemList.add(item);
+    }
+
+    /**
+     * Removes the item from the inventory of the player, e.g. after the player used an item or gave it to a character
+     * @param item Item to be removed from inventory
+     */
+    public void removeItem(Item item) {
+        itemList.remove(item);
+    }
+
+    /**
+     * Returns the size of the inventory, only necessary for unit tests so far
+     * @return Size of inventory
+     */
+    public int getInventorySize(){
+        return itemList.size();
+    }
+
+    public void setInventory(List<Item> inventoryList)
+    {
+        this.itemList = inventoryList;
+    }
+
+    public List<Item> getItemList()
+    {
+        return itemList;
+    }
+
+    /**
+     * Checks if item is already in inventory
+     * @param item The item to be checked
+     * @return If item is in inventory then return = true, else return = false
+     */
+    public boolean isInInventory(Item item){
+        return this.itemList.contains(item);
+    }
+
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<Item> itemList;   //to collect all items of the inventory
 
     private String name;        //name of the player
     private int xPos;           //position of the player in the world, marks upper left corner
@@ -149,7 +175,4 @@ public class Player {
     private String imageFilename;
     private final int sizeX;    //size of the player for collision detection etc.
     private final int sizeY;
-
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private Inventory inventory;
 }
