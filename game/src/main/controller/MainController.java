@@ -19,8 +19,14 @@ import main.view.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+/**
+ * main controller class, takes care of the initialization of the game, collision detection and keyboard handling
+ */
 public class MainController extends Application {
 
+    /**
+     * initializes all entities in the game
+     */
     private void initGame()
     {
         Player player = new Player("Spieler", 250, 250, "player.png", 50, 50);
@@ -85,6 +91,9 @@ public class MainController extends Application {
 
         initGame();
 
+        /**
+         * creates all buttons of the GUI and adds them to the mainGroup / Scene
+         */
         Button useButton = new Button("Benutze");
         useButton.setTranslateX(0);
         useButton.setTranslateY(704);
@@ -136,6 +145,9 @@ public class MainController extends Application {
             entityGroup.getChildren().add(view);
         }
 
+        /**
+         * adds all views to the scene
+         */
         this.mainGroup = new Group();
         MapView mapView = new MapView();
         mainGroup.getChildren().add(mapView.getBackgroundView());
@@ -165,6 +177,9 @@ public class MainController extends Application {
         launch(args);
     }
 
+    /**
+     * defines the different mouse event handlers for the various buttons
+     */
     public class MouseEventHandlerUseButton implements EventHandler<MouseEvent> {
         @Override
         public void handle(MouseEvent me) {
@@ -220,6 +235,9 @@ public class MainController extends Application {
         }
     }
 
+    /**
+     * the key event handler for controlling the player, so far only up, down, left and right are available
+     */
     public class KeyEventHandler implements EventHandler<KeyEvent> {
 
         @Override
@@ -265,7 +283,7 @@ public class MainController extends Application {
 
 
     /**
-     * Checks for a collision between the player and all items, objects and characters in the world
+     * Checks for a collision between the player and all items, objects and characters in the game
      * @return Returns true if there was a collision between the player and anything else
      */
     public boolean checkForCollision(){
@@ -335,6 +353,11 @@ public class MainController extends Application {
         EntityLists.getInstance().removeItem(item);
     }
 
+    /**
+     * the actual game logic, is called (by the views) every time the user clicks on an entity on the UI
+     * clickedButton contains the button that was clicked before
+     * @param clickedObject the entity on the UI that was clicked last
+     */
     public void processMouseEvent(java.lang.Object clickedObject)
     {
         switch(clickedButton)
@@ -432,6 +455,9 @@ public class MainController extends Application {
         }
     }
 
+    /**
+     * calls the view of every item stored in the inventory, aligns them on the right side of the GUI
+     */
     void drawInventory()
     {
         int counter = 0;
@@ -446,15 +472,15 @@ public class MainController extends Application {
         }
     }
 
-    private Group mainGroup;
-    private ArrayList<ImageView> viewList;
-    private PlayerView playerView;
+    private Group mainGroup;                //main group for creating the scene
+    private ArrayList<ImageView> viewList;  //collects all views from the game initialization, so they can be added to the scene then
+    private PlayerView playerView;          //reference to the view of the player, need access to it to change x- and y- coordinates
     public enum ClickedButton {NONE, USE, GIVE, INFO, TALK, PICKUP}
-    private ClickedButton clickedButton;
-    private java.lang.Object firstClickedObject;
-    private Hashtable<GameEntity, ImageView> modelToView;
-    Text outputText;
-    JPAController jpaController;
+    private ClickedButton clickedButton;                  //marks which button was pushed last
+    private java.lang.Object firstClickedObject;          //marks which entity was clicked first, for 2-entity-actions
+    private Hashtable<GameEntity, ImageView> modelToView; //to store which view belongs to which model-object, needed for drawInventory()
+    Text outputText;                                      //to draw text on the UI
+    JPAController jpaController;           //reference to the JPA controller to store the objects in a database
 }
 
 

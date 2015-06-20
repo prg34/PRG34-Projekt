@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * collects all entities in the game (items, objects, characters) and the player object
+ * realized as a singleton to get easy access to it
  */
 @Entity
 public class EntityLists {

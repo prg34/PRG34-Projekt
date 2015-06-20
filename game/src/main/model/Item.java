@@ -52,10 +52,10 @@ public class Item extends GameEntity {
         this.isInInventory = isInInventory;
     }
 
-    private final String description;
+    private final String description;         //short description of the item
     @OneToOne(cascade = CascadeType.PERSIST)
-    private final Item correctlyUsedWithItem;
+    private final Item correctlyUsedWithItem; //with which other item is this item correctly used, needed for "use with" action
     @OneToOne(cascade = CascadeType.PERSIST)
-    private final Item correctUseResult;
-    boolean isInInventory;
+    private final Item correctUseResult;    //the item the player will get back if he properly used this item with another item
+    boolean isInInventory;      //marks if item is part of the inventory, needed for loading the item from the database
 }

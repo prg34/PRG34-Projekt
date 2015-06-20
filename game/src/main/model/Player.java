@@ -91,6 +91,10 @@ public class Player {
         return yPos;
     }
 
+    /**
+     * tries to set the player to the new position, makes sure the player is not outside of the game world
+     * @param yPos the new y-coordinate of the player
+     */
     public void setyPos(int yPos)
     {
         this.yPos = yPos;
@@ -102,6 +106,10 @@ public class Player {
         return xPos;
     }
 
+    /**
+     * tries to set the player to the new position, makes sure the player is not outside of the game world
+     * @param xPos the new x-coordinate of the player
+     */
     public void setxPos(int xPos)
     {
         this.xPos = xPos;
@@ -126,6 +134,10 @@ public class Player {
         return this.imageFilename;
     }
 
+    /**
+     * Adds item to inventory
+     * @param item The item to be added to the inventory
+     */
     public void addItem(Item item) {
         if ((item != null) && (!this.isInInventory(item)))
             itemList.add(item);

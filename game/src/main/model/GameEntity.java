@@ -3,7 +3,7 @@ package main.model;
 import javax.persistence.*;
 
 /**
- *
+ * Base class for all Entities in the game (items, characters and objects)
  */
 @Entity
 @Inheritance( strategy = InheritanceType.JOINED )

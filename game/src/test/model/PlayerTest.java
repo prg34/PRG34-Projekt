@@ -1,11 +1,9 @@
 package test.model;
 
+import main.model.*;
 import main.model.Character;
-import main.model.Item;
-import main.model.Player;
 import org.junit.Test;
 
-import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -69,6 +67,18 @@ public class PlayerTest {
                 "after giving back the item to the player, character does not own the item anymore",
                 monster.isPossessedByCharacter(ring), false);
         */
+    }
+
+    @Test
+    public void testRemoveItem() throws Exception {
+        Item ash = new Item("Asche", "Was das wohl mal war?", 15, 15, "finished.png", 250, 100, null, null);
+        EntityLists.getInstance().getPlayer().addItem(ash);
+        EntityLists.getInstance().getPlayer().removeItem(ash);
+
+        assertEquals(
+                "After removeItem(ash) the item should be no longer in the inventory",
+                EntityLists.getInstance().getPlayer().isInInventory(ash), false);
+
     }
 
 }

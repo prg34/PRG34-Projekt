@@ -1,8 +1,6 @@
 package main.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Character extends GameEntity {
@@ -59,8 +57,8 @@ public class Character extends GameEntity {
         return this.item == item;
     }
 
-    private String sentences;
+    private String sentences;   //contains the text the character is able to say
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    Item item;
+    Item item;                  //the item the character possesses and gives to the player when talked to
 }

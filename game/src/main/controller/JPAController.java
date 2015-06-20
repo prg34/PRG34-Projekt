@@ -2,7 +2,6 @@ package main.controller;
 
 import main.model.*;
 import main.model.Character;
-import main.model.Object;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,7 +10,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- *
+ * takes care of saving the game state by using JPA, EclipseLink and H2
  */
 public class JPAController {
     public JPAController()
@@ -21,6 +20,9 @@ public class JPAController {
         saved = false;
     }
 
+    /**
+     * Saves all entity-objects in the game (player, items, objects and characters) into the database
+     */
     public void save()
     {
         EntityLists entityLists = EntityLists.getInstance();
@@ -29,7 +31,6 @@ public class JPAController {
 
         em.getTransaction().begin();
 
-        /*
         em.persist(entityLists.getPlayer());
 
         for (Item item : entityLists.getPlayer().getInventory())
@@ -43,7 +44,6 @@ public class JPAController {
 
         for (main.model.Character character : entityLists.getCharacterList())
             em.persist(character);
-        */
 
         em.getTransaction().commit();
 
@@ -52,6 +52,10 @@ public class JPAController {
         saved = true;
     }
 
+    /**
+     * loads all entitty-objects stored earlier in the database and adds the objects to the various lists in the game
+     * @return success of load process
+     */
     public boolean load()
     {
         if (!saved) return false;
@@ -62,7 +66,6 @@ public class JPAController {
 
         em.getTransaction().begin();
 
-        /*
         Query q1 = em.createNativeQuery("select * from Player", Player.class);
         entityLists.setPlayer((Player) q1.getSingleResult());
 
@@ -81,7 +84,6 @@ public class JPAController {
         Query q5 = em.createNativeQuery( "select * from Character", Character.class );
         List<Character> dbCharacterList = q5.getResultList();
         entityLists.setCharacterList(dbCharacterList);
-        */
 
         em.getTransaction().commit();
 
