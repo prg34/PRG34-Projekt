@@ -29,7 +29,9 @@ public class EntityListsTest {
 
     @Test
     public void testGetInstance() throws Exception {
-
+        assertNotEquals(
+                "Checking if we get some valid object from the singleton getInstance()-method",
+                EntityLists.getInstance(), null );
     }
 
     @Test

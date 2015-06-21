@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org.eclipse.persistence.jpa">
+    <CLASSES>
+      <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.jpa.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

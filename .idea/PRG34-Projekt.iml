@@ -29,9 +29,25 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="module-library">
-      <library>
+      <library name="Java EE 6-Java EE 6">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/javax.annotation.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.ejb.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.jms.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.transaction.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.persistence.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.resource.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.servlet.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.servlet.jsp.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.servlet.jsp.jstl.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="javax.persistence_2.1.0.v201304241213">
         <CLASSES>
           <root url="file://E:/download/JPA/eclipselink/jlib/jpa" />
         </CLASSES>
@@ -43,104 +59,16 @@
         <jarDirectory url="file://E:/download/JPA/eclipselink/jlib/jpa" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.antlr.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.asm.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.core.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.dbws.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.jpa.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.jpa.jpql.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.jpa.modelgen.processor.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.moxy.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.oracle.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/glassfish/glassfish/modules/javax.persistence.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://E:/download/JPA/h2/bin/h2-1.4.187.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="org.eclipse.persistence.antlr" level="project" />
+    <orderEntry type="library" name="org.eclipse.persistence.asm" level="project" />
+    <orderEntry type="library" name="org.eclipse.persistence.core" level="project" />
+    <orderEntry type="library" name="org.eclipse.persistence.dbws" level="project" />
+    <orderEntry type="library" name="org.eclipse.persistence.jpa" level="project" />
+    <orderEntry type="library" name="org.eclipse.persistence.jpa.jpql" level="project" />
+    <orderEntry type="library" name="org.eclipse.persistence.jpa.modelgen.processor" level="project" />
+    <orderEntry type="library" name="org.eclipse.persistence.moxy" level="project" />
+    <orderEntry type="library" name="org.eclipse.persistence.oracle" level="project" />
+    <orderEntry type="library" name="javax.persistence" level="project" />
+    <orderEntry type="library" name="h2-1.4.187" level="project" />
   </component>
 </module>
