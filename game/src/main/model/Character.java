@@ -36,6 +36,7 @@ public class Character extends GameEntity {
     public void receiveItemFromPlayer(Item item){
         if (item != null)
             this.item = item;
+            item.setIsInInventory(false);
     }
 
     /**
@@ -44,6 +45,7 @@ public class Character extends GameEntity {
      */
     public Item giveItemToPlayer(){
         Item itemTemp = this.item;
+        itemTemp.setIsInInventory(true);
         item = null;
         return itemTemp;
     }
@@ -57,6 +59,7 @@ public class Character extends GameEntity {
         return this.item == item;
     }
 
+    @Column
     private String sentences;   //contains the text the character is able to say
 
     @OneToOne(cascade = CascadeType.PERSIST)

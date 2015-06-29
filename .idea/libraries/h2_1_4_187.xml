@@ -1,7 +1,9 @@
 <component name="libraryTable">
   <library name="h2-1.4.187">
     <CLASSES>
-      <root url="jar://E:/download/JPA/h2/bin/h2-1.4.187.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/h2-1.4.187.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/eclipselink.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.persistence.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

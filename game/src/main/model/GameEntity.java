@@ -56,10 +56,16 @@ public class GameEntity {
         return imageFilename;
     }
 
+    @Column
     protected final String name;
+    @Column
     protected int xPos;           //position of the character in the world, marks upper left corner
+    @Column
     protected int yPos;
+    @Column
     protected final int sizeX;
+    @Column
     protected final int sizeY;
+    @Column
     protected String imageFilename;
 }

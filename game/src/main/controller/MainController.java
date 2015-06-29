@@ -232,6 +232,7 @@ public class MainController extends Application {
         @Override
         public void handle(MouseEvent me) {
             if (jpaController.load()) outputText.setText("Spielstand geladen");
+            drawInventory();
         }
     }
 

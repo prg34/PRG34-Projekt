@@ -15,8 +15,7 @@ import java.util.List;
 public class JPAController {
     public JPAController()
     {
-        factory = null;
-        em = null;
+        factory = Persistence.createEntityManagerFactory("my_unit");
         saved = false;
     }
 
@@ -26,8 +25,7 @@ public class JPAController {
     public void save()
     {
         EntityLists entityLists = EntityLists.getInstance();
-        factory = Persistence.createEntityManagerFactory("my_unit");
-        em = factory.createEntityManager();
+        EntityManager em = factory.createEntityManager();
 
         em.getTransaction().begin();
 
@@ -48,7 +46,6 @@ public class JPAController {
         em.getTransaction().commit();
 
         em.close();
-        factory.close();
         saved = true;
     }
 
@@ -61,19 +58,18 @@ public class JPAController {
         if (!saved) return false;
 
         EntityLists entityLists = EntityLists.getInstance();
-        factory = Persistence.createEntityManagerFactory("my_unit");
-        em = factory.createEntityManager();
+        EntityManager em = factory.createEntityManager();
 
         em.getTransaction().begin();
 
         Query q1 = em.createNativeQuery("select * from Player", Player.class);
         entityLists.setPlayer((Player) q1.getSingleResult());
 
-        Query q2 = em.createNativeQuery( "select * from Item i where i.isInInventory = FALSE", Item.class );
+        Query q2 = em.createNativeQuery( "select * from Item i where i.isInInventory = TRUE", Item.class );
         List<Item> dbInventoryList = q2.getResultList();
         entityLists.getPlayer().setInventory(dbInventoryList);
 
-        Query q3 = em.createNativeQuery( "select * from Item i where i.isInInventory = TRUE", Item.class );
+        Query q3 = em.createNativeQuery( "select * from Item i where i.isInInventory = FALSE", Item.class );
         List<Item> dbItemList = q3.getResultList();
         entityLists.setItemList(dbItemList);
 
@@ -88,12 +84,10 @@ public class JPAController {
         em.getTransaction().commit();
 
         em.close();
-        factory.close();
 
         return true;
     }
 
     private EntityManagerFactory factory;
-    private EntityManager em;
     private boolean saved;
 }

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="org.eclipse.persistence.jpa.modelgen.processor">
-    <CLASSES>
-      <root url="jar://E:/download/JPA/glassfish/glassfish/modules/org.eclipse.persistence.jpa.modelgen.processor.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

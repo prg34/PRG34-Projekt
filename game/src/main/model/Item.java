@@ -43,6 +43,7 @@ public class Item extends GameEntity {
         Item result = null;
         if (item == this.correctlyUsedWithItem){
             result = this.correctUseResult;
+            result.setIsInInventory(true);
         }
         return result;
     }
@@ -57,5 +58,6 @@ public class Item extends GameEntity {
     private final Item correctlyUsedWithItem; //with which other item is this item correctly used, needed for "use with" action
     @OneToOne(cascade = CascadeType.PERSIST)
     private final Item correctUseResult;    //the item the player will get back if he properly used this item with another item
+    @Column
     boolean isInInventory;      //marks if item is part of the inventory, needed for loading the item from the database
 }

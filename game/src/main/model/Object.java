@@ -53,10 +53,12 @@ public class Object extends GameEntity {
         if (item == this.openedWithItem){
             open();
             result = this.content;
+            result.setIsInInventory(true);
         }
         return result;
     }
 
+    @Column
     private boolean opened;      // shows if the object ist opened or closed, like chests or doors, default value closed
 
     @OneToOne(cascade = CascadeType.PERSIST)

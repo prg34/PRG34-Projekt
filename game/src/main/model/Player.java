@@ -39,6 +39,7 @@ public class Player {
      */
     public void takeItem(Item item) {
         this.addItemToInventory(item);
+        item.setIsInInventory(true);
     }
 
     /**
@@ -49,6 +50,7 @@ public class Player {
     public void giveItemToCharacter(Item item, Character character) {
         character.receiveItemFromPlayer(item);
         removeItem(item);
+        item.setIsInInventory(false);
     }
 
     /**
@@ -77,6 +79,7 @@ public class Player {
      */
     public void addItemToInventory(Item item) {
         addItem(item);
+        item.setIsInInventory(true);
     }
 
     /**
@@ -85,6 +88,7 @@ public class Player {
      */
     public void removeItemFromInventory(Item item) {
         removeItem(item);
+        item.setIsInInventory(false);
     }
 
     public int getyPos() {
@@ -141,6 +145,7 @@ public class Player {
     public void addItem(Item item) {
         if ((item != null) && (!this.isInInventory(item)))
             itemList.add(item);
+            item.setIsInInventory(true);
     }
 
     /**
@@ -149,6 +154,7 @@ public class Player {
      */
     public void removeItem(Item item) {
         itemList.remove(item);
+        item.setIsInInventory(false);
     }
 
     /**
@@ -181,10 +187,16 @@ public class Player {
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Item> itemList;   //to collect all items of the inventory
 
+    @Column
     private String name;        //name of the player
+    @Column
     private int xPos;           //position of the player in the world, marks upper left corner
+    @Column
     private int yPos;
+    @Column
     private String imageFilename;
+    @Column
     private final int sizeX;    //size of the player for collision detection etc.
+    @Column
     private final int sizeY;
 }

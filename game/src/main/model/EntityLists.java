@@ -49,6 +49,7 @@ public class EntityLists {
     public void addItem(Item item) {
         if ((item != null) && (!this.itemList.contains(item))) {
             this.itemList.add(item);
+            item.setIsInInventory(false);
         }
     }
 
