@@ -53,6 +53,33 @@ public class Item extends GameEntity {
         this.isInInventory = isInInventory;
     }
 
+    /**
+     * getter and setter for JPA-access
+     */
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Item getCorrectlyUsedWithItem() {
+        return correctlyUsedWithItem;
+    }
+
+    public Item getCorrectUseResult() {
+        return correctUseResult;
+    }
+
+    public boolean isInInventory() {
+        return isInInventory;
+    }
+
     private final String description;         //short description of the item
     @OneToOne(cascade = CascadeType.PERSIST)
     private final Item correctlyUsedWithItem; //with which other item is this item correctly used, needed for "use with" action

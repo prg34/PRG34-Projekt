@@ -34,9 +34,10 @@ public class Character extends GameEntity {
      * @param item The item that is transferred from player to this character
      */
     public void receiveItemFromPlayer(Item item){
-        if (item != null)
+        if (item != null) {
             this.item = item;
             item.setIsInInventory(false);
+        }
     }
 
     /**
@@ -57,6 +58,29 @@ public class Character extends GameEntity {
      */
     public boolean isPossessedByCharacter(Item item){
         return this.item == item;
+    }
+
+    /**
+     * getter and setter for JPA-access
+     */
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setSentences(String sentences) {
+        this.sentences = sentences;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     @Column

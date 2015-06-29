@@ -58,6 +58,41 @@ public class Object extends GameEntity {
         return result;
     }
 
+    /**
+     * getter and setter for JPA-access
+     */
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public boolean isOpened() {
+        return opened;
+    }
+
+    public void setOpened(boolean opened) {
+        this.opened = opened;
+    }
+
+    public Item getOpenedWithItem() {
+        return openedWithItem;
+    }
+
+    public void setOpenedWithItem(Item openedWithItem) {
+        this.openedWithItem = openedWithItem;
+    }
+
+    public Item getContent() {
+        return content;
+    }
+
+    public void setContent(Item content) {
+        this.content = content;
+    }
+
     @Column
     private boolean opened;      // shows if the object ist opened or closed, like chests or doors, default value closed
 

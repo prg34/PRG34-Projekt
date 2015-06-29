@@ -124,6 +124,21 @@ public class EntityLists {
         this.characterList = characterList;
     }
 
+    /**
+     * getter and setter for JPA-access
+     */
+    public static void setInstance(EntityLists instance) {
+        EntityLists.instance = instance;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @OneToOne(cascade = CascadeType.PERSIST)
     private Player player;
 

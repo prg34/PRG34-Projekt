@@ -56,6 +56,29 @@ public class GameEntity {
         return imageFilename;
     }
 
+    /**
+     * getter and setter for JPA-access
+     */
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setxPos(int xPos) {
+        this.xPos = xPos;
+    }
+
+    public void setyPos(int yPos) {
+        this.yPos = yPos;
+    }
+
+    public void setImageFilename(String imageFilename) {
+        this.imageFilename = imageFilename;
+    }
+
     @Column
     protected final String name;
     @Column

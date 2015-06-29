@@ -143,9 +143,10 @@ public class Player {
      * @param item The item to be added to the inventory
      */
     public void addItem(Item item) {
-        if ((item != null) && (!this.isInInventory(item)))
+        if ((item != null) && (!this.isInInventory(item))) {
             itemList.add(item);
             item.setIsInInventory(true);
+        }
     }
 
     /**
@@ -186,6 +187,33 @@ public class Player {
 
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Item> itemList;   //to collect all items of the inventory
+
+    /**
+     * getter and setter for JPA-access
+     */
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setImageFilename(String imageFilename) {
+        this.imageFilename = imageFilename;
+    }
 
     @Column
     private String name;        //name of the player
