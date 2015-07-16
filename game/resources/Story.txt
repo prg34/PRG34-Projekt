@@ -1,0 +1,129 @@
+Titel: 404 NAME NOT FOUND
+
+Erst 2 Jahre sind vergagnen, seit Dave (unsere Hauptfigur) hinaus gezogen ist, die weite Welt zu erkunden, als ihn die Meldung ereilt, dass Stu ihn dringend wieder in der Firma braucht,
+denn ein böser Wiedersacher treibt sein heimtückisches Spiel mit der erfolgreichen Firma von Stu, weshalb Dave zunächst einmal seine Loyalität gegenüber Stu und der Firma beweisen muss.
+Er wurde angewiesen, sich unverzüglich bei Karl zu melden um erste Anweisungen zu erhalten.
+
+
+
+Karl: (vor einem beliebigen Haus)
+	Hallo Dave, wir stecken wirklich ganz schön in der Klemme, mir wurde aufgetragen dich direkt zum Chef zu schicken.
+	Du findest ihn bei der alten Firma, du weißt schon komplett im Süd-Osten.
+	Das Erkennungszeichen, dass du wieder zu uns gehörst ist dieser Schlüssel, nimm ihn mit und zeige ihn vor wenn du mit unseren Leuten sprichst.
+	Ach und bevor ich es vergesse, du bist mir immer ein guter Freund gewesen und ich würde mich gerne revanchieren indem ich dir diese Liste gebe, du wirst schon noch herausfinden wozu sie dient.
+
+	Gibt Item: 	alter Schlüssel
+			mysteriöse Liste
+
+	evtl. erneut Ansprechen: Ich bin wirklich in Eile, Dave
+
+	
+Stu: (bei der alten Firma im Süd-Osten)
+
+	Benötigt "Gib Item" "Schlüssel" ansonsten: 
+	Du warst ganz schön lange weg Dave, woher weiß ich dass ich dir noch vertrauen kann?
+
+	Nachdem Schlüssel erhalten:
+	Endlich, hat Karl dir nicht gesagt du sollst dich sputen?
+	Naja sei es wie es ist, wir haben keine Zeit zu verlieren.
+	Moment?!
+	1. Was hast du da in deiner Tasche?
+	
+	Antworten:
+	-Nichts -> führt zu: Du weißt, Lügner kann ich in meiner Firma nicht gebrauchen! danach: zu 1.
+	-Die Liste? -> fürht zu: Haha, endlich, die musst du von Karl haben, wenn er dir vertraut, dann tue ich das auch!
+		mysteriöse Liste verschwindet aus dem Inventar
+	-Abbrechen -> führt zu: 1.
+
+Erneutes Ansprechen:
+	2. Bist du bereit für deinen ersten Auftrag? Er ist von höchster Wichtigkeit.
+
+	Antworten:
+	-Wie lautet der Auftrag? -> führt zu: Weiter:
+	-Ich habe davor noch etwas wichtiges zu erledigen. -> führt zu: 2.
+	-Abbrechen -> fürht zu: 2.
+
+Weiter:
+	Nun bevor Ich dich offiziell wieder in der Firma willkommen heiße könnten Wir es ausnutzen, dass dieser Miese Hund der uns betrügen will noch nichts von dir weiß.	
+
+	Antworten:
+	-Was genau muss ich tun? -> führt zu: Weiter:
+	-Ich habe davor noch etwas wichtiges zu erledigen. -> führt zu: 2.
+	-Abbrechen -> fürht zu: 2.
+	
+Weiter:
+	Es ist eigentlich ganz einfach, wir müssen unbedingt seine Identität herausfinden, sobald wir wissen mit wem wir es zu tun haben können wir Gegenmaßnahmen einleiten.
+	Dein Job hierbei wird sein, ein Treffen mit seiner Rechten Hand zu arrangieren, und Ihn zweifelsfrei zu identifizieren.
+	Wir wissen bereits wo seine Rechte Hand sich aufhält, nur spricht er mit niemandem, der für mich arbeitet.
+
+	Antworten:
+	- Und wo finde ich ihn dann jetzt? -> führt zu: Weiter
+	- Abbrechen -> fürht zu: 2.
+	
+Weiter: 
+	Nicht so ungeduldig!
+	Die Person, die du suchst steht nördlich von hier, bei den drei Bäumen und mich findest du ab sofort in der neuen Firma im Nord-Osten.
+
+
+
+Rechte Hand: (bei den drei Bäumen/nördlich der alten Firma/also im Osten bzw. Nord-Osten)
+	Benötigt wird "roter Schirm"
+
+	Sonst:
+	Hau ab!
+
+	Mit Schirm:
+	1. Ich hab dich hier noch nie gesehen, wie lautet das Passwort?
+
+	Antworten:
+	-123abc# -> führt zu: 1.
+	-Der Name vom Boss -> Weiter
+	-StrengGeheim -> führt zu: 1.
+	-Abbrechen -> führt zu: 1.
+	
+Weiter: 
+	Netter Versuch, und wie heißt unser Boss?
+	
+	Antworten:
+	-Timmy -> führt zu: 1.
+	-Manuel -> führt zu: 1.
+	-Darth Vader -> führt zu: 1.
+	-Der Böse -> führt zu: Weiter
+	-George -> führt zu: 1.
+	-Abbrechen -> führt zu: 1.
+
+Weiter:
+	Dieser Brief ist vom Boss höchstpersönlich und muss sofort versendet werden, danach hat die Firma von Gru keine Chance mehr.
+	
+	Gibt Item:	Brief
+
+Erneutes Ansprechen:
+	LosLos!
+
+
+
+Nobody: (bei den drei Bäumen/nördlich der alten Firma/also im Osten bzw. Nord-Osten... aber etwas abseits von "Rechte Hand")
+	Siehst du denn Mann dort drüben?
+	Der führt irgendetwas im Schilde, noch bevor ich ihn nach einem Taschentuch fragen konnte brüllte er mich an ich solle verschwinden.
+	Ich habe beobachtet, dass er öfters Leute von hier verscheucht, nur wenn man mit einem roten Schirm auf ihn zu geht, scheint er einen freundlichst zu empfangen.
+	
+Erneutes Ansprechen:
+	Das selbe wie oben.
+		
+
+Stu: (in der neuen Firma)
+	Benötigt wird "Brief"
+
+	Sonst!
+	Ojeh, Ich weiß nicht wie ich das alles nur wieder hinbekommen soll.
+
+	Mit "Brief"
+	Ist das?
+	Oh mein Gott Dave, du bist der Beste, du hast die Firma gerettet, ich hätte mir in meinen kühnsten Träumen nicht vorstellen können, dass er so weit gehen würde, diesen Brief zu verwenden.
+	Das hätte wirklich schief gehen können aber nun ist die Firma gerettet, dank dir!
+
+
+
+
+Irgendwo auf der Map, evtl. versteckt: roter Schirm
+
