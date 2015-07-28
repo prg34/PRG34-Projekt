@@ -25,5 +25,4 @@ public class CharacterTest {
                 "character should be in possession of the item after it was given to him",
                 niklas.isPossessedByCharacter(ash), false);
     }
-
 }

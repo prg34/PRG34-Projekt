@@ -54,10 +54,7 @@ public class MainController extends Application {
         modelToView.put(item, itemView);
 
         Item item2 = new Item("Messer", "ein Messer!", 100, 500, "item.png", 50, 50, null, null);
-        //EntityLists.getInstance().addItem(item2);
         ItemView itemView2 = new ItemView(item2, this);
-        //itemView2.setTranslateX(item2.getxPos());
-        //itemView2.setTranslateY(item2.getyPos());
         itemView2.setVisible(false);
         addView(itemView2);
         modelToView.put(item2, itemView2);
@@ -276,10 +273,18 @@ public class MainController extends Application {
         }
     }
 
+    /**
+     * adds a view to the viewList, so that the views can be added to the scene later
+     */
     public void addView(ImageView view) {
         if ((view != null) && (!this.viewList.contains(view))) {
             this.viewList.add(view);
         }
+    }
+
+    public int getSizeViewList()
+    {
+        return viewList.size();
     }
 
 
@@ -308,6 +313,7 @@ public class MainController extends Application {
 
     /**
      * Checks for a collision between the player and an object (like a tree or a house)
+     * must be public, or otherwise unit test could not access it (same for following methods)
      * @param object The object that might have collided with the player
      * @return Returns true if there was a collision between the player and the object
      */
@@ -459,7 +465,7 @@ public class MainController extends Application {
     /**
      * calls the view of every item stored in the inventory, aligns them on the right side of the GUI
      */
-    void drawInventory()
+    public void drawInventory()
     {
         int counter = 0;
         for (Item item : EntityLists.getInstance().getPlayer().getInventory())
@@ -473,15 +479,15 @@ public class MainController extends Application {
         }
     }
 
-    private Group mainGroup;                //main group for creating the scene
-    private ArrayList<ImageView> viewList;  //collects all views from the game initialization, so they can be added to the scene then
-    private PlayerView playerView;          //reference to the view of the player, need access to it to change x- and y- coordinates
+    private Group mainGroup;                    //main group for creating the scene
+    private ArrayList<ImageView> viewList;      //collects all views from the game initialization, so they can be added to the scene then
+    private PlayerView playerView;              //reference to the view of the player, need access to it to change x- and y- coordinates
     public enum ClickedButton {NONE, USE, GIVE, INFO, TALK, PICKUP}
     private ClickedButton clickedButton;                  //marks which button was pushed last
     private java.lang.Object firstClickedObject;          //marks which entity was clicked first, for 2-entity-actions
     private Hashtable<GameEntity, ImageView> modelToView; //to store which view belongs to which model-object, needed for drawInventory()
     Text outputText;                                      //to draw text on the UI
-    JPAController jpaController;           //reference to the JPA controller to store the objects in a database
+    JPAController jpaController;                //reference to the JPA controller to store the objects in a database
 }
 
 

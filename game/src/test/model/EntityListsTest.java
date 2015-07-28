@@ -1,20 +1,18 @@
 package test.model;
 
-import main.model.EntityLists;
-import main.model.Item;
+import main.model.*;
+import main.model.Character;
+import main.model.Object;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- *
- */
 public class EntityListsTest {
 
     @Test
     public void testAddItem() throws Exception {
-        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
-        Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, item, item);
+        Item item = new Item("LÃ¶ffel", "Ein ganz normaler SuppenlÃ¶ffel.", 15, 15, "finished.png", 250, 100, null, null);
+        Item item2 = new Item("LÃ¶ffel2", "Ein ganz normaler SuppenlÃ¶ffel.", 15, 15, "finished.png", 250, 100, item, item);
         EntityLists.getInstance().addItem(item);
         EntityLists.getInstance().addItem(item2);
         assertEquals(
@@ -34,63 +32,29 @@ public class EntityListsTest {
                 EntityLists.getInstance(), null );
     }
 
-    @Test
-    public void testSetPlayer() throws Exception {
-
-    }
-
-    @Test
-    public void testRemoveItem() throws Exception {
-
-    }
 
     @Test
     public void testAddObject() throws Exception {
-
+        assertEquals(
+                "Size should be 0 before adding the first object",
+                EntityLists.getInstance().getSizeObjectList(), 0);
+        main.model.Object chest = new Object("TÃ¼r", 30, 30, "finished.png", 250, 100, null, null);
+        EntityLists.getInstance().addObject(chest);
+        assertEquals(
+                "Size should be 1 now after adding an object",
+                EntityLists.getInstance().getSizeObjectList(), 1);
     }
 
     @Test
     public void testAddCharacter() throws Exception {
-
-    }
-
-    @Test
-    public void testGetSizeItemList() throws Exception {
-
-    }
-
-    @Test
-    public void testGetPlayer() throws Exception {
-
-    }
-
-    @Test
-    public void testGetItemList() throws Exception {
-
-    }
-
-    @Test
-    public void testGetObjectList() throws Exception {
-
-    }
-
-    @Test
-    public void testGetCharacterList() throws Exception {
-
-    }
-
-    @Test
-    public void testSetItemList() throws Exception {
-
-    }
-
-    @Test
-    public void testSetObjectList() throws Exception {
-
-    }
-
-    @Test
-    public void testSetCharacterList() throws Exception {
-
+        assertEquals(
+                "Size should be 0 before adding the first character",
+                EntityLists.getInstance().getSizeCharacterList(), 0);
+        String sentences = "Hallo!" + "\n" + "Wie geht's?" + "\n" + "Ciao!";
+        Character niklas = new Character("Niklas", 15, 15, "finished.png", 250, 100, sentences, null);
+        EntityLists.getInstance().addCharacter(niklas);
+        assertEquals(
+                "Size should be 1 now after adding a character",
+                EntityLists.getInstance().getSizeCharacterList(), 1);
     }
 }

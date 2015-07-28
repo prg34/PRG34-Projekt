@@ -89,6 +89,22 @@ public class EntityLists {
         return itemList.size();
     }
 
+    /**
+     * Returns the size of the object list, only necessary for unit tests so far
+     * @return Size of objectList
+     */
+    public int getSizeObjectList(){
+        return objectList.size();
+    }
+
+    /**
+     * Returns the size of the character list, only necessary for unit tests so far
+     * @return Size of characterList
+     */
+    public int getSizeCharacterList(){
+        return characterList.size();
+    }
+
     public Player getPlayer()
     {
         return player;

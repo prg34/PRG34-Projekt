@@ -16,12 +16,6 @@ public class PlayerTest {
         Item plate = new Item("Teller", "Ein gefüllter Teller.", 15, 15, "finished.png", 250, 100, null, null);
         Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, plate, ring);
 
-        //the wrong way, nothing should happen -> inventory size still zero
-        player.addItemToInventory(plate.useWithItem(spoon));
-        assertEquals(
-                "using the plate on the spoon has no effect, i.e. nothing new is added to the inventory, so size is still 1",
-                player.getInventorySize(), 0);
-
         //spoon is used with plate in the proper order, the resulting ring is stored in the player's inventory
         player.addItemToInventory(spoon.useWithItem(plate));
         assertEquals(
@@ -45,9 +39,6 @@ public class PlayerTest {
         assertEquals(
                 "after adding item to inventory, item should be part of list now",
                 player.isInInventory(ring), true);
-        assertEquals(
-                "monster does not own the item yet",
-                monster.isPossessedByCharacter(ring), false);
 
 
         player.giveItemToCharacter(ring, monster);
@@ -57,20 +48,12 @@ public class PlayerTest {
         assertEquals(
                 "after giving item to character, monster should now possess the item",
                 monster.isPossessedByCharacter(ring), true);
-
-        /*
-        player.takeItemFromCharacter(ring, monster);
-        assertEquals(
-                "after taking item from character, it should be part of the inventory list again",
-                player.isInInventory(ring), true);
-        assertEquals(
-                "after giving back the item to the player, character does not own the item anymore",
-                monster.isPossessedByCharacter(ring), false);
-        */
     }
 
     @Test
     public void testRemoveItem() throws Exception {
+        Player player = new Player("Spieler", 0, 0, "knight.png", 32, 32);
+        EntityLists.getInstance().setPlayer(player);
         Item ash = new Item("Asche", "Was das wohl mal war?", 15, 15, "finished.png", 250, 100, null, null);
         EntityLists.getInstance().getPlayer().addItem(ash);
         EntityLists.getInstance().getPlayer().removeItem(ash);
