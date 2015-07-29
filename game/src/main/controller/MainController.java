@@ -29,7 +29,7 @@ public class MainController extends Application {
      */
     private void initGame()
     {
-        Player player = new Player("Spieler", 250, 250, "player.png", 50, 50);
+        Player player = new Player("Spieler", 250, 450, "player.png", 73, 72);
         EntityLists.getInstance().setPlayer(player);
         PlayerView playerView = new PlayerView(player, this);
         playerView.setTranslateX(player.getxPos());
@@ -37,7 +37,7 @@ public class MainController extends Application {
         addView(playerView);
         this.playerView = playerView;
 
-        Object someObject = new Object("irgendein Objekt", 100, 100, "object.png", 100, 100, null, null);
+        Object someObject = new Object("Ein ganz nettes Haus", 1, 1, "house.png", 295, 300, null, null);
         EntityLists.getInstance().addObject(someObject);
         ObjectView objectView = new ObjectView(someObject, this);
         objectView.setTranslateX(someObject.getxPos());
@@ -45,22 +45,22 @@ public class MainController extends Application {
         addView(objectView);
         modelToView.put(someObject, objectView);
 
-        Item item = new Item("Gabel", "Yup, eine Gabel!", 500, 500, "item.png", 50, 50, null, null);
-        EntityLists.getInstance().addItem(item);
-        ItemView itemView = new ItemView(item, this);
-        itemView.setTranslateX(item.getxPos());
-        itemView.setTranslateY(item.getyPos());
+        Item key = new Item("Schlüssel", "Yup, ein Schlüssel!", 500, 500, "key.png", 50, 50, null, null);
+        EntityLists.getInstance().addItem(key);
+        ItemView itemView = new ItemView(key, this);
+        itemView.setTranslateX(key.getxPos());
+        itemView.setTranslateY(key.getyPos());
         addView(itemView);
-        modelToView.put(item, itemView);
+        modelToView.put(key, itemView);
 
-        Item item2 = new Item("Messer", "ein Messer!", 100, 500, "item.png", 50, 50, null, null);
-        ItemView itemView2 = new ItemView(item2, this);
+        Item umbrella = new Item("Regenschirm", "Ein Regenschirm, nützlich wenn es regnet!", 100, 500, "umbrella.png", 50, 50, null, null);
+        ItemView itemView2 = new ItemView(umbrella, this);
         itemView2.setVisible(false);
         addView(itemView2);
-        modelToView.put(item2, itemView2);
+        modelToView.put(umbrella, itemView2);
 
-        String sentences = "Hallo!" + "\n" + "Wie geht's?" + "\n" + "Ciao!";
-        Character character = new Character("Nessi", 500, 100, "character.png", 50, 50, sentences, item2);
+        String sentences = "Hallo!" + "\n" + "Wie geht's?";
+        Character character = new Character("Fred", 500, 100, "character.png", 73, 72, sentences, umbrella);
         EntityLists.getInstance().addCharacter(character);
         CharacterView characterView = new CharacterView(character, this);
         characterView.setTranslateX(character.getxPos());
