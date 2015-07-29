@@ -7,7 +7,6 @@ public class MapView {
 
     private final static Image backgroundImage = new Image(MapView.class.getResource("/background.png").toString());
 
-
     public MapView() {
     }
 
