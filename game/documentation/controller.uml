@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>main</OriginalElement>
+  <nodes>
+    <node x="-361.9999999999999" y="506.00000000000006">main.controller.MainController.MouseEventHandlerTalkButton</node>
+    <node x="-160.9999999999999" y="506.00000000000006">main.controller.MainController.MouseEventHandlerPickUpButton</node>
+    <node x="1054.0" y="506.00000000000006">main.controller.MainController.KeyEventHandler</node>
+    <node x="258.0000000000001" y="506.00000000000006">main.controller.MainController.MouseEventHandlerUseButton</node>
+    <node x="52.000000000000114" y="506.00000000000006">main.controller.MainController.MouseEventHandlerSaveButton</node>
+    <node x="663.0000000000001" y="456.00000000000006">main.controller.MainController.ClickedButton</node>
+    <node x="458.0000000000001" y="506.00000000000006">main.controller.MainController.MouseEventHandlerLoadButton</node>
+    <node x="851.0000000000001" y="506.00000000000006">main.controller.MainController.MouseEventHandlerGiveButton</node>
+    <node x="89.00000000000011" y="-43.99999999999994">main.controller.MainController</node>
+    <node x="-485.99999999999994" y="123.00000000000023">main.controller.JPAController</node>
+    <node x="-563.9999999999999" y="506.00000000000006">main.controller.MainController.MouseEventHandlerInfoButton</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="main.controller.MainController.MouseEventHandlerGiveButton" target="main.controller.MainController">
+      <point x="0.0" y="-24.0" />
+      <point x="942.5000000000001" y="416.00000000000006" />
+      <point x="520.6666666666666" y="416.00000000000006" />
+      <point x="172.66666666666652" y="215.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerSaveButton" target="main.controller.MainController">
+      <point x="0.0" y="-24.0" />
+      <point x="145.0000000000001" y="436.00000000000006" />
+      <point x="290.44444444444457" y="436.00000000000006" />
+      <point x="-57.55555555555554" y="215.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerPickUpButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerTalkButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerGiveButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.KeyEventHandler" target="main.controller.MainController">
+      <point x="0.0" y="-24.0" />
+      <point x="1136.0" y="406.00000000000006" />
+      <point x="578.2222222222223" y="406.00000000000006" />
+      <point x="230.22222222222217" y="215.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.KeyEventHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerUseButton" target="main.controller.MainController">
+      <point x="0.0" y="-24.0" />
+      <point x="0.0" y="215.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.ClickedButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerPickUpButton" target="main.controller.MainController">
+      <point x="0.0" y="-24.0" />
+      <point x="-64.49999999999989" y="426.00000000000006" />
+      <point x="232.88888888888903" y="426.00000000000006" />
+      <point x="-115.11111111111109" y="215.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerLoadButton" target="main.controller.MainController">
+      <point x="0.0" y="-24.0" />
+      <point x="550.5000000000001" y="436.00000000000006" />
+      <point x="405.55555555555566" y="436.00000000000006" />
+      <point x="57.55555555555554" y="215.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerLoadButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerTalkButton" target="main.controller.MainController">
+      <point x="0.0" y="-24.0" />
+      <point x="-271.4999999999999" y="416.00000000000006" />
+      <point x="175.33333333333348" y="416.00000000000006" />
+      <point x="-172.66666666666663" y="215.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerInfoButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerInfoButton" target="main.controller.MainController">
+      <point x="0.0" y="-24.0" />
+      <point x="-472.9999999999999" y="406.00000000000006" />
+      <point x="117.77777777777794" y="406.00000000000006" />
+      <point x="-230.22222222222217" y="215.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerSaveButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.JPAController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.ClickedButton" target="main.controller.MainController">
+      <point x="0.0" y="-74.0" />
+      <point x="747.0000000000001" y="426.00000000000006" />
+      <point x="463.1111111111112" y="426.00000000000006" />
+      <point x="115.11111111111109" y="215.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerUseButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="536.9999999999998" y="385.9999999999999" />
+  <SelectedNodes>
+    <node>main.controller.JPAController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
