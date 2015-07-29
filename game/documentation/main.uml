@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>main</OriginalElement>
+  <nodes>
+    <node x="175.0" y="400.0">main.view.ItemView.MouseEventHandler</node>
+    <node x="349.0" y="322.0">main.view.CharacterView</node>
+    <node x="1.0" y="399.0">main.view.ObjectView.MouseEventHandler</node>
+    <node x="1312.5" y="282.0">main.model.GameEntity</node>
+    <node x="21.0" y="322.0">main.view.ObjectView</node>
+    <node x="201.0" y="322.0">main.view.ItemView</node>
+    <node x="0.0" y="98.0">main.controller.MainController.MouseEventHandlerTalkButton</node>
+    <node x="336.0" y="400.0">main.view.CharacterView.MouseEventHandler</node>
+    <node x="1267.0" y="98.0">main.controller.MainController.MouseEventHandlerSaveButton</node>
+    <node x="1067.0" y="98.0">main.controller.MainController.MouseEventHandlerUseButton</node>
+    <node x="1286.0" y="364.0">main.model.Character</node>
+    <node x="338.0" y="98.0">main.controller.MainController.MouseEventHandlerGiveButton</node>
+    <node x="701.0" y="0.0">main.controller.MainController</node>
+    <node x="714.0" y="188.0">main.controller.JPAController</node>
+    <node x="865.0" y="98.0">main.controller.MainController.MouseEventHandlerInfoButton</node>
+    <node x="597.0" y="483.0">main.view.PlayerView</node>
+    <node x="1325.0" y="221.0">main.model.Object</node>
+    <node x="1473.0" y="98.0">main.controller.MainController.MouseEventHandlerPickUpButton</node>
+    <node x="1158.0" y="449.0">main.model.Player</node>
+    <node x="473.0" y="482.0">main.view.MapView</node>
+    <node x="1026.0" y="451.0">main.model.EntityLists</node>
+    <node x="201.0" y="98.0">main.controller.MainController.KeyEventHandler</node>
+    <node x="1320.0" y="443.0">main.model.Item</node>
+    <node x="541.0" y="98.0">main.controller.MainController.ClickedButton</node>
+    <node x="660.0" y="98.0">main.controller.MainController.MouseEventHandlerLoadButton</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="main.controller.MainController" target="main.view.CharacterView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.view.PlayerView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerSaveButton" target="main.controller.MainController">
+      <point x="0.0" y="-14.0" />
+      <point x="1360.0" y="58.0" />
+      <point x="786.8333333333334" y="58.0" />
+      <point x="34.33333333333337" y="14.0" />
+    </edge>
+    <edge source="main.view.CharacterView" target="main.controller.MainController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.CharacterView" target="main.model.Character">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.model.Player" target="main.model.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.KeyEventHandler" target="main.controller.MainController">
+      <point x="0.0" y="-14.0" />
+      <point x="259.5" y="58.0" />
+      <point x="718.1666666666666" y="58.0" />
+      <point x="-34.33333333333337" y="14.0" />
+    </edge>
+    <edge source="main.model.EntityLists" target="main.model.Object">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.ItemView.MouseEventHandler" target="main.view.ItemView">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.ClickedButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.model.Item" target="main.model.GameEntity">
+      <point x="0.0" y="-14.0" />
+      <point x="1381.0" y="402.0" />
+      <point x="1383.6666666666667" y="340.0" />
+      <point x="29.666666666666686" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerLoadButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerTalkButton" target="main.controller.MainController">
+      <point x="0.0" y="-14.0" />
+      <point x="90.5" y="48.0" />
+      <point x="706.7222222222222" y="48.0" />
+      <point x="-45.77777777777783" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerInfoButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.model.EntityLists" target="main.model.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerTalkButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerGiveButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.CharacterView.MouseEventHandler" target="main.view.CharacterView">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerPickUpButton" target="main.controller.MainController">
+      <point x="0.0" y="-14.0" />
+      <point x="1569.5" y="48.0" />
+      <point x="798.2777777777778" y="48.0" />
+      <point x="45.77777777777783" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.view.ItemView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.model.Character" target="main.model.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerSaveButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.ItemView" target="main.controller.MainController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.view.MapView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.ObjectView.MouseEventHandler" target="main.view.ObjectView">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.model.Character">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.model.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.ObjectView" target="main.model.Object">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerGiveButton" target="main.controller.MainController">
+      <point x="0.0" y="-14.0" />
+      <point x="429.5" y="68.0" />
+      <point x="729.6111111111111" y="68.0" />
+      <point x="-22.888888888888914" y="14.0" />
+    </edge>
+    <edge source="main.view.PlayerView" target="main.model.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.model.EntityLists" target="main.model.Character">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerPickUpButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.model.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.PlayerView" target="main.controller.MainController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerUseButton" target="main.controller.MainController">
+      <point x="0.0" y="-14.0" />
+      <point x="1157.0" y="68.0" />
+      <point x="775.3888888888889" y="68.0" />
+      <point x="22.888888888888914" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.KeyEventHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerLoadButton" target="main.controller.MainController">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.model.GameEntity">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.model.Object" target="main.model.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.MouseEventHandlerInfoButton" target="main.controller.MainController">
+      <point x="0.0" y="-14.0" />
+      <point x="956.0" y="78.0" />
+      <point x="763.9444444444445" y="78.0" />
+      <point x="11.444444444444457" y="14.0" />
+    </edge>
+    <edge source="main.model.EntityLists" target="main.model.Player">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.view.ObjectView">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.ObjectView" target="main.view.ObjectView.MouseEventHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.ObjectView" target="main.controller.MainController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.ItemView" target="main.model.Item">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.view.CharacterView" target="main.view.CharacterView.MouseEventHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.model.Character" target="main.model.GameEntity">
+      <point x="0.0" y="-14.0" />
+      <point x="1327.0" y="340.0" />
+      <point x="1328.3333333333335" y="338.0" />
+      <point x="-29.66666666666667" y="14.0" />
+    </edge>
+    <edge source="main.view.ItemView" target="main.view.ItemView.MouseEventHandler">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.model.Object" target="main.model.GameEntity">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.model.Object">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController.ClickedButton" target="main.controller.MainController">
+      <point x="0.0" y="-14.0" />
+      <point x="590.5" y="78.0" />
+      <point x="741.0555555555555" y="78.0" />
+      <point x="-11.444444444444457" y="14.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.JPAController">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="main.controller.MainController" target="main.controller.MainController.MouseEventHandlerUseButton">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="727.5" y="245.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
