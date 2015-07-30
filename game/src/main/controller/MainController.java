@@ -275,6 +275,7 @@ public class MainController extends Application {
 
     /**
      * adds a view to the viewList, so that the views can be added to the scene later
+     * @param view the imageview to be added
      */
     public void addView(ImageView view) {
         if ((view != null) && (!this.viewList.contains(view))) {
@@ -488,6 +489,9 @@ public class MainController extends Application {
      */
     private PlayerView playerView;
 
+    /**
+     * enum for possible clicked buttons
+     */
     public enum ClickedButton {NONE, USE, GIVE, INFO, TALK, PICKUP}
     /**
      * marks which button was clicked last
