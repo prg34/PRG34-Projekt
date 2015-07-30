@@ -282,12 +282,6 @@ public class MainController extends Application {
         }
     }
 
-    public int getSizeViewList()
-    {
-        return viewList.size();
-    }
-
-
     /**
      * Checks for a collision between the player and all items, objects and characters in the game
      * @return Returns true if there was a collision between the player and anything else
@@ -313,7 +307,7 @@ public class MainController extends Application {
 
     /**
      * Checks for a collision between the player and an object (like a tree or a house)
-     * must be public, or otherwise unit test could not access it (same for following methods)
+     * must be public, or otherwise unit test cannot access it (same for following methods)
      * @param object The object that might have collided with the player
      * @return Returns true if there was a collision between the player and the object
      */
@@ -463,7 +457,7 @@ public class MainController extends Application {
     }
 
     /**
-     * calls the view of every item stored in the inventory, aligns them on the right side of the GUI
+     * calls the view of every item stored in the inventory, aligns them vertically on the right side of the GUI
      */
     public void drawInventory()
     {
@@ -483,37 +477,9 @@ public class MainController extends Application {
     private ArrayList<ImageView> viewList;      //collects all views from the game initialization, so they can be added to the scene then
     private PlayerView playerView;              //reference to the view of the player, need access to it to change x- and y- coordinates
     public enum ClickedButton {NONE, USE, GIVE, INFO, TALK, PICKUP}
-    private ClickedButton clickedButton;                  //marks which button was pushed last
+    private ClickedButton clickedButton;                  //marks which button was clicked last
     private java.lang.Object firstClickedObject;          //marks which entity was clicked first, for 2-entity-actions
     private Hashtable<GameEntity, ImageView> modelToView; //to store which view belongs to which model-object, needed for drawInventory()
     Text outputText;                                      //to draw text on the UI
     JPAController jpaController;                //reference to the JPA controller to store the objects in a database
 }
-
-
-// our old main method
-/*
-public class Game {
-    public static void main(String[] args) {
-
-        Player player = new Player("Spieler", 0, 0);
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", null, null, 15, 15);
-        Item plate = new Item("Teller", "Ein gefüllter Teller.", null, null, 15, 15);
-        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", plate, ring, 10, 10);
-        Item key = new Item("Schlüssel", "Ein Schlüssel um etwas zu öffnen", null, null, 20, 20);
-        Object tree = new Object("Baum", 10, 10, null, null);
-        Object door = new Object("Tür", 30, 30, key, null);
-
-        //create string array for character
-        String[] sentences = {"Hallo!", "Wie geht's?", "Ciao!"};
-        main.model.Character monster = new main.model.Character("Nessi", 20, 20, sentences, new ArrayList<Item>());
-
-        //spoon is used with plate, the resulting ring is stored in the player's inventory
-        player.addItemToInventory(spoon.useWithItem(plate));
-        //the other way round, nothing should happen
-        player.addItemToInventory(plate.useWithItem(spoon));
-
-        world.removeItem(spoon);
-    }
-}
-*/

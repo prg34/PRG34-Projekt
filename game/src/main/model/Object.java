@@ -3,7 +3,7 @@ package main.model;
 import javax.persistence.*;
 
 /**
- * The objects contained in the world (like trees, fences, doors, houses etc.)
+ * The objects contained in the world (like trees, fences, doors, houses etc.),
  * with certain objects the user is able to interact (like open a door)
  */
 @Entity
@@ -15,6 +15,7 @@ public class Object extends GameEntity {
         this.content = content;
     }
 
+    //JPA asks for a no-arg constructor
     public Object() {
         super();
         this.opened = false;
@@ -94,11 +95,11 @@ public class Object extends GameEntity {
     }
 
     @Column
-    private boolean opened;      // shows if the object ist opened or closed, like chests or doors, default value closed
+    private boolean opened;         // shows if the object ist opened or closed, like chests or doors, default value closed
 
     @OneToOne(cascade = CascadeType.PERSIST)
     private Item openedWithItem;    //proper item, like a key, to open a door or a chest
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    private Item content;          //if chest was opened, content of it is returned
+    private Item content;           //if chest was opened, content of it is returned
 }

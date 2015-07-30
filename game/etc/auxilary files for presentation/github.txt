@@ -1,4 +1,0 @@
-URL: https://github.com/prg34/PRG34-Projekt
-Login: prg34
-Passwort: aiprg34
-Anleitung wie es geht: www.jetbrains.com/idea/help/using-github-integration.html

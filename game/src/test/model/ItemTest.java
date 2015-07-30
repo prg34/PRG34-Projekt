@@ -5,6 +5,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * unit tests for the item methods
+ */
 public class ItemTest {
 
     @Test

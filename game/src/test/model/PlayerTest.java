@@ -4,9 +4,11 @@ import main.model.*;
 import main.model.Character;
 import org.junit.Test;
 
-
 import static org.junit.Assert.*;
 
+/**
+ * unit tests for the player methods
+ */
 public class PlayerTest {
 
     @Test

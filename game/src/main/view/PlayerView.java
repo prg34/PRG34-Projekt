@@ -5,6 +5,9 @@ import javafx.scene.image.ImageView;
 import main.controller.MainController;
 import main.model.Player;
 
+/**
+ * view of the player
+ */
 public class PlayerView extends ImageView{
 
     public PlayerView(Player player, MainController mainController) {

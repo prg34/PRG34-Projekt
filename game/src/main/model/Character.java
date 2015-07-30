@@ -2,6 +2,10 @@ package main.model;
 
 import javax.persistence.*;
 
+/**
+ * the characters in the world the player is able to interact with
+ */
+
 @Entity
 public class Character extends GameEntity {
 
@@ -11,6 +15,7 @@ public class Character extends GameEntity {
         this.item = item;
     }
 
+    //JPA asks for a no-arg constructor
     public Character() {
         super();
         this.sentences = null;
@@ -84,8 +89,8 @@ public class Character extends GameEntity {
     }
 
     @Column
-    private String sentences;   //contains the text the character is able to say
+    private String sentences;           //contains the text the character is able to say
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    Item item;                  //the item the character possesses and gives to the player when talked to
+    Item item;                          //the item the character possesses and gives to the player when talked to
 }
