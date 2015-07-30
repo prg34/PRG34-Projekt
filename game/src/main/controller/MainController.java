@@ -473,13 +473,44 @@ public class MainController extends Application {
         }
     }
 
-    private Group mainGroup;                    //main group for creating the scene
-    private ArrayList<ImageView> viewList;      //collects all views from the game initialization, so they can be added to the scene then
-    private PlayerView playerView;              //reference to the view of the player, need access to it to change x- and y- coordinates
+    /**
+     * main group for creating the scene
+     */
+    private Group mainGroup;
+
+    /**
+     * collects all views from the game initialization, so they can be added to the scene then
+     */
+    private ArrayList<ImageView> viewList;
+
+    /**
+     * reference to the view of the player, need access to it to change x- and y- coordinates
+     */
+    private PlayerView playerView;
+
     public enum ClickedButton {NONE, USE, GIVE, INFO, TALK, PICKUP}
-    private ClickedButton clickedButton;                  //marks which button was clicked last
-    private java.lang.Object firstClickedObject;          //marks which entity was clicked first, for 2-entity-actions
-    private Hashtable<GameEntity, ImageView> modelToView; //to store which view belongs to which model-object, needed for drawInventory()
-    Text outputText;                                      //to draw text on the UI
-    JPAController jpaController;                //reference to the JPA controller to store the objects in a database
+    /**
+     * marks which button was clicked last
+     */
+    private ClickedButton clickedButton;
+
+    /**
+     * marks which entity was clicked first, for actions involving 2 entities
+     */
+    private java.lang.Object firstClickedObject;
+
+    /**
+     * to store which view belongs to which model-object, needed for drawInventory()
+     */
+    private Hashtable<GameEntity, ImageView> modelToView;
+
+    /**
+     * to draw text on the UI
+     */
+    Text outputText;
+
+    /**
+     * reference to the JPA controller to store the objects in a database
+     */
+    JPAController jpaController;
 }

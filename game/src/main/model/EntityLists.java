@@ -155,6 +155,9 @@ public class EntityLists {
         this.id = id;
     }
 
+    /**
+     * reference to the player object
+     */
     @OneToOne(cascade = CascadeType.PERSIST)
     private Player player;
 

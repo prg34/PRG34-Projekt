@@ -201,20 +201,55 @@ public class Player {
         this.imageFilename = imageFilename;
     }
 
-    final int sizeWorldX = 704;                 //size of the world to check if player reached the right or lower border
+    /**
+     * x size of the world to check if player reached the right or lower border
+     */
+    final int sizeWorldX = 704;
+
+    /**
+     * y size of the world to check if player reached the right or lower border
+     */
     final int sizeWorldY = 704;
+
+    /**
+     * to collect all items of the inventory
+     */
     @OneToMany(cascade = CascadeType.PERSIST)
-    private List<Item> itemList;                //to collect all items of the inventory
+    private List<Item> itemList;
+
+    /**
+     * name of the player
+     */
     @Column
-    private String name;                        //name of the player
+    private String name;
+
+    /**
+     * x position of the player in the world, marks upper left corner
+     */
     @Column
-    private int xPos;                           //position of the player in the world, marks upper left corner
+    private int xPos;
+
+    /**
+     * y position of the player in the world, marks upper left corner
+     */
     @Column
     private int yPos;
+
+    /**
+     * name of the corresponding image file that is used for the GUI
+     */
     @Column
     private String imageFilename;
+
+    /**
+     * x size of the player in pixels for collision detection
+     */
     @Column
-    private final int sizeX;                    //size of the player in pixels for collision detection
+    private final int sizeX;
+
+    /**
+     * y size of the player in pixels for collision detection
+     */
     @Column
     private final int sizeY;
 }

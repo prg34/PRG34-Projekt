@@ -39,6 +39,13 @@ public class ItemView extends ImageView {
             }
         }
 
+    /**
+     * reference to the corresponding data object
+     */
         private Item item;
+
+    /**
+     * reference to the controller
+     */
         private MainController mainController;
     }

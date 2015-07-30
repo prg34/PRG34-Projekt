@@ -35,6 +35,13 @@ public class CharacterView extends ImageView {
         }
     }
 
+    /**
+     * reference to the corresponding data object
+     */
     private main.model.Character character;
+
+    /**
+     * reference to the controller
+     */
     private MainController mainController;
 }

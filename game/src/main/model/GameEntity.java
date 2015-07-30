@@ -80,16 +80,39 @@ public class GameEntity {
         this.imageFilename = imageFilename;
     }
 
+    /**
+     * name of the entity
+     */
     @Column
-    protected final String name;  //name of the entity
+    protected final String name;
+
+    /**
+     * x position of the character in the world, marks upper left corner
+     */
     @Column
-    protected int xPos;           //position of the character in the world, marks upper left corner
+    protected int xPos;
+
+    /**
+     * y position of the character in the world, marks upper left corner
+     */
     @Column
     protected int yPos;
+
+    /**
+     * x size of the entity in pixels
+     */
     @Column
-    protected final int sizeX;    //size of the entity in pixels
+    protected final int sizeX;
+
+    /**
+     * y size of the entity in pixels
+     */
     @Column
     protected final int sizeY;
+
+    /**
+     * name of the corresponding image file that is used for the GUI
+     */
     @Column
-    protected String imageFilename;  //name of the corresponding image file that is used for the GUI
+    protected String imageFilename;
 }

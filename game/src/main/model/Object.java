@@ -94,12 +94,21 @@ public class Object extends GameEntity {
         this.content = content;
     }
 
+    /**
+     * shows if the object ist opened or closed, like chests or doors, default value closed
+     */
     @Column
-    private boolean opened;         // shows if the object ist opened or closed, like chests or doors, default value closed
+    private boolean opened;
 
+    /**
+     * proper item, like a key, to open a door or a chest with
+     */
     @OneToOne(cascade = CascadeType.PERSIST)
-    private Item openedWithItem;    //proper item, like a key, to open a door or a chest
+    private Item openedWithItem;
 
+    /**
+     * the content that is returned if chest was opened
+     */
     @OneToOne(cascade = CascadeType.PERSIST)
-    private Item content;           //if chest was opened, content of it is returned
+    private Item content;
 }

@@ -88,9 +88,15 @@ public class Character extends GameEntity {
         this.item = item;
     }
 
+    /**
+     * contains the text the character is able to say
+     */
     @Column
-    private String sentences;           //contains the text the character is able to say
+    private String sentences;
 
+    /**
+     * the item the character possesses and gives to the player when talked to
+     */
     @OneToOne(cascade = CascadeType.PERSIST)
-    Item item;                          //the item the character possesses and gives to the player when talked to
+    Item item;
 }

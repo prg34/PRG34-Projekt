@@ -24,6 +24,13 @@ public class PlayerView extends ImageView{
         }
     }
 
+    /**
+     * reference to the corresponding data object
+     */
     private Player player;
+
+    /**
+     * reference to the controller
+     */
     private MainController mainController;
 }

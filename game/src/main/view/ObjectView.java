@@ -37,6 +37,13 @@ public class ObjectView extends ImageView{
         }
     }
 
+    /**
+     * reference to the corresponding data object
+     */
     private main.model.Object object;
+
+    /**
+     * reference to the controller
+     */
     private MainController mainController;
 }

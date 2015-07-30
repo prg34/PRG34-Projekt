@@ -88,6 +88,12 @@ public class JPAController {
         return true;
     }
 
+    /**
+     * entity manager factory for the persistence unit
+     */
     private EntityManagerFactory factory;
+    /**
+     * marks if there was any game state saved earlier
+     */
     private boolean saved;
 }
