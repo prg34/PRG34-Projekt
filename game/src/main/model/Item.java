@@ -3,7 +3,7 @@ package main.model;
 import javax.persistence.*;
 
 /**
- * The items contained in the world, the player is allowed to take them and/or use them.
+ * The items contained in the world the player is allowed to take and use
  */
 @Entity
 public class Item extends GameEntity {
@@ -15,6 +15,7 @@ public class Item extends GameEntity {
         this.isInInventory = false;
     }
 
+    //JPA asks for a no-arg constructor
     public Item() {
         super();
         this.description = "";
@@ -84,7 +85,7 @@ public class Item extends GameEntity {
     @OneToOne(cascade = CascadeType.PERSIST)
     private final Item correctlyUsedWithItem; //with which other item is this item correctly used, needed for "use with" action
     @OneToOne(cascade = CascadeType.PERSIST)
-    private final Item correctUseResult;    //the item the player will get back if he properly used this item with another item
+    private final Item correctUseResult;      //the item the player will get back if he properly used this item with another item
     @Column
-    boolean isInInventory;      //marks if item is part of the inventory, needed for loading the item from the database
+    boolean isInInventory;              //marks if item is part of the inventory, needed for loading the item from the database
 }

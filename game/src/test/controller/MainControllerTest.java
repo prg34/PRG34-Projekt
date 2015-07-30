@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * unit tests for the controller methods
  */
 public class MainControllerTest {
 
@@ -86,4 +86,7 @@ public class MainControllerTest {
                 "Item should be in inventory now",
                 item.isInInventory(), true);
     }
+
+    // no unit tests for methods addView(), processMouseEvent() and drawInventory()
+    // since they contain output functionality which makes it (apparently) impossible to write unit tests for them
 }

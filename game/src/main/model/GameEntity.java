@@ -18,6 +18,7 @@ public class GameEntity {
         this.imageFilename = imageFilename;
     }
 
+    //default constructor necessary for JPA
     public GameEntity()
     {
         this.name = "";
@@ -80,15 +81,15 @@ public class GameEntity {
     }
 
     @Column
-    protected final String name;
+    protected final String name;  //name of the entity
     @Column
     protected int xPos;           //position of the character in the world, marks upper left corner
     @Column
     protected int yPos;
     @Column
-    protected final int sizeX;
+    protected final int sizeX;    //size of the entity in pixels
     @Column
     protected final int sizeY;
     @Column
-    protected String imageFilename;
+    protected String imageFilename;  //name of the corresponding image file that is used for the GUI
 }

@@ -7,6 +7,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * unit tests for the EntityLists methods
+ */
 public class EntityListsTest {
 
     @Test

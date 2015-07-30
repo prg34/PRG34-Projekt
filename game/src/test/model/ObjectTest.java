@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * unit tests for the object methods
+ */
 public class ObjectTest {
 
     @Test

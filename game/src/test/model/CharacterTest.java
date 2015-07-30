@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * unit tests for the character methods
+ */
 public class CharacterTest {
 
     @Test

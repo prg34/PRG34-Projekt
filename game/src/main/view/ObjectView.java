@@ -8,6 +8,9 @@ import javafx.scene.input.MouseEvent;
 import main.controller.MainController;
 import main.model.Object;
 
+/**
+ * view of a character
+ */
 public class ObjectView extends ImageView{
 
     public ObjectView(Object object, MainController mainController) {
@@ -24,11 +27,10 @@ public class ObjectView extends ImageView{
         setOnMousePressed(new MouseEventHandler());
         }
 
+    /**
+     * Handles mouse clicks on an object
+     */
     public class MouseEventHandler implements EventHandler<MouseEvent> {
-        /**
-         * Handles mouse clicks on an object
-         *
-         */
         @Override
         public void handle(MouseEvent me) {
             mainController.processMouseEvent(object);

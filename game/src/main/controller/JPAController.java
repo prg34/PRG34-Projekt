@@ -50,7 +50,7 @@ public class JPAController {
     }
 
     /**
-     * loads all entitty-objects stored earlier in the database and adds the objects to the various lists in the game
+     * loads all entitty-objects stored in the database and adds the objects to the various lists in the game
      * @return success of load process
      */
     public boolean load()
