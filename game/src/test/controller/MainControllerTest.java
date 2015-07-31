@@ -15,8 +15,8 @@ public class MainControllerTest {
 
     @Test
     public void testCheckForCollision() throws Exception {
-        Player player = new Player("Spieler", 10, 10, "knight.png", 32, 32);
-        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
+        Player player = new Player("Spieler", 10, 10, "player.png", 32, 32);
+        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "key.png", 250, 100, null, null);
         MainController mainController = new MainController();
 
         EntityLists.getInstance().setPlayer(player);
@@ -29,8 +29,8 @@ public class MainControllerTest {
 
     @Test
     public void testCheckForCollisionWithObject() throws Exception {
-        Player player = new Player("Spieler", 10, 10, "knight.png", 32, 32);
-        Object chest = new Object("Tür", 15, 15, "finished.png", 250, 100, null, null);
+        Player player = new Player("Spieler", 10, 10, "player.png", 32, 32);
+        Object chest = new Object("Tür", 15, 15, "key.png", 250, 100, null, null);
         MainController mainController = new MainController();
 
         EntityLists.getInstance().setPlayer(player);
@@ -42,9 +42,9 @@ public class MainControllerTest {
 
     @Test
     public void testCheckForCollisionWithCharacter() throws Exception {
-        Player player = new Player("Spieler", 10, 10, "knight.png", 32, 32);
+        Player player = new Player("Spieler", 10, 10, "player.png", 32, 32);
         String sentences = "Hallo!" + "\n" + "Wie geht's?" + "\n" + "Ciao!";
-        main.model.Character niklas = new Character("Niklas", 15, 15, "finished.png", 250, 100, sentences, null);
+        main.model.Character niklas = new Character("Niklas", 15, 15, "character.png", 250, 100, sentences, null);
         MainController mainController = new MainController();
 
         EntityLists.getInstance().setPlayer(player);
@@ -56,8 +56,8 @@ public class MainControllerTest {
 
     @Test
     public void testCheckForCollisionWithItem() throws Exception {
-        Player player = new Player("Spieler", 10, 10, "knight.png", 32, 32);
-        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
+        Player player = new Player("Spieler", 10, 10, "player.png", 32, 32);
+        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "key.png", 250, 100, null, null);
         MainController mainController = new MainController();
 
         EntityLists.getInstance().setPlayer(player);
@@ -70,7 +70,7 @@ public class MainControllerTest {
     @Test
     public void testPickUpItem() throws Exception {
         MainController mainController = new MainController();
-        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
+        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "key.png", 250, 100, null, null);
         EntityLists.getInstance().addItem(item);
         assertEquals(
                 "Item should be placed in the world",
@@ -88,5 +88,6 @@ public class MainControllerTest {
     }
 
     // no unit tests for methods addView(), processMouseEvent() and drawInventory()
-    // since they contain output functionality which makes it (apparently) impossible to write unit tests for them
+    // since they contain output functionality (or just accessing the views) which makes it (apparently) impossible to write unit tests for them
+
 }

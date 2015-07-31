@@ -14,9 +14,9 @@ public class PlayerTest {
     @Test
     public void testAddItem() throws Exception {
         Player player = new Player("Spieler", 0, 0, "knight.png", 32, 32);
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", 15, 15, "finished.png", 250, 100, null, null);
-        Item plate = new Item("Teller", "Ein gefüllter Teller.", 15, 15, "finished.png", 250, 100, null, null);
-        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, plate, ring);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", 15, 15, "key.png", 250, 100, null, null);
+        Item plate = new Item("Teller", "Ein gefüllter Teller.", 15, 15, "key.png", 250, 100, null, null);
+        Item spoon = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "key.png", 250, 100, plate, ring);
 
         //spoon is used with plate in the proper order, the resulting ring is stored in the player's inventory
         player.addItemToInventory(spoon.useWithItem(plate));
@@ -28,10 +28,10 @@ public class PlayerTest {
     @Test
     public void testGiveItemToCharacter() throws Exception {
         Player player = new Player("Spieler", 0, 0, "knight.png", 32, 32);
-        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", 15, 15, "finished.png", 250, 100, null, null);
+        Item ring = new Item("Kristallring", "Ein funkelnder Kristallring.", 15, 15, "key.png", 250, 100, null, null);
 
         String sentences = "Hallo!" + "\n" + "Wie geht's?" + "\n" + "Ciao!";
-        Character monster = new Character("Nessi", 20, 20, "finished.png", 250, 100, sentences, ring);
+        Character monster = new Character("Nessi", 20, 20, "character.png", 250, 100, sentences, ring);
 
 
         player.addItemToInventory(ring);
@@ -54,9 +54,9 @@ public class PlayerTest {
 
     @Test
     public void testRemoveItem() throws Exception {
-        Player player = new Player("Spieler", 0, 0, "knight.png", 32, 32);
+        Player player = new Player("Spieler", 0, 0, "player.png", 32, 32);
         EntityLists.getInstance().setPlayer(player);
-        Item ash = new Item("Asche", "Was das wohl mal war?", 15, 15, "finished.png", 250, 100, null, null);
+        Item ash = new Item("Asche", "Was das wohl mal war?", 15, 15, "key.png", 250, 100, null, null);
         EntityLists.getInstance().getPlayer().addItem(ash);
         EntityLists.getInstance().getPlayer().removeItem(ash);
 

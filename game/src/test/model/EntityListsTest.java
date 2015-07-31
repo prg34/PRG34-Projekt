@@ -14,18 +14,18 @@ public class EntityListsTest {
 
     @Test
     public void testAddItem() throws Exception {
-        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, null, null);
-        Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", 15, 15, "finished.png", 250, 100, item, item);
+        Item item = new Item("Löffel", "Ein ganz normaler Suppenlöffel.", 15, 15, "key.png", 250, 100, null, null);
+        Item item2 = new Item("Löffel2", "Ein ganz normaler Suppenlöffel.", 15, 15, "key.png", 250, 100, item, item);
         EntityLists.getInstance().addItem(item);
         EntityLists.getInstance().addItem(item2);
         assertEquals(
-                "After adding 2 items to a new itemList, its size should be 2",
-                EntityLists.getInstance().getSizeItemList(), 2);
+                "After adding the items to a new itemList, its size should be 3",
+                EntityLists.getInstance().getSizeItemList(), 3);
         EntityLists.getInstance().removeItem(item);
         EntityLists.getInstance().removeItem(item);
         assertEquals(
-                "After removing 'item', its size should be 1 now",
-                EntityLists.getInstance().getSizeItemList(), 1 );
+                "After removing 'item', its size should be 2 now",
+                EntityLists.getInstance().getSizeItemList(), 2 );
     }
 
     @Test
@@ -41,7 +41,7 @@ public class EntityListsTest {
         assertEquals(
                 "Size should be 0 before adding the first object",
                 EntityLists.getInstance().getSizeObjectList(), 0);
-        main.model.Object chest = new Object("Tür", 30, 30, "finished.png", 250, 100, null, null);
+        main.model.Object chest = new Object("Tür", 30, 30, "house.png", 250, 100, null, null);
         EntityLists.getInstance().addObject(chest);
         assertEquals(
                 "Size should be 1 now after adding an object",
@@ -54,7 +54,7 @@ public class EntityListsTest {
                 "Size should be 0 before adding the first character",
                 EntityLists.getInstance().getSizeCharacterList(), 0);
         String sentences = "Hallo!" + "\n" + "Wie geht's?" + "\n" + "Ciao!";
-        Character niklas = new Character("Niklas", 15, 15, "finished.png", 250, 100, sentences, null);
+        Character niklas = new Character("Niklas", 15, 15, "character.png", 250, 100, sentences, null);
         EntityLists.getInstance().addCharacter(niklas);
         assertEquals(
                 "Size should be 1 now after adding a character",
